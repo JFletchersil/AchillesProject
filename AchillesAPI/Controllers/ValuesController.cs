@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Utility;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using Microsoft.AspNetCore.Cors;
+
+namespace AchillesAPI.Controllers
+{
+    [Route("api/[controller]")] 
+    public class ValuesController : Controller
+    {
+        // GET api/values
+        [HttpGet]
+        public string Get()
+        {
+            /* Ignore this for now
+            var results = new List<string>();
+            var db = DBConnection.Instance();
+            if(db.isConnected()){
+                string query = "Select text from Test_Table";
+                var cmd = new MySqlCommand(query,db.Connection);
+                var reader = cmd.ExecuteReader();
+                while(reader.Read()){
+                    results.Add(reader.GetString(0));
+                }
+                db.closeConnection();
+            }
+            return results;*/
+            return "test";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+            var db = DBConnection.Instance();
+            if(db.isConnected()){
+                int id = 0;
+                string query = string.Format("Select Top 1 idTest_Table from Test_Tables order by idTest_Table DESC LIMIT 1");
+                var cmd = new MySqlCommand(query,db.Connection);
+                var reader = cmd.ExecuteReader();
+                while(reader.Read()){
+                    id = reader.GetInt32(0);
+                }
+                query = string.Format("Insert into Test_Tables (idTest_Table,text) values ({0},{1})",id,value);
+                cmd = new MySqlCommand(query,db.Connection);
+                cmd.ExecuteNonQuery();
+                db.closeConnection();
+            }
+        }
+    }
+}
