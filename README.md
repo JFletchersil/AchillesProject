@@ -5,11 +5,11 @@ A project to develop an Achilles injury recovery tool for android devices.
 The following are the items you need to have or configure in order to make the project work.
 
 ## Requirements
-..* You need nodejs. This can be found at https://nodejs.org/en/. Linux users should use their local repository.
-..* You need git. This can be found at https://git-scm.com/. Linux users should have a form already, or can install it from their local packaging software
-..* You need a version of Visual Studio, 2015 will work but 2017 is preferred. This can be found at https://www.visualstudio.com/
-..* You need Visual Studio Code, the latest version can be found at https://code.visualstudio.com/download
-..* You need the Visual Studio GitHub Extension, this will let you link your Visual Studio instance to your Github Account and pull down the repository. This can be found here, https://visualstudio.github.com/
+..*You need nodejs. This can be found at https://nodejs.org/en/. Linux users should use their local repository.
+..*You need git. This can be found at https://git-scm.com/. Linux users should have a form already, or can install it from their local packaging software
+..*You need a version of Visual Studio, 2015 will work but 2017 is preferred. This can be found at https://www.visualstudio.com/
+..*You need Visual Studio Code, the latest version can be found at https://code.visualstudio.com/download
+..*You need the Visual Studio GitHub Extension, this will let you link your Visual Studio instance to your Github Account and pull down the repository. This can be found here, https://visualstudio.github.com/
 
 ## Setup Steps
 
