@@ -3,5 +3,9 @@
   <PropertyGroup>
     <ShowAllFiles>true</ShowAllFiles>
     <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
+    <ActiveDebugProfile>AchillesAPI</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

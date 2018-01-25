@@ -12682,11 +12682,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\Users\\Gmandam\\source\\repos\\Achilles\\AchillesAPI\\AchillesAPI.csproj",
+      "projectUniqueName": "D:\\Users\\Gmandam\\source\\repos\\AchillesProject\\AchillesAPI\\AchillesAPI.csproj",
       "projectName": "AchillesAPI",
-      "projectPath": "D:\\Users\\Gmandam\\source\\repos\\Achilles\\AchillesAPI\\AchillesAPI.csproj",
+      "projectPath": "D:\\Users\\Gmandam\\source\\repos\\AchillesProject\\AchillesAPI\\AchillesAPI.csproj",
       "packagesPath": "D:\\Users\\Gmandam\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Gmandam\\source\\repos\\Achilles\\AchillesAPI\\obj\\",
+      "outputPath": "D:\\Users\\Gmandam\\source\\repos\\AchillesProject\\AchillesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
