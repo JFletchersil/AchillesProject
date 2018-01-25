@@ -15,7 +15,7 @@ The following are the items you need to have or configure in order to make the p
 
 Once all of the software has been downloaded and installed, you need to pull down an instance of the current master branch. Via Visual Studio,this can be done by finding the Team Explorer window and clicking the Clone Button. This will pull down the latest instance of the working project.
 
-(https://github/com/gmandam/AchillesProject/Images/Capture1.png)
+![Image](../Images/Capture1.png?raw=true)
 
 The Team Explorer tab can be found by checking the view tab, on the menu bar. It'll be one of the first entries. Along this process, you maybe prompted to sign in order to get the repository, sign in using your GitHub account. Joshua, or another administrator will add you as contributers to the project so you can pull the repository. 
 
