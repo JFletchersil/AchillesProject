@@ -4,6 +4,7 @@
     <ShowAllFiles>true</ShowAllFiles>
     <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
     <ActiveDebugProfile>AchillesAPI</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>GroupAchillesAPI - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
