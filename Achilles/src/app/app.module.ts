@@ -14,20 +14,25 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AchillesServiceProvider } from '../providers/achilles-service/achilles-service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HomePageModule } from '../pages/home/home.module';
+import { TabsPageModule } from '../pages/tabs/tabs.module';
+import { WorkoutPageModule } from '../pages/workout/workout.module';
+import { WorkoutSummaryPageModule } from '../pages/workout-summary/workout-summary.module';
+import { StatisticsPageModule } from '../pages/statistics/statistics.module';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    TabsPage,
-    WorkoutPage,
-    WorkoutSummaryPage,
-    StatisticsPage,
+    MyApp
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    HomePageModule,
+    TabsPageModule,
+    WorkoutPageModule,
+    WorkoutSummaryPageModule,
+    StatisticsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,8 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AchillesServiceProvider,
   ]
 })
-export class AppModule {}
+export class AppModule { }
