@@ -8,6 +8,20 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button [navPush]="workoutPage">Go To Workout Page</button>
+  <ion-card *ngFor="let exercise of todaysExercises.exercises">
+      <ion-item>
+          {{ exercise.name }} 
+          <button [navPush]="workoutPage" *ngIf="!exercise.completed" ion-button item-end>Start</button>
+          <button [navPush]="workoutPage" *ngIf="exercise.completed" ion-button item-end color="secondary">Completed</button>
+      </ion-item>
+      <ion-item *ngIf="exercise.completed">
+          <ion-label>Time Held</ion-label>
+          <ion-select>
+              <ion-option value="5">5</ion-option>
+              <ion-option value="10">10</ion-option>
+              <ion-option value="15">15</ion-option>
+              <ion-option selected="true" value="20">20</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-card>
 </ion-content>
-
