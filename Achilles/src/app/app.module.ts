@@ -19,6 +19,7 @@ import { TabsPageModule } from '../pages/tabs/tabs.module';
 import { WorkoutPageModule } from '../pages/workout/workout.module';
 import { WorkoutSummaryPageModule } from '../pages/workout-summary/workout-summary.module';
 import { StatisticsPageModule } from '../pages/statistics/statistics.module';
+import { ExerciseServiceProvider } from '../providers/exercise-service/exercise-service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { StatisticsPageModule } from '../pages/statistics/statistics.module';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AchillesServiceProvider,
+    ExerciseServiceProvider,
   ]
 })
 export class AppModule { }
