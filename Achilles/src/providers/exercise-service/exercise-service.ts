@@ -23,7 +23,9 @@ export class ExerciseServiceProvider {
     }
     return exercise;
   }
-
+  
+  // I'm simply returning a hard coded object here as
+  // a placeholder until the api is ready.
   public getExercises() {
     const exercises = new Exercises();
     exercises.exercises = [
@@ -32,15 +34,16 @@ export class ExerciseServiceProvider {
         name: 'Standing Calf Stretch',
         videoLink: 'https://www.youtube.com/watch?v=f1HzSAuB-Vw',
         exerciseType: ExerciseType.Timed,
-        time: 10,
+        time: 20,
         completed: true,
       },
       {
         id: '2',
         name: 'Heel Raises',
         videoLink: 'https://www.youtube.com/watch?v=Y_R1CICW6Rw',
-        exerciseType: ExerciseType.Timed,
-        time: 20,
+        exerciseType: ExerciseType.RepsSets,
+        reps: 10,
+        sets: 3,
         completed: true,
       },
       {
@@ -51,6 +54,14 @@ export class ExerciseServiceProvider {
         reps: 10,
         sets: 3,
         completed: true,
+      },
+      {
+        id: '4',
+        name: 'Towel Stretch',
+        videoLink: 'https://www.youtube.com/watch?v=F9QJqN9HYdw',
+        exerciseType: ExerciseType.Timed,
+        time: 20,
+        completed: false,
       },
     ];
 

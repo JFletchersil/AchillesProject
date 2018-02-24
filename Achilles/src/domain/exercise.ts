@@ -11,5 +11,5 @@ export interface Exercise {
 
 export enum ExerciseType {
   RepsSets = 0,
-  Timed = 1
+  Timed = 1,
 }

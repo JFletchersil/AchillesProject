@@ -31,10 +31,18 @@ export class WorkoutSummaryPage implements OnInit {
     this.todaysExercises = this._exerciseServiceProvider.getExercises();
   }
 
-  // Generates an array of numbers from 0 to time
+  // Generates an array of numbers from 0 to maxRepsOrSeconds
   // For use in a select box to select the time taken
-  getTimeIntervals(time: number) {
-    let intervals = Array.from(Array(time+1).keys());
+  getSelectBoxIntervals(maxRepsOrSeconds: number) {
+    let intervals = Array.from(Array(maxRepsOrSeconds+1).keys());
+    return intervals;
+  }
+
+  // There's no way to simply use a for loop of numbers in *ngFor
+  // So I've had to make an array here purely to display multiple boxes
+  // for the reps
+  getSetsArray(sets: number) {
+    let intervals = Array.from(Array(sets).keys());
     return intervals;
   }
 }
