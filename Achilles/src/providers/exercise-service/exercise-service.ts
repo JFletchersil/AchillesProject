@@ -32,7 +32,7 @@ export class ExerciseServiceProvider {
         name: 'Standing Calf Stretch',
         videoLink: 'https://www.youtube.com/watch?v=f1HzSAuB-Vw',
         exerciseType: ExerciseType.Timed,
-        time: 30,
+        time: 10,
         completed: true,
       },
       {
@@ -40,16 +40,17 @@ export class ExerciseServiceProvider {
         name: 'Heel Raises',
         videoLink: 'https://www.youtube.com/watch?v=Y_R1CICW6Rw',
         exerciseType: ExerciseType.Timed,
-        time: 30,
+        time: 20,
         completed: true,
       },
       {
         id: '3',
         name: 'Step Ups',
         videoLink: 'https://www.youtube.com/watch?v=dQqApCGd5Ss',
-        exerciseType: ExerciseType.Timed,
-        time: 30,
-        completed: false,
+        exerciseType: ExerciseType.RepsSets,
+        reps: 10,
+        sets: 3,
+        completed: true,
       },
     ];
 
