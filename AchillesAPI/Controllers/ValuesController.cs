@@ -7,12 +7,22 @@ using Utility;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Cors;
+using AchillesAPI.Contexts;
+using AchillesAPI.DbModels;
 
 namespace AchillesAPI.Controllers
 {
     [Route("api/[controller]")] 
     public class ValuesController : Controller
     {
+
+        private readonly AngularDbContext _context;
+
+        public ValuesController(AngularDbContext context)
+        {
+            _context = context;
+        }
+
         // GET api/values
         [HttpGet]
         public string Get()
@@ -31,6 +41,14 @@ namespace AchillesAPI.Controllers
             }
             return results;*/
             return "test";
+        }
+
+        [HttpGet]
+        [Route("TestMethod")]
+        public List<StageDbModel> TestMethod()
+        {
+            var items = _context.Set<StageDbModel>();
+            return items.ToList();
         }
 
         // POST api/values

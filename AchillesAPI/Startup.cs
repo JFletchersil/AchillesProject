@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AchillesAPI.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -25,11 +27,15 @@ namespace AchillesAPI
         {
             services.AddMvc();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    }));
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+            services.AddDbContext<AngularDbContext>(options =>
+            {
+                options.UseSqlServer("AngularDBConnection");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +47,7 @@ namespace AchillesAPI
             }
             app.UseCors("MyPolicy");
             app.UseMvc();
+
         }
     }
 }
