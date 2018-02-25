@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+//import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
 import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
 import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
 
