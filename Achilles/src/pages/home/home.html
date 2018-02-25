@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
+    <ion-navbar>
+        <button ion-button menuToggle icon-only>
       <ion-icon  name='menu'></ion-icon>
     </button>
-    <ion-title>
-      Home Page
-    </ion-title>
-  </ion-navbar>
+        <ion-title>
+            Home Page
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
+    <button ion-button (click)="goToExercises()">Preform Today’s Exercises</button>
+    <button ion-button (click)="goToProgress()">View Progress</button>
+    <button ion-button>Log out</button>
+    <!--<button ion-button block menuToggle>Toggle Menu</button>-->
 </ion-content>

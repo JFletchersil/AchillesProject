@@ -1,17 +1,20 @@
+<!--<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Your Approved Exercises</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item> Running </button>
+            <button ion-item> Swimming </button>
+            <button ion-item> Cycling </button>
+        </ion-list>
+    </ion-content>
+</ion-menu> -->
 
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Your Approved Exercises</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item> Running </button>
-      <button ion-item> Swimming </button>
-      <button ion-item> Cycling </button>
-    </ion-list>
-  </ion-content>
+    <additional-exercise-list></additional-exercise-list>
 </ion-menu>
 
-<ion-nav #content  [root]="rootPage"></ion-nav>
+<ion-nav #content [root]="rootPage"></ion-nav>

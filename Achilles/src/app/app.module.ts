@@ -21,9 +21,12 @@ import { WorkoutSummaryPageModule } from '../pages/workout-summary/workout-summa
 import { StatisticsPageModule } from '../pages/statistics/statistics.module';
 import { ExerciseServiceProvider } from '../providers/exercise-service/exercise-service';
 
+import { AdditionalExerciseListComponent } from '../components/additional-exercise-list/additional-exercise-list';
+
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    AdditionalExerciseListComponent
   ],
   imports: [
     BrowserModule,

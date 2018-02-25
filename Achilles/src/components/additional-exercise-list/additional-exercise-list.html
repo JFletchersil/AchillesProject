@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+        <!-- 25/02/18, LM - Changed from ion-title to h3 to allow for title to be fully displayed on iOS devices-->
+        <h3 text-wrap>Your Approved Exercises</h3>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <!-- 25/02/18, LM - Changed from button to ion-item to prevent an arrow appearing on iOS devices-->
+    <!-- Css is used here due to an overlap issue occuring with the title, will try to remove -->
+    <ion-list style="padding-top:9vh;">
+        <ion-item *ngFor='let exercise of additionalExercises'>{{exercise}} </ion-item>
+    </ion-list>
+</ion-content>
