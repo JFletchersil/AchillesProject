@@ -19,7 +19,6 @@ export class HomePage {
     this.names = this.httpClient.get(config.api + "api/values");
     this.names.subscribe(data => {
       console.log("names: ", data)
-    })
+    });
   }
-
 }
