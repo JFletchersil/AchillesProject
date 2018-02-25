@@ -11,7 +11,7 @@ namespace AchillesAPI.DbModels
     public class StageDbModel
     {
         [Key]
-        public string StageID { get; set; }
+        public Guid StageID { get; set; }
         public int StageNumber { get; set; }
     }
 }

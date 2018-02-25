@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AchillesAPI.Contexts;
@@ -25,6 +26,7 @@ namespace AchillesAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
             services.AddMvc();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
@@ -32,9 +34,10 @@ namespace AchillesAPI
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+
             services.AddDbContext<AngularDbContext>(options =>
             {
-                options.UseSqlServer("AngularDBConnection");
+                options.UseSqlServer(Configuration.GetConnectionString("AngularDBConnection"));
             });
         }
 
