@@ -4,6 +4,8 @@ import { WorkoutPage } from '../workout/workout';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { Exercises } from '../../domain/exercises';
 import { ExerciseType } from '../../domain/exercise';
+import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
+import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
 
 @IonicPage()
 @Component({
@@ -20,7 +22,9 @@ export class WorkoutSummaryPage implements OnInit {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private _exerciseServiceProvider: ExerciseServiceProvider) {
+    private _exerciseServiceProvider: ExerciseServiceProvider, 
+    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
+      let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
   }
 
   ionViewDidLoad() {

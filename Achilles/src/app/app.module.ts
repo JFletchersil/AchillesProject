@@ -20,8 +20,8 @@ import { WorkoutPageModule } from '../pages/workout/workout.module';
 import { WorkoutSummaryPageModule } from '../pages/workout-summary/workout-summary.module';
 import { StatisticsPageModule } from '../pages/statistics/statistics.module';
 import { ExerciseServiceProvider } from '../providers/exercise-service/exercise-service';
-
 import { AdditionalExerciseListComponent } from '../components/additional-exercise-list/additional-exercise-list';
+import { GLIonic2EnvConfigurationModule } from 'gl-ionic2-env-configuration';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { AdditionalExerciseListComponent } from '../components/additional-exerci
     TabsPageModule,
     WorkoutPageModule,
     WorkoutSummaryPageModule,
-    StatisticsPageModule
+    StatisticsPageModule,
+    GLIonic2EnvConfigurationModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
