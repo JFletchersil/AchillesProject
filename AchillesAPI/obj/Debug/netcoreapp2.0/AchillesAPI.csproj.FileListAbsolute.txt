@@ -29,3 +29,14 @@ D:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.
 D:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.csproj.CoreCompileInputs.cache
 D:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfoInputs.cache
 D:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfo.cs
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.deps.json
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.runtimeconfig.json
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.runtimeconfig.dev.json
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.dll
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.pdb
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.csprojResolveAssemblyReference.cache
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.csproj.CoreCompileInputs.cache
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfoInputs.cache
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfo.cs
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.dll
+C:\Users\LiamM\Source\Repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.pdb

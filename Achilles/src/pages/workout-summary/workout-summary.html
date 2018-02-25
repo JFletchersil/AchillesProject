@@ -1,34 +1,34 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
+    <ion-navbar>
+        <button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
     </button>
-    <ion-title>Workout Summary</ion-title>
-  </ion-navbar>
+        <ion-title>Workout Summary</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let exercise of todaysExercises.exercises">
-      <ion-item>
-          {{ exercise.name }} 
-          <button [navPush]="workoutPage" *ngIf="!exercise.completed" ion-button item-end>Start</button>
-          <button [navPush]="workoutPage" *ngIf="exercise.completed" ion-button item-end color="secondary">Completed</button>
-      </ion-item>
+    <ion-card *ngFor="let exercise of todaysExercises.exercises">
+        <ion-item>
+            {{ exercise.name }}
+            <button [navPush]="workoutPage" *ngIf="!exercise.completed" ion-button item-end>Start</button>
+            <button [navPush]="workoutPage" *ngIf="exercise.completed" ion-button item-end color="secondary">Completed</button>
+        </ion-item>
 
-      <!-- Time Based Exercise -->
-      <ion-item *ngIf="exercise.completed && exercise.exerciseType === exerciseTimed">
-          <ion-label>Time Held</ion-label>
-          <ion-select>
-            <ion-option *ngFor="let time of getSelectBoxIntervals(exercise.time)" [value]="time">{{time}}</ion-option>
-          </ion-select>
-      </ion-item>
+        <!-- Time Based Exercise -->
+        <ion-item *ngIf="exercise.completed && exercise.exerciseType === exerciseTimed">
+            <ion-label>Time Held</ion-label>
+            <ion-select>
+                <ion-option *ngFor="let time of getSelectBoxIntervals(exercise.time)" [value]="time">{{time}}</ion-option>
+            </ion-select>
+        </ion-item>
 
-      <!-- Reps Based Exercise -->
-      <ion-item *ngIf="exercise.completed && exercise.exerciseType === exerciseRepsSets">
-          <ion-label>Reps Managed</ion-label>
-          <ion-select *ngFor="let set of getSetsArray(exercise.sets)">
-            <ion-option *ngFor="let reps of getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
-          </ion-select>
-      </ion-item>
-  </ion-card>
+        <!-- Reps Based Exercise -->
+        <ion-item *ngIf="exercise.completed && exercise.exerciseType === exerciseRepsSets">
+            <ion-label>Reps Managed</ion-label>
+            <ion-select *ngFor="let set of getSetsArray(exercise.sets)">
+                <ion-option *ngFor="let reps of getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-card>
 </ion-content>
