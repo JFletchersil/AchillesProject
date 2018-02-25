@@ -3,11 +3,23 @@ import { Injectable } from '@angular/core';
 import { Exercise, ExerciseType } from '../../domain/exercise';
 import { Exercises } from '../../domain/exercises';
 
+const address = 'http://localhost:5000/api/exercises/';
+
 @Injectable()
 export class ExerciseServiceProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello ExerciseServiceProvider Provider');
+  }
+
+  //A promise of any additional exercises retrieved from the API.
+  getAdditionalExercises(stage : number){
+    return new Promise(res => {
+      this.http.get(address + 'additional/' + stage).subscribe(exercises =>{
+        console.log(exercises);
+        res(exercises);
+      }, err => {console.log('Cannot find additiona exercises"');});
+    });
   }
 
   // I'm simply returning a hard coded object here as
@@ -23,7 +35,7 @@ export class ExerciseServiceProvider {
     }
     return exercise;
   }
-  
+
   // I'm simply returning a hard coded object here as
   // a placeholder until the api is ready.
   public getExercises() {
