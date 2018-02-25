@@ -1,0 +1,4 @@
+{
+    "env": "prod",
+    "api": "https://achillesprojectapi.azurewebsites.net"
+}

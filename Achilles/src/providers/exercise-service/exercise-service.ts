@@ -2,11 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Exercise, ExerciseType } from '../../domain/exercise';
 import { Exercises } from '../../domain/exercises';
+import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
+import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
 
 @Injectable()
 export class ExerciseServiceProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, 
+    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
+    let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
     console.log('Hello ExerciseServiceProvider Provider');
   }
 
