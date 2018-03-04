@@ -21,8 +21,8 @@
   <ion-card text-center>
       <ion-title>Reps Managed:</ion-title>
       <ion-item >
-        <ion-select *ngFor="let set of getSetsArray(exercise.sets)">
-            <ion-option *ngFor="let reps of getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
+        <ion-select *ngFor="let set of _exerciseService.getSetsArray(exercise.sets)">
+            <ion-option *ngFor="let reps of _exerciseService.getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
         </ion-select>
         <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
       </ion-item>
@@ -32,7 +32,7 @@
     <ion-item *ngIf="exercise.completed && exercise.exerciseType === exerciseTimed">
       <ion-label>Time Held:</ion-label>
       <ion-select>
-          <ion-option *ngFor="let time of getSelectBoxIntervals(exercise.time)" [value]="time">{{time}}</ion-option>
+          <ion-option *ngFor="let time of _exerciseService.getSelectBoxIntervals(exercise.time)" [value]="time">{{time}}</ion-option>
       </ion-select>
       <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
     </ion-item>
