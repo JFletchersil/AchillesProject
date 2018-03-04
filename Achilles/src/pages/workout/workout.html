@@ -7,6 +7,43 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<!-- <ion-content padding>
   <button ion-button (click)="goBack();">Go To Workout Summary Page</button>
+</ion-content> -->
+
+<ion-content>
+  <ion-card text-center>
+    <ion-title>{{ exercise.name }} </ion-title>
+
+    <ion-item text-center>Goal: {{ exercise.sets }} sets of {{ exercise.reps }} reps.</ion-item>
+  </ion-card>
+
+  <ion-card text-center>
+      <ion-title>Reps Managed:</ion-title>
+      <ion-item >
+        <ion-select *ngFor="let set of getSetsArray(exercise.sets)">
+            <ion-option *ngFor="let reps of getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
+        </ion-select>
+        <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
+      </ion-item>
+  </ion-card>
+
+  <ion-card text-center>
+    <ion-item *ngIf="exercise.completed && exercise.exerciseType === exerciseTimed">
+      <ion-label>Time Held:</ion-label>
+      <ion-select>
+          <ion-option *ngFor="let time of getSelectBoxIntervals(exercise.time)" [value]="time">{{time}}</ion-option>
+      </ion-select>
+      <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
+    </ion-item>
+  </ion-card>
+
+
+  <iframe 
+    class="iframe-dimensions"
+    [src]="videoLink"
+
+    allowfullscreen>
+  </iframe>
+
 </ion-content>

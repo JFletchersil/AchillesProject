@@ -36,6 +36,8 @@ export class ExerciseServiceProvider {
       exerciseType: ExerciseType.Timed,
       time: 30,
       completed: true,
+      reps: 5,
+      sets: 3,
     }
     return exercise;
   }
