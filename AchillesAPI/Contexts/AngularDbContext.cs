@@ -1,4 +1,4 @@
-﻿using AchillesAPI.DbModels;
+﻿using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +13,8 @@ namespace AchillesAPI.Contexts
         {
 
         }
-        public DbSet<StageDbModel> Stages { get; set; }
+        public DbSet<Stage> Stages { get; set; }
+        public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<ExerciseType> ExerciseTypes { get; set; }
     }
 }
