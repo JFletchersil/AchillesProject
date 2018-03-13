@@ -1,18 +1,19 @@
 ﻿using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AchillesAPI.Contexts
 {
-    public class AngularDbContext : DbContext
+    public partial class AngularDbContext : DbContext
     {
         public AngularDbContext(DbContextOptions options) : base(options)
         {
-
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ExerciseType>().HasMany(et => et.Exercises).WithOne(x => x.ExerciseType);
+        }
+
         public DbSet<Stage> Stages { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
