@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkoutPage } from '../workout/workout';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { Exercises } from '../../domain/exercises';
-import { ExerciseType } from '../../domain/exercise';
+import { ExerciseType, Exercise } from '../../domain/exercise';
 import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
 import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
 
@@ -32,7 +32,14 @@ export class WorkoutSummaryPage implements OnInit {
   }
 
   ngOnInit() {
-    this.todaysExercises = this._exerciseServiceProvider.getExercises();
+    // this.todaysExercises = this._exerciseServiceProvider.getExercises();
+    this.getExercises();
+  }
+
+  async getExercises(){
+    this._exerciseServiceProvider.getExercise().then((value) => {
+      this.todaysExercises = value;
+    });
   }
 
   // Generates an array of numbers from 0 to maxRepsOrSeconds

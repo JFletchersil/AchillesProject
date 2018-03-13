@@ -11,9 +11,9 @@ namespace AchillesAPI.Models.ViewModels
         public string Name { get; set; }
         public string VideoLink { get; set; }
         public ExerciseType ExerciseType { get; set; }
-        public double Reps { get; set; }
-        public double Sets { get; set; }
-        public double Time { get; set; }
+        public double? Reps { get; set; }
+        public double? Sets { get; set; }
+        public double? Time { get; set; }
     }
 
     public enum ExerciseType
