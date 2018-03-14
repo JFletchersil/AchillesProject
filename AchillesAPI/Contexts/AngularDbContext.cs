@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AchillesAPI.Contexts
 {
-    public class AngularDbContext : DbContext
+    public partial class AngularDbContext : DbContext
     {
         public AngularDbContext(DbContextOptions options) : base(options)
         {
