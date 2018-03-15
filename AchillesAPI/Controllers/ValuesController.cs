@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Utility;
-using MySql.Data;
 using MySql.Data.MySqlClient;
-using Microsoft.AspNetCore.Cors;
 using AchillesAPI.Contexts;
-using AchillesAPI.DbModels;
+using AchillesAPI.Models.DbModels;
 
 namespace AchillesAPI.Controllers
 {
@@ -44,11 +40,19 @@ namespace AchillesAPI.Controllers
         }
 
         [HttpGet]
-        [Route("TestMethod")]
-        public List<StageDbModel> TestMethod()
+        [Route("NotTestMethod")]
+        public List<Stage> TestMethod()
         {
-            var items = _context.Set<StageDbModel>();
+            var items = _context.Set<Stage>();
             return items.ToList();
+        }
+
+
+        [HttpPost]
+        public string ReturnProgressReport()
+        {
+
+            return "";
         }
 
         // POST api/values

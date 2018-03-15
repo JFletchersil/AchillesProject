@@ -26,22 +26,16 @@ export class ExerciseServiceProvider {
     });
   }
 
-  // I'm simply returning a hard coded object here as
-  // a placeholder until the api is ready.
-  public getExercise() {
-    const exercise: Exercise = {
-      id: '1',
-      name: 'Standing Calf Stretch',
-      videoLink: 'https://www.youtube.com/watch?v=f1HzSAuB-Vw',
-      exerciseType: ExerciseType.Timed,
-      time: 30,
-      completed: true,
-    }
-    return exercise;
+  public getExercise(): Promise<Exercises> {
+    let config: ITestAppEnvConfiguration = this.envConfiguration.getConfig();
+    return new Promise<Exercises>((resolve, reject) => {
+      this.http.get(config.api + 'api/Exercises/GetDailyExercises').subscribe(exercises =>{
+        console.log(exercises);
+        resolve(exercises as Exercises);
+      }, err => {console.log('Cannot find additiona exercises"');});
+    });
   }
 
-  // I'm simply returning a hard coded object here as
-  // a placeholder until the api is ready.
   public getExercises() {
     const exercises = new Exercises();
     exercises.exercises = [

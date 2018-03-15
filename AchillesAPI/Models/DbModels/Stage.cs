@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace AchillesAPI.DbModels
+namespace AchillesAPI.Models.DbModels
 {
     [Table("Stages")]
-    public class StageDbModel
+    public class Stage
     {
         [Key]
         public Guid StageID { get; set; }
