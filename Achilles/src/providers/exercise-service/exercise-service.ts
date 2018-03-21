@@ -50,8 +50,6 @@ export class ExerciseServiceProvider {
     return exercise;
   }
 
-  // I'm simply returning a hard coded object here as
-  // a placeholder until the api is ready.
   public getExercises() {
     const exercises = new Exercises();
     exercises.exercises = [
