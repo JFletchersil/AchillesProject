@@ -41,7 +41,7 @@ export class WorkoutPage implements OnInit {
   }
 
   ngOnInit() {
-    this.exercise = this._exerciseService.getExercise();
+    this.exercise = this._exerciseService.getSingleExercise();
     this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/f1HzSAuB-Vw');
   }
 

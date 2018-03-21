@@ -26,17 +26,9 @@ export class ExerciseServiceProvider {
     });
   }
 
-  public getExercise(): Promise<Exercises> {
-    let config: ITestAppEnvConfiguration = this.envConfiguration.getConfig();
-    return new Promise<Exercises>((resolve, reject) => {
-      this.http.get(config.api + 'api/Exercises/GetDailyExercises').subscribe(exercises =>{
-        console.log(exercises);
-        resolve(exercises as Exercises);
-      }, err => {console.log('Cannot find additiona exercises"');});
-    });
-  }
-
-  public getSingleExercise() {
+  // I'm simply returning a hard coded object here as
+  // a placeholder until the api is ready.
+  public getExercise() {
     const exercise: Exercise = {
       id: '1',
       name: 'Standing Calf Stretch',
@@ -48,10 +40,16 @@ export class ExerciseServiceProvider {
       sets: 3,
     }
     return exercise;
+  public getExercise(): Promise<Exercises> {
+    let config: ITestAppEnvConfiguration = this.envConfiguration.getConfig();
+    return new Promise<Exercises>((resolve, reject) => {
+      this.http.get(config.api + 'api/Exercises/GetDailyExercises').subscribe(exercises =>{
+        console.log(exercises);
+        resolve(exercises as Exercises);
+      }, err => {console.log('Cannot find additiona exercises"');});
+    });
   }
 
-  // I'm simply returning a hard coded object here as
-  // a placeholder until the api is ready.
   public getExercises() {
     const exercises = new Exercises();
     exercises.exercises = [
