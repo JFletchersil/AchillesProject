@@ -42,18 +42,5 @@ export class WorkoutSummaryPage implements OnInit {
     });
   }
 
-  // Generates an array of numbers from 0 to maxRepsOrSeconds
-  // For use in a select box to select the time taken
-  getSelectBoxIntervals(maxRepsOrSeconds: number) {
-    let intervals = Array.from(Array(maxRepsOrSeconds+1).keys());
-    return intervals;
-  }
 
-  // There's no way to simply use a for loop of numbers in *ngFor
-  // So I've had to make an array here purely to display multiple boxes
-  // for the reps
-  getSetsArray(sets: number) {
-    let intervals = Array.from(Array(sets).keys());
-    return intervals;
-  }
 }

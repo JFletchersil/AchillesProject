@@ -36,6 +36,20 @@ export class ExerciseServiceProvider {
     });
   }
 
+  public getSingleExercise() {
+    const exercise: Exercise = {
+      id: '1',
+      name: 'Standing Calf Stretch',
+      videoLink: 'https://www.youtube.com/watch?v=f1HzSAuB-Vw',
+      exerciseType: ExerciseType.Timed,
+      time: 30,
+      completed: true,
+      reps: 5,
+      sets: 3,
+    }
+    return exercise;
+  }
+
   public getExercises() {
     const exercises = new Exercises();
     exercises.exercises = [
@@ -77,4 +91,20 @@ export class ExerciseServiceProvider {
 
     return exercises;
   }
+
+  // Generates an array of numbers from 0 to maxRepsOrSeconds
+  // For use in a select box to select the time taken
+  public getSelectBoxIntervals(maxRepsOrSeconds: number) {
+    let intervals = Array.from(Array(maxRepsOrSeconds+1).keys());
+    return intervals;
+  }
+
+  // There's no way to simply use a for loop of numbers in *ngFor
+  // So I've had to make an array here purely to display multiple boxes
+  // for the reps
+  public getSetsArray(sets: number) {
+    let intervals = Array.from(Array(sets).keys());
+    return intervals;
+  }
+
 }
