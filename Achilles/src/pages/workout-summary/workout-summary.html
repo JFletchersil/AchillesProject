@@ -11,8 +11,8 @@
   <ion-card *ngFor="let exercise of todaysExercises">
     <ion-item>
       {{ exercise.name }}
-      <button [navPush]="workoutPage" *ngIf="!exercise.completed" ion-button item-end>Start</button>
-      <button [navPush]="workoutPage" *ngIf="exercise.completed" ion-button item-end color="secondary">Completed</button>
+      <button (click)="loadExercisePage(exercise)" *ngIf="!exercise.completed" ion-button item-end>Start</button>
+      <button (click)="loadExercisePage(exercise)" *ngIf="exercise.completed" ion-button item-end color="secondary">Completed</button>
     </ion-item>
 
     <!-- Time Based Exercise -->

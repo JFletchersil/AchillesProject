@@ -4,8 +4,6 @@ import { WorkoutPage } from '../workout/workout';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { Exercises } from '../../domain/exercises';
 import { ExerciseType, Exercise } from '../../domain/exercise';
-import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
-import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
 
 @IonicPage()
 @Component({
@@ -22,25 +20,20 @@ export class WorkoutSummaryPage implements OnInit {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private _exerciseServiceProvider: ExerciseServiceProvider, 
-    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
-      let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WorkoutSummaryPage');
+    private _exerciseServiceProvider: ExerciseServiceProvider) {
   }
 
   ngOnInit() {
-    // this.todaysExercises = this._exerciseServiceProvider.getExercises();
     this.getExercises();
   }
 
   async getExercises(){
-    this._exerciseServiceProvider.getExercise().then((value) => {
+    this._exerciseServiceProvider.getExercises().then((value) => {
       this.todaysExercises = value;
     });
   }
 
-
+  public loadExercisePage (exercise: Exercise) {
+    this.navCtrl.push(this.workoutPage, exercise);
+  }
 }
