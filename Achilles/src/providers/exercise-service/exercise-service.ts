@@ -4,24 +4,24 @@ import { Exercise, ExerciseType } from '../../domain/exercise';
 import { Exercises } from '../../domain/exercises';
 import { EnvConfigurationProvider } from "gl-ionic2-env-configuration";
 import { ITestAppEnvConfiguration } from "../../env-configuration/ITestAppEnvConfiguration";
+import { AdditionalExercises } from '../../domain/additionalExercises';
 
 @Injectable()
 export class ExerciseServiceProvider {
 
   config: ITestAppEnvConfiguration;
-  
+
   constructor(
-    public http: HttpClient, 
+    public http: HttpClient,
     private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
-    
+
     this.config = envConfiguration.getConfig();
   }
 
-  getAdditionalExercises(stage : number){
+  getAdditionalExercises(stage : number) : Promise<AdditionalExercises>{
     return new Promise(res => {
       this.http.get(this.config.api + 'api/Exercises/additional/' + stage).subscribe(exercises =>{
-        console.log(exercises);
-        res(exercises);
+        res(exercises as AdditionalExercises);
       }, err => {console.log('Cannot find additional exercises"');});
     });
   }

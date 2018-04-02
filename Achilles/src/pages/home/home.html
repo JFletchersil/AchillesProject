@@ -10,8 +10,13 @@
 </ion-header>
 
 <ion-content padding>
-    <button ion-button (click)="goToExercises()">Preform Today’s Exercises</button>
-    <button ion-button (click)="goToProgress()">View Progress</button>
-    <button ion-button>Log out</button>
+    <h2 text-wrap text-center>
+        The Morriston Hospital: Achilles Rupture Recovery Application
+    </h2>
+    <ion-list>
+        <button ion-button full (click)="goToExercises()">Preform Today’s Exercises</button>
+        <button ion-button full (click)="goToProgress()">View Progress</button>
+        <button ion-button full>Log out</button>
+    </ion-list>
     <!--<button ion-button block menuToggle>Toggle Menu</button>-->
 </ion-content>

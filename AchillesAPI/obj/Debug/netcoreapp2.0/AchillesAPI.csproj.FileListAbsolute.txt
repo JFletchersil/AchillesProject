@@ -51,3 +51,14 @@ C:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.
 C:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfo.cs
 C:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.dll
 C:\Users\Gmandam\source\repos\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.pdb
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.deps.json
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.runtimeconfig.json
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.runtimeconfig.dev.json
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.dll
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\bin\Debug\netcoreapp2.0\AchillesAPI.pdb
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.csprojResolveAssemblyReference.cache
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.csproj.CoreCompileInputs.cache
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfoInputs.cache
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.AssemblyInfo.cs
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.dll
+C:\Users\LiamM\Documents\MEng_group\Repos\0. Additional Exercise Fix\AchillesProject\AchillesAPI\obj\Debug\netcoreapp2.0\AchillesAPI.pdb

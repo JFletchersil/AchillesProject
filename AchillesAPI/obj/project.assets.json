@@ -8152,7 +8152,7 @@
       ]
     },
     "Remotion.Linq/2.1.1": {
-      "sha512": "IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw==",
+      "sha512": "e6zbV+IN5TRPXOPPcke/axUPrBISxgGWhBOSjALTVzdSAlaYN5kUKA28CTbD574P0ogR+TlLzBs3AW0Wl+ipxQ==",
       "type": "package",
       "path": "remotion.linq/2.1.1",
       "files": [
@@ -13261,27 +13261,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gmandam\\.nuget\\packages\\": {},
+    "C:\\Users\\LiamM\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gmandam\\source\\repos\\AchillesProject\\AchillesAPI\\AchillesAPI.csproj",
+      "projectUniqueName": "C:\\Users\\LiamM\\Documents\\MEng_group\\Repos\\0. Additional Exercise Fix\\AchillesProject\\AchillesAPI\\AchillesAPI.csproj",
       "projectName": "AchillesAPI",
-      "projectPath": "C:\\Users\\Gmandam\\source\\repos\\AchillesProject\\AchillesAPI\\AchillesAPI.csproj",
-      "packagesPath": "C:\\Users\\Gmandam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gmandam\\source\\repos\\AchillesProject\\AchillesAPI\\obj\\",
+      "projectPath": "C:\\Users\\LiamM\\Documents\\MEng_group\\Repos\\0. Additional Exercise Fix\\AchillesProject\\AchillesAPI\\AchillesAPI.csproj",
+      "packagesPath": "C:\\Users\\LiamM\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LiamM\\Documents\\MEng_group\\Repos\\0. Additional Exercise Fix\\AchillesProject\\AchillesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gmandam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\LiamM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
