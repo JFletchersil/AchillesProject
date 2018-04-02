@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 //import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
 import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
 import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
+import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
 
 @Component({
   selector: 'page-home',
@@ -13,12 +14,20 @@ import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfi
 export class HomePage {
   names : Observable<any>;
 
-  constructor(public navCtrl: NavController, public httpClient: HttpClient, 
+  constructor(public navCtrl: NavController, public httpClient: HttpClient,
     private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
     let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
     this.names = this.httpClient.get(config.api + "api/values");
     this.names.subscribe(data => {
       console.log("names: ", data)
     });
+  }
+
+  goToExercises(){
+    this.navCtrl.parent.select(1);
+  }
+
+  goToProgress(){
+    this.navCtrl.parent.select(2);
   }
 }

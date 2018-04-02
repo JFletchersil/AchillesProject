@@ -5,9 +5,11 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <!-- 25/02/18, LM - Changed from button to ion-item to prevent an arrow appearing on iOS devices-->
-    <!-- Css is used here due to an overlap issue occuring with the title, will try to remove -->
-    <ion-list style="padding-top:9vh;">
-        <ion-item *ngFor='let exercise of additionalExercises'>{{exercise}} </ion-item>
-    </ion-list>
+    <div style="padding-top:10vh;">
+        <ion-list text-center *ngFor='let exercise of additionalExercises'>
+            <button ion-button color="secondary" full (click)="spawnDescription(exercise)">
+                      {{exercise.exercise}} &nbsp; <ion-icon name="arrow-forward"></ion-icon>
+                      </button>
+        </ion-list>
+    </div>
 </ion-content>

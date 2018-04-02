@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
+import { AdditionalExercises } from '../../domain/additionalExercises';
+import {AdditionalExercise} from '../../domain/additionalExercise';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the AdditionalExerciseListComponent component.
@@ -13,14 +16,23 @@ import { ExerciseServiceProvider } from '../../providers/exercise-service/exerci
 })
 export class AdditionalExerciseListComponent {
 
-  additionalExercises : {};
+  additionalExercises : AdditionalExercises;
 
-  constructor(private exerciseProvider: ExerciseServiceProvider) {
+  constructor(private alertCtrl: AlertController, private exerciseProvider: ExerciseServiceProvider) {
     this.setAdditionalExercises(1);
   }
 
   async setAdditionalExercises(stage : number){
     this.additionalExercises = await this.exerciseProvider.getAdditionalExercises(1);
   }
+
+    spawnDescription(exercise : AdditionalExercise){
+        let modal = this.alertCtrl.create({
+          title: exercise.exercise,
+          message: exercise.description,
+          buttons: ['Dismiss']
+        });
+        modal.present();
+      }
 
 }
