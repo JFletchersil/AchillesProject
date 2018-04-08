@@ -4,6 +4,7 @@ import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
 import { Exercise, ExerciseType } from '../../domain/exercise';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from '@app/env';
 
 @IonicPage()
 @Component({

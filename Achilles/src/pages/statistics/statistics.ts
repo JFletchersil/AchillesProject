@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
-import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
+import { environment } from '@app/env';
 
 /**
  * Generated class for the StatisticsPage page.
@@ -17,9 +16,7 @@ import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfi
 })
 export class StatisticsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
-    let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {

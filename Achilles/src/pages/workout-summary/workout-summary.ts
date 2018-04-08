@@ -4,6 +4,7 @@ import { WorkoutPage } from '../workout/workout';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { Exercises } from '../../domain/exercises';
 import { ExerciseType, Exercise } from '../../domain/exercise';
+import { environment } from '@app/env';
 
 @IonicPage()
 @Component({

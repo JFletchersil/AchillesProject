@@ -2,25 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Exercise, ExerciseType } from '../../domain/exercise';
 import { Exercises } from '../../domain/exercises';
-import { EnvConfigurationProvider } from "gl-ionic2-env-configuration";
-import { ITestAppEnvConfiguration } from "../../env-configuration/ITestAppEnvConfiguration";
+import { environment } from '@app/env';
 import { AdditionalExercises } from '../../domain/additionalExercises';
 
 @Injectable()
 export class ExerciseServiceProvider {
 
-  config: ITestAppEnvConfiguration;
-
-  constructor(
-    public http: HttpClient,
-    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
-
-    this.config = envConfiguration.getConfig();
+  constructor(public http: HttpClient) {
   }
 
   getAdditionalExercises(stage : number) : Promise<AdditionalExercises>{
     return new Promise(res => {
-      this.http.get(this.config.api + 'api/Exercises/additional/' + stage).subscribe(exercises =>{
+      this.http.get(environment.api + 'api/Exercises/additional/' + stage).subscribe(exercises =>{
         res(exercises as AdditionalExercises);
       }, err => {console.log('Cannot find additional exercises"');});
     });
@@ -28,7 +21,7 @@ export class ExerciseServiceProvider {
 
   public getExercises(): Promise<Exercises> {
     return new Promise<Exercises>((resolve, reject) => {
-      this.http.get(this.config.api + 'api/Exercises/GetDailyExercises').subscribe(exercises =>{
+      this.http.get(environment.api + 'api/Exercises/GetDailyExercises').subscribe(exercises =>{
         console.log(exercises);
         resolve(exercises as Exercises);
       }, err => {console.log('Cannot find additional exercises"');});

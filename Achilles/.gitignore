@@ -36,3 +36,7 @@ UserInterfaceState.xcuserstate
 bin
 obj
 .vs
+
+# Envrionment Variables
+**/environment.*
+!**/environment.model.ts
