@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AchillesAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     public class ExercisesController : Controller
     {

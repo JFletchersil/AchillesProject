@@ -39,13 +39,13 @@ namespace AchillesAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-            services.AddMvc();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+            services.AddMvc();
 
             services.AddDbContext<AngularDbContext>(options =>
             {
@@ -66,7 +66,6 @@ namespace AchillesAPI
                 .AllowAnyHeader()
                 .AllowCredentials());
             app.UseMvc();
-
         }
     }
 }
