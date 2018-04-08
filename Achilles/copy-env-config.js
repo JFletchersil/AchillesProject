@@ -20,6 +20,7 @@ if(!(fs.existsSync("www")))
 var rd = fs.createReadStream('src/env-configuration/' + jsonConfigurationFile);
 var wd = fs.createWriteStream('www/env-configuration.json');
 wd = fs.createWriteStream('www/build/env-configuration.json');
+wd = fs.createWriteStream('www/assets/env-configuration.json');
 rd.on('error', handleError);
 wd.on('error', handleError);
 
