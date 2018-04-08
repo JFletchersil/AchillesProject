@@ -15,6 +15,8 @@ for (var i = 0; i < process.argv.length; i++) {
 if(!(fs.existsSync("www")))
 {
     fs.mkdirSync("www");
+    fs.mkdirSync("www/build");
+    fs.mkdirSync("www/assets");
 }
 
 var rd = fs.createReadStream('src/env-configuration/' + jsonConfigurationFile);
