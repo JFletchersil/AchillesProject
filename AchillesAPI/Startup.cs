@@ -61,7 +61,7 @@ namespace AchillesAPI
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(builder => builder
-                .WithOrigins("https://achillesprojectapi.azurewebsites.net")
+                .WithOrigins("https://achillesproject.azurewebsites.net/")
                 .AllowAnyHeader());
             app.UseMvc();
         }
