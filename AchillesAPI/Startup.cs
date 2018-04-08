@@ -41,7 +41,8 @@ namespace AchillesAPI
             //var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
-                builder.AllowAnyOrigin()
+                builder.WithOrigins("http://localhost:8100", "https://achillesproject.azurewebsites.net/")
+                       .AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
@@ -60,9 +61,7 @@ namespace AchillesAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder => builder
-                .WithOrigins("https://achillesproject.azurewebsites.net/")
-                .AllowAnyHeader());
+            app.UseCors("MyPolicy");
             app.UseMvc();
         }
     }
