@@ -1,4 +1,4 @@
 export const environment = {
-  api: 'https://achillesprojectapi.azurewebsites.net',
+  api: 'https://achillesprojectapi.azurewebsites.net/',
   mode: 'Production'
 }
