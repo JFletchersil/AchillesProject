@@ -1,0 +1,1 @@
+node copy-env-config.js --env prod
