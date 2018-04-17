@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AchillesAPI.Contexts;
+using AchillesAPI.Helpers;
+using AchillesAPI.Models;
 using AchillesAPI.Models.DbModels;
 using AchillesAPI.Models.ViewModels;
 using AchillesAPI.Repository;
-using AchilliesLogin.Data;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AchillesAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class AccountController : Controller
@@ -38,31 +38,53 @@ namespace AchillesAPI.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody]LoginViewModel loginViewModel)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
-
-            var result = await _signInManager.PasswordSignInAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.RememberMe, lockoutOnFailure: false);
-
-            if (result != null && result.Succeeded)
-            {
-                var user = await _repo.FindUser(loginViewModel.Email);
-                var sessionState = new UserSession()
+                if (!ModelState.IsValid)
                 {
-                    UserId = new Guid(user.Id),
-                    SessionId = Guid.NewGuid(),
-                    ExpiresWhen = DateTime.Now.AddDays(30)
-                };
+                    return BadRequest(ModelState);
+                }
 
-                _context.UserSessions.Add(sessionState);
-                _context.SaveChanges();
+                var result = await _signInManager.PasswordSignInAsync(loginViewModel.Email, loginViewModel.Password, loginViewModel.RememberMe, lockoutOnFailure: false);
 
-                return Ok(sessionState.SessionId);
+                if (result != null && result.Succeeded)
+                {
+                    var user = await _repo.FindUser(loginViewModel.Email);
+                    var sessionState = new UserSession()
+                    {
+                        UserId = new Guid(user.Id),
+                        SessionId = Guid.NewGuid(),
+                        ExpiresWhen = DateTime.Now.AddDays(30)
+                    };
+
+                    _context.UserSessions.Add(sessionState);
+                    _context.SaveChanges();
+
+                    return Ok(sessionState.SessionId);
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("ValidateSession")]
+        public IActionResult ValidateResult(string sessionId)
+        {
+            try
+            {
+                var helper = new AuthenticationHelper();
+                return Ok(helper.VerifySession(new Guid(sessionId), _context));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
             }
         }
     }

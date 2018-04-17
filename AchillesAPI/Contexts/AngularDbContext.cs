@@ -5,7 +5,7 @@ namespace AchillesAPI.Contexts
 {
     public partial class AngularDbContext : DbContext
     {
-        public AngularDbContext(DbContextOptions options) : base(options)
+        public AngularDbContext(DbContextOptions<AngularDbContext> options) : base(options)
         {
         }
 
@@ -18,5 +18,6 @@ namespace AchillesAPI.Contexts
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
         public DbSet<AdditionalExercise> AdditionalExercises { get; set; }
+        public DbSet<UserExercise> UserExercises { get; set; }
     }
 }

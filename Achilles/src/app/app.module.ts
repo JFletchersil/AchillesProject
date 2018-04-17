@@ -23,6 +23,11 @@ import { ExerciseServiceProvider } from '../providers/exercise-service/exercise-
 import { AdditionalExerciseListComponent } from '../components/additional-exercise-list/additional-exercise-list';
 import { environment } from '@app/env';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
+import { LoginPage } from '../pages/login/login';
+import { LoginPageModule } from '../pages/login/login.module';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,11 +37,13 @@ import { environment } from '@app/env';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HomePageModule,
     TabsPageModule,
     WorkoutPageModule,
     WorkoutSummaryPageModule,
-    StatisticsPageModule
+    StatisticsPageModule,
+    LoginPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,6 +53,7 @@ import { environment } from '@app/env';
     WorkoutPage,
     WorkoutSummaryPage,
     StatisticsPage,
+    LoginPage,
   ],
   providers: [
     StatusBar,
@@ -53,6 +61,7 @@ import { environment } from '@app/env';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AchillesServiceProvider,
     ExerciseServiceProvider,
+    LoginServiceProvider,
   ]
 })
 export class AppModule { }

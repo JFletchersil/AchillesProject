@@ -1,6 +1,6 @@
 ﻿using AchillesAPI.Contexts;
 using AchillesAPI.Models.ViewModels;
-using AchilliesLogin.Data;
+using AchillesAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
