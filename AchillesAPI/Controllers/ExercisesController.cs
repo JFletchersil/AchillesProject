@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AchillesAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     public class ExercisesController : Controller
     {
@@ -27,24 +28,21 @@ namespace AchillesAPI.Controllers
 
         // GET api/exercises/additional
         [Route("additional/{stage}")]
-        public string getTest(int stage)
+        public List<AdditionalExerciseViewModel> getAdditionalExercises(int stage)
         {
-            var availableExercises = new List<String>();
+            //Get all stages available to the user
+            var stages = (from s in _context.Stages
+                          where s.StageNumber <= stage
+                          select s.StageID).ToList();
 
-            switch (stage)
-            {
-                case 1:
-                    availableExercises.Add("Running");
-                    availableExercises.Add("Swimming");
-                    availableExercises.Add("Cycling");
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-            }
-
-            return JsonConvert.SerializeObject(availableExercises);
+            //Use these to select the correct entries and produce relevant VMs
+            return _context.AdditionalExercises
+                .Where(e => stages.Contains(e.Stage.StageID))
+                .Select(e => new AdditionalExerciseViewModel
+                {
+                    Exercise = e.ExerciseName,
+                    Description = e.Description
+                }).ToList();
         }
 
         [HttpGet]

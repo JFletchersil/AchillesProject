@@ -11,10 +11,12 @@
   <ion-card text-center>
     <ion-title padding-top>{{ exercise.name }} </ion-title>
 
-    <ion-item text-center>Goal: {{ exercise.sets }} sets of {{ exercise.reps }} reps.</ion-item>
+    <ion-item  text-center *ngIf="exercise.exerciseType === exerciseRepsSets">Goal: {{ exercise.sets }} sets of {{ exercise.reps }} reps.</ion-item>
+    <ion-item text-center *ngIf="exercise.exerciseType === exerciseTimed">Goal: Hold stretch for {{ exercise.time }} seconds</ion-item>
   </ion-card>
 
-  <ion-card text-center *ngIf="exercise.completed && exercise.exerciseType === exerciseRepsSets">
+  <!-- Rep Based Exercise -->
+  <ion-card text-center *ngIf="exercise.exerciseType === exerciseRepsSets">
       <ion-item>
         <ion-label text-wrap>Reps Managed:</ion-label>
         <ion-select *ngFor="let set of _exerciseService.getSetsArray(exercise.sets)">
@@ -24,7 +26,8 @@
       </ion-item>
   </ion-card>
 
-  <ion-card text-center *ngIf="exercise.completed && exercise.exerciseType === exerciseTimed">
+  <!-- Time Based Exercise -->
+  <ion-card text-center *ngIf="exercise.exerciseType === exerciseTimed">
     <ion-item>
       <ion-label text-wrap>Time Held (s):</ion-label>
       <ion-select>

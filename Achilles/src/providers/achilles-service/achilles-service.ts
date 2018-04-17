@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
-import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
+import { environment } from '@app/env';
 /*
   Generated class for the AchillesServiceProvider provider.
 
@@ -11,9 +10,7 @@ import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfi
 @Injectable()
 export class AchillesServiceProvider {
 
-  constructor(public http: HttpClient, 
-    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>) {
-    let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
+  constructor(public http: HttpClient) {
     console.log('Hello AchillesServiceProvider Provider');
   }
 

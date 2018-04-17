@@ -12,8 +12,17 @@ for (var i = 0; i < process.argv.length; i++) {
     }
 }
 
-var rd = fs.createReadStream('src/env-configuration/' + jsonConfigurationFile)
+// if(!(fs.existsSync("www")))
+// {
+//     fs.mkdirSync("www");
+//     fs.mkdirSync("www/build");
+//     fs.mkdirSync("www/assets");
+// }
+
+var rd = fs.createReadStream('src/env-configuration/' + jsonConfigurationFile);
 var wd = fs.createWriteStream('www/env-configuration.json');
+// wd = fs.createWriteStream('www/build/env-configuration.json');
+// wd = fs.createWriteStream('www/assets/env-configuration.json');
 rd.on('error', handleError);
 wd.on('error', handleError);
 

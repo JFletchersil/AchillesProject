@@ -21,7 +21,7 @@ import { WorkoutSummaryPageModule } from '../pages/workout-summary/workout-summa
 import { StatisticsPageModule } from '../pages/statistics/statistics.module';
 import { ExerciseServiceProvider } from '../providers/exercise-service/exercise-service';
 import { AdditionalExerciseListComponent } from '../components/additional-exercise-list/additional-exercise-list';
-import { GLIonic2EnvConfigurationModule } from 'gl-ionic2-env-configuration';
+import { environment } from '@app/env';
 
 @NgModule({
   declarations: [
@@ -36,8 +36,7 @@ import { GLIonic2EnvConfigurationModule } from 'gl-ionic2-env-configuration';
     TabsPageModule,
     WorkoutPageModule,
     WorkoutSummaryPageModule,
-    StatisticsPageModule,
-    GLIonic2EnvConfigurationModule 
+    StatisticsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

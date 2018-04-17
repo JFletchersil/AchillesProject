@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
-import {EnvConfigurationProvider} from "gl-ionic2-env-configuration";
-import {ITestAppEnvConfiguration} from "../../env-configuration/ITestAppEnvConfiguration";
 import { Exercise, ExerciseType } from '../../domain/exercise';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from '@app/env';
 
 @IonicPage()
 @Component({
@@ -28,21 +27,17 @@ export class WorkoutPage implements OnInit {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private envConfiguration: EnvConfigurationProvider<ITestAppEnvConfiguration>,
     private _exerciseService: ExerciseServiceProvider,
     public sanitizer: DomSanitizer) {
     
-    let config: ITestAppEnvConfiguration = envConfiguration.getConfig();
-    
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WorkoutPage');
   }
 
   ngOnInit() {
-    this.exercise = this._exerciseService.getSingleExercise();
-    this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/f1HzSAuB-Vw');
+    // Sets the exercise to the one clicked on the workout page.
+    this.exercise = this.navParams.data;
+    
+    // This is needed to bypass security warnings of unsanitised urls in browsers.
+    this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.exercise.videoLink);
   }
 
 

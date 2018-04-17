@@ -7,9 +7,10 @@
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "serve": "ionic-app-scripts serve",
     "lint": "ionic-app-scripts lint",
-    "ionic:build": "node copy-env-config.js --env prod | ionic-app-scripts build",
-    "ionic:serve": "node copy-env-config.js --env dev | ionic-app-scripts serve"
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
@@ -34,6 +35,9 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.6",
     "typescript": "2.4.2"
+  },
+  "config": {
+    "ionic_webpack":"./config/webpack.config.js"
   },
   "description": "An Ionic project"
 }
