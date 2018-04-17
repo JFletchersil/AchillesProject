@@ -25,13 +25,6 @@ namespace AchillesAPI.Controllers
             _context = context;
         }
 
-        // GET api/exercises
-        [HttpGet]
-        public string defaultPath()
-        {
-            return "Test";
-        }
-
         // GET api/exercises/additional
         [Route("additional/{stage}")]
         public string getTest(int stage)
