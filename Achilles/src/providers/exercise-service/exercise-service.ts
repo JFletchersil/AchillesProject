@@ -25,6 +25,7 @@ export class ExerciseServiceProvider {
       this.http.get(environment.api + `api/Exercises/GetDailyExercises?sessionId=${sessionId}`)
       .subscribe(exercises =>{
         console.log(exercises);
+        debugger;
         resolve(exercises as Exercises);
       }, err => {console.log('Cannot find additional exercises');});
     });
@@ -53,4 +54,15 @@ export class ExerciseServiceProvider {
     return intervals;
   }
 
+  // I needed a method to compare the length of the completed array, with the length of the current array
+  public returnAreCompletedAndCurrentEqual(completed : number[], current : number[]){
+    debugger;
+    if(completed !== null && completed !== undefined && current !== null && current !== undefined){
+      let tempLen = (typeof current === 'number') ? 1 : current.length;
+      return completed.length == tempLen;
+    }else{
+      return false;
+    }
+
+  }
 }

@@ -31,6 +31,11 @@ export class WorkoutSummaryPage implements OnInit {
     private _exerciseServiceProvider: ExerciseServiceProvider) {
   }
 
+  evaluateCompletedStatus(exercise: Exercise){
+    return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedReps, this._exerciseServiceProvider.getSetsArray(exercise.sets)) 
+        || this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedTimes, [exercise.time])
+  }
+
   ngOnInit() {
     this.storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
@@ -46,11 +51,7 @@ export class WorkoutSummaryPage implements OnInit {
         this.sessionId = sessionId;
         this.getExercises();
       }
-
-
     });
-
-
   }
 
   async getExercises(){
