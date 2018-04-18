@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Exercise, ExerciseType } from '../../domain/exercise';
+import { Exercise, ExerciseType, SaveExercise } from '../../domain/exercise';
 import { Exercises } from '../../domain/exercises';
 import { environment } from '@app/env';
 import { AdditionalExercises } from '../../domain/additionalExercises';
+import { success } from 'domain/success';
 
 @Injectable()
 export class ExerciseServiceProvider {
@@ -11,7 +12,7 @@ export class ExerciseServiceProvider {
   constructor(public http: HttpClient) {
   }
 
-  getAdditionalExercises(stage : number) : Promise<AdditionalExercises>{
+  public getAdditionalExercises(stage : number) : Promise<AdditionalExercises>{
     return new Promise(res => {
       this.http.get(environment.api + 'api/Exercises/additional/' + stage).subscribe(exercises =>{
         res(exercises as AdditionalExercises);
@@ -19,12 +20,22 @@ export class ExerciseServiceProvider {
     });
   }
 
-  public getExercises(): Promise<Exercises> {
+  public getExercises(sessionId: string): Promise<Exercises> {
     return new Promise<Exercises>((resolve, reject) => {
-      this.http.get(environment.api + 'api/Exercises/GetDailyExercises').subscribe(exercises =>{
+      this.http.get(environment.api + `api/Exercises/GetDailyExercises?sessionId=${sessionId}`)
+      .subscribe(exercises =>{
         console.log(exercises);
         resolve(exercises as Exercises);
-      }, err => {console.log('Cannot find additional exercises"');});
+      }, err => {console.log('Cannot find additional exercises');});
+    });
+  }
+
+  public saveExercise(exercise: SaveExercise) : Promise<success>{
+    return new Promise((resolve, reject) =>{
+      this.http.post(environment.api + `api/Exercises/SaveSingleDailyExercises`, exercise)
+      .subscribe(result =>{
+        resolve(result as success)
+      }), err => {console.log('has not saved');}
     });
   }
 

@@ -33,7 +33,7 @@ export class HomePage {
           if (!isValidSessionId) {
             this.navController.setRoot(this.loginPage);
           }
-          console.log("valid session for: "+sessionId);
+          console.log("valid session for: " + sessionId);
         });
   
         this.sessionId = sessionId;

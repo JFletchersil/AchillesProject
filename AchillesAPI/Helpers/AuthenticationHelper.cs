@@ -8,14 +8,34 @@ namespace AchillesAPI.Helpers
     {
         public bool VerifySession(Guid sessionId, ApplicationDbContext context)
         {
-            var userSession = context.UserSessions.ToList().FirstOrDefault(x => x.SessionId == sessionId);
-            var isNotExpired =  DateTime.Now < userSession.ExpiresWhen;
-            if (!isNotExpired)
+            try
             {
-                context.UserSessions.Remove(userSession);
-                context.SaveChanges();
+                var userSession = context.UserSessions.ToList().FirstOrDefault(x => x.SessionId == sessionId);
+                var isNotExpired = DateTime.Now < userSession.ExpiresWhen;
+                if (!isNotExpired)
+                {
+                    context.UserSessions.Remove(userSession);
+                    context.SaveChanges();
+                }
+                return isNotExpired;
             }
-            return isNotExpired;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Guid DerriveUserIdFromSessionId(Guid sessionId, ApplicationDbContext context)
+        {
+            try
+            {
+                return context.UserSessions.FirstOrDefault(x => x.SessionId == sessionId).UserId;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

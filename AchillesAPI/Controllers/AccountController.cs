@@ -36,7 +36,7 @@ namespace AchillesAPI.Controllers
         /// <returns>A 200 or 500 response depending on if the login action was successful or not</returns>
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> Login([FromBody]LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel)
         {
             try
             {

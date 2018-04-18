@@ -16,7 +16,7 @@
   </ion-card>
 
   <!-- Rep Based Exercise -->
-  <ion-card text-center *ngIf="exercise.exerciseType === exerciseRepsSets">
+  <ion-card text-center *ngIf="exercise.exerciseType === exerciseRepsSets && !exercise.completedResults.completedReps.length > 0">
       <ion-item>
         <ion-label text-wrap>Reps Managed:</ion-label>
         <ion-select *ngFor="let set of _exerciseService.getSetsArray(exercise.sets)">
@@ -25,6 +25,33 @@
         <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
       </ion-item>
   </ion-card>
+
+  <ion-card text-center *ngIf="exercise.exerciseType === exerciseRepsSets && exercise.completedResults.completedReps.length > 0">
+      <ion-item>
+        <ion-label text-wrap>Reps Managed:</ion-label>
+        <ion-select  
+        [ngModel]="exercise.completedResults.completedReps[i]"
+        (ngModelChange)="exercise.completedResults.completedReps[i] = $event"
+        *ngFor="let repsBox of exercise.completedResults.completedReps; let i = index; trackBy:customTrackBy">
+            <ion-option 
+              *ngFor="let reps of _exerciseService.getSelectBoxIntervals(exercise.reps)" 
+              [selected]="reps == repsBox" [value]="reps">{{reps}}
+            </ion-option>
+        </ion-select>
+        <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
+      </ion-item>
+  </ion-card>
+
+  <!-- <ion-item *ngIf="exercise.exerciseType === exerciseRepsSets && exercise.completedResults.completedReps.length > 0">
+      <ion-label text-wrap>Reps Managed</ion-label>
+      <ion-select *ngFor="let repsBox of exercise.completedResults.completedReps">
+
+          <ion-option 
+            *ngFor="let reps of _exerciseServiceProvider.getSelectBoxIntervals(exercise.reps)" 
+            [selected]="reps == repsBox" [value]="reps">{{reps}}
+          </ion-option>
+      </ion-select>
+    </ion-item> -->
 
   <!-- Time Based Exercise -->
   <ion-card text-center *ngIf="exercise.exerciseType === exerciseTimed">
@@ -36,6 +63,8 @@
       <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
     </ion-item>
   </ion-card>
+
+  
 
 
   <iframe 
