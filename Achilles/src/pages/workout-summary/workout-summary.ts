@@ -36,6 +36,10 @@ export class WorkoutSummaryPage implements OnInit {
         || this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedTimes, [exercise.time])
   }
 
+  customTrackBy(index: number, obj:any): any {
+    return index;
+  }
+
   ngOnInit() {
     this.storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
