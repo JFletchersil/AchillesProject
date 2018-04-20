@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AchillesAPI.Contexts;
 using AchillesAPI.Models;
+using AchillesAPI.Models.AppOptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -40,7 +41,7 @@ namespace AchillesAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+            services.AddOptions();
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.WithOrigins("http://localhost:8100")
@@ -60,6 +61,7 @@ namespace AchillesAPI
                 options.UseSqlServer(Configuration.GetConnectionString("AngularDBConnection"));
             });
 
+            services.Configure<ApplicationOptions>(Configuration);
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();

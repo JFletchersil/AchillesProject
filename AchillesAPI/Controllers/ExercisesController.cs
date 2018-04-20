@@ -10,6 +10,9 @@ using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
 using AchillesAPI.Helpers;
 using AchillesAPI.Models.ViewModels.ErrorModels;
+using Microsoft.Extensions.Options;
+using AchillesAPI.Models.AppOptions;
+using AchillesAPI.Models.Helper;
 
 namespace AchillesAPI.Controllers
 {
@@ -18,14 +21,17 @@ namespace AchillesAPI.Controllers
     public class ExercisesController : Controller
     {
         private readonly AngularDbContext _context;
-        private readonly ApplicationDbContext _appContext;
+        private readonly ApplicationDbContext _authContext;
         private readonly AuthenticationHelper authenticationHelper;
         private readonly SessionExpiredViewModel sessionExpired;
+        private readonly ApplicationOptions _appOptions;
 
-        public ExercisesController(AngularDbContext context, ApplicationDbContext appContext)
+        public ExercisesController(AngularDbContext context, ApplicationDbContext appContext,
+            IOptions<ApplicationOptions> optionsAccessor)
         {
             _context = context;
-            _appContext = appContext;
+            _authContext = appContext;
+            _appOptions = optionsAccessor.Value;
             authenticationHelper = new AuthenticationHelper();
             sessionExpired = new SessionExpiredViewModel()
             {
@@ -58,10 +64,10 @@ namespace AchillesAPI.Controllers
         [Route("GetDailyExercises")]
         public IActionResult GetDailyExercises(Guid sessionID)
         {
-            if (!authenticationHelper.VerifySession(sessionID, _appContext))
+            if (!authenticationHelper.VerifySession(sessionID, _authContext))
                 return BadRequest(sessionExpired);
 
-            var userID = authenticationHelper.DerriveUserIdFromSessionId(sessionID, _appContext);
+            var userID = authenticationHelper.DerriveUserIdFromSessionId(sessionID, _authContext);
 
             if (_context.UserExercises.Any(x => x.AuthUserID == userID && x.DateTime.Date == DateTime.Now.Date))
             {
@@ -92,10 +98,48 @@ namespace AchillesAPI.Controllers
             }
             else
             {
-                var userLevel = _appContext.Users.FirstOrDefault(x => x.Id == userID.ToString()).UserLevel;
-                var exerciseLevelId = _context.Stages.FirstOrDefault(x => x.StageNumber == userLevel).StageID;
-                var exercisesOfLevel = _context.ExerciseStages.Where(x => x.StageID == exerciseLevelId);
-                var exercises = _context.Exercises.Include(x => x.ExerciseType).Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID)).ToList();
+                var exercisesWithinStage = GetExercisesByUserStage(userID);
+                var exercisesFromLastExerciseSession =
+                    GetAllExercisesWithinCorrectStageFromLastExerciseSession(userID, exercisesWithinStage);
+
+                var exercises = new List<Exercise>();
+                foreach (var userExercise in exercisesFromLastExerciseSession.PreviousUserExercises)
+                {
+                    var associatedPreviousExercise = exercisesFromLastExerciseSession.PreviousStandardExercises
+                        .FirstOrDefault(x => x.ExerciseID == userExercise.ExerciseStageID);
+                    var hasPreviousExercise = !string.IsNullOrWhiteSpace(associatedPreviousExercise.
+                        PreviousSubStageExerciseID);
+                    var hasFutureExercise = !string.IsNullOrWhiteSpace(associatedPreviousExercise.
+                        FutureSubStageExerciseID);
+
+                    var exerciseProgress = JsonConvert
+                        .DeserializeObject<CompletedExerciseResults>(userExercise.ResultsJSON);
+                    switch (associatedPreviousExercise.ExerciseType.ExerciseTypeEnum)
+                    {
+                        case ExerciseTypes.Timed:
+                            exercises.Add(EvaluateIfUserMovesAheadOrBehindExercises(associatedPreviousExercise, 
+                                userExercise, hasFutureExercise, hasPreviousExercise, exerciseProgress.CompletedTimes,
+                                associatedPreviousExercise.Time));
+                            break;
+                        case ExerciseTypes.RepsSets:
+                            exercises.Add(EvaluateIfUserMovesAheadOrBehindExercises(associatedPreviousExercise, 
+                                userExercise, hasFutureExercise, hasPreviousExercise, exerciseProgress.CompletedReps,
+                                associatedPreviousExercise.Reps));
+                            break;
+                        default:
+                            return BadRequest();
+                    }
+                }
+
+                var missingExercises = _appOptions.DailyExercises - exercises.Count();
+                if (missingExercises != 0)
+                {
+                    var idOfExericses = exercises.Select(x => x.ExerciseID);
+                    var potentialExercises = _context.Exercises.Where(x => !idOfExericses.Any(y => y == x.ExerciseID) 
+                    && (string.IsNullOrEmpty(x.PreviousSubStageExerciseID)));
+                    exercises.AddRange(potentialExercises.Take(missingExercises));
+                }
+
 
                 var viewModels = exercises.Select(x => new ExerciseViewModel
                 {
@@ -109,7 +153,6 @@ namespace AchillesAPI.Controllers
                     {
                         ExerciseId = x.ExerciseID,
                         CompletedReps = new List<double?>(),
-                        CompletedSets = 0,
                         CompletedTimes = new List<double?>()
                     },
                     ExerciseType = (Models.ViewModels.ExerciseType)
@@ -147,9 +190,10 @@ namespace AchillesAPI.Controllers
                     });
                 }
 
-                if (!authenticationHelper.VerifySession(exerciseViewModel.SessionId, _appContext))
+                if (!authenticationHelper.VerifySession(exerciseViewModel.SessionId, _authContext))
                     return BadRequest(sessionExpired);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(new ErrorMessageViewModel()
                 {
@@ -173,7 +217,7 @@ namespace AchillesAPI.Controllers
                 {
                     currentSavedExercise = new UserExercise()
                     {
-                        AuthUserID = authenticationHelper.DerriveUserIdFromSessionId(exerciseViewModel.SessionId, _appContext),
+                        AuthUserID = authenticationHelper.DerriveUserIdFromSessionId(exerciseViewModel.SessionId, _authContext),
                         ExerciseStageID = exercise.ExerciseId,
                         UserExercisesID = Guid.NewGuid(),
                         DateTime = DateTime.Now,
@@ -221,7 +265,7 @@ namespace AchillesAPI.Controllers
                     });
                 }
 
-                if (!authenticationHelper.VerifySession(exerciseViewModel.SessionId, _appContext))
+                if (!authenticationHelper.VerifySession(exerciseViewModel.SessionId, _authContext))
                     return BadRequest(sessionExpired);
             }
             catch (Exception ex)
@@ -234,18 +278,18 @@ namespace AchillesAPI.Controllers
                 });
             }
 
-            var userId = authenticationHelper.DerriveUserIdFromSessionId(exerciseViewModel.SessionId, _appContext);
+            var userId = authenticationHelper.DerriveUserIdFromSessionId(exerciseViewModel.SessionId, _authContext);
 
             var currentSavedExercise = _context.UserExercises.FirstOrDefault(
                 x => x.AuthUserID == userId
-                && x.DateTime.Date == DateTime.Now.Date 
+                && x.DateTime.Date == DateTime.Now.Date
                 && exerciseViewModel.ResultViewModel.ExerciseId == x.ExerciseStageID);
 
-            if(currentSavedExercise == null)
+            if (currentSavedExercise == null)
             {
                 currentSavedExercise = new UserExercise()
                 {
-                    AuthUserID = authenticationHelper.DerriveUserIdFromSessionId(exerciseViewModel.SessionId, _appContext),
+                    AuthUserID = authenticationHelper.DerriveUserIdFromSessionId(exerciseViewModel.SessionId, _authContext),
                     ExerciseStageID = exerciseViewModel.ResultViewModel.ExerciseId,
                     UserExercisesID = Guid.NewGuid(),
                     DateTime = DateTime.Now,
@@ -263,7 +307,7 @@ namespace AchillesAPI.Controllers
             try
             {
                 _context.SaveChanges();
-                return Ok(new SuccessViewModel() { ConsoleMessage = "Has Saved", Success = true});
+                return Ok(new SuccessViewModel() { ConsoleMessage = "Has Saved", Success = true });
             }
             catch (Exception ex)
             {
@@ -273,6 +317,65 @@ namespace AchillesAPI.Controllers
                     IsError = true,
                     UserInformationMessage = "Changes were unable to be saved to the database, please record your progress, reload the application and try to save again"
                 });
+            }
+        }
+
+        private List<Exercise> GetExercisesByUserStage(Guid userID)
+        {
+            var userLevel = _authContext.Users.FirstOrDefault(x => x.Id == userID.ToString()).UserLevel;
+            var exerciseLevelId = _context.Stages.FirstOrDefault(x => x.StageNumber == userLevel).StageID;
+            var exercisesOfLevel = _context.ExerciseStages.Where(x => x.StageID == exerciseLevelId);
+            var exercisesWithinStage = _context.Exercises.Include(x => x.ExerciseType)
+                .Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID)).ToList();
+            return exercisesWithinStage;
+        }
+
+        private UserExerciseAndExercisePairLists GetAllExercisesWithinCorrectStageFromLastExerciseSession(Guid userID,
+            List<Exercise> exercisesWithinStage)
+        {
+            var previousDate = _context.UserExercises.Where(x => x.AuthUserID == userID && x.DateTime.Date != DateTime.Now.Date)
+                .OrderByDescending(x => x.DateTime).FirstOrDefault().DateTime;
+            var previousUserExercises = _context.UserExercises.Where(x => x.DateTime.Date == previousDate.Date).ToList();
+            var previousExercisesFromExerciseTable = exercisesWithinStage
+                .Where(y => previousUserExercises.Any(x => x.ExerciseStageID == y.ExerciseID)).ToList();
+            return new UserExerciseAndExercisePairLists()
+            {
+                PreviousStandardExercises = previousExercisesFromExerciseTable,
+                PreviousUserExercises = previousUserExercises
+            };
+        }
+
+        private Exercise EvaluateIfUserMovesAheadOrBehindExercises(Exercise associatedPreviousExercise,
+            UserExercise exerciseProgress, bool hasFutureExercise, bool hasPreviousExercise,
+            List<double?> completedItems, double? completedLimit)
+        {
+            if (!completedLimit.HasValue || !completedItems.All(x => x.HasValue))
+            {
+                throw new ArgumentNullException("CompletedLimit or CompletedItems are null");
+            }
+
+            try
+            {
+                var hasCompleted = completedItems.All(x => x.Value == completedLimit) 
+                    && completedItems.Count() == associatedPreviousExercise.Sets;
+
+                if (hasCompleted)
+                {
+                    if (hasFutureExercise)
+                        return _context.Exercises.FirstOrDefault(x => x.ExerciseID ==
+                        new Guid(associatedPreviousExercise.FutureSubStageExerciseID));
+                }
+                else
+                {
+                    if (hasPreviousExercise)
+                        return _context.Exercises.FirstOrDefault(x => x.ExerciseID ==
+                        new Guid(associatedPreviousExercise.PreviousSubStageExerciseID));
+                }
+                return associatedPreviousExercise;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

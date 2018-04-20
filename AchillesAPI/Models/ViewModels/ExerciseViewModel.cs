@@ -39,7 +39,6 @@ namespace AchillesAPI.Models.ViewModels
         [Required]
         public Guid ExerciseId { get; set; }
         public List<double?> CompletedReps { get; set; }
-        public double? CompletedSets { get; set; }
         public List<double?> CompletedTimes { get; set; }
     }
 

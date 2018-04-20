@@ -19,5 +19,7 @@ namespace AchillesAPI.Models.DbModels
         public double? Reps { get; set; }
         public double? Sets { get; set; }
         public double? Time { get; set; }
+        public string PreviousSubStageExerciseID { get; set; }
+        public string FutureSubStageExerciseID { get; set; }
     }
 }

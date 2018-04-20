@@ -23,6 +23,5 @@ export enum ExerciseType {
 export interface completedResults {
   exerciseId: string,
   completedReps: number[],
-  completedSets: number,
   completedTimes: number[],
 }
