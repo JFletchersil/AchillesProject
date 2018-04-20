@@ -8,7 +8,6 @@ using AchillesAPI.Models.ViewModels;
 using AchillesAPI.Contexts;
 using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Linq;
 using AchillesAPI.Helpers;
 using AchillesAPI.Models.ViewModels.ErrorModels;
 
@@ -93,7 +92,11 @@ namespace AchillesAPI.Controllers
             }
             else
             {
-                var exercises = _context.Exercises.Include(x => x.ExerciseType).ToList();
+                var userLevel = _appContext.Users.FirstOrDefault(x => x.Id == userID.ToString()).UserLevel;
+                var exerciseLevelId = _context.Stages.FirstOrDefault(x => x.StageNumber == userLevel).StageID;
+                var exercisesOfLevel = _context.ExerciseStages.Where(x => x.StageID == exerciseLevelId);
+                var exercises = _context.Exercises.Include(x => x.ExerciseType).Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID)).ToList();
+
                 var viewModels = exercises.Select(x => new ExerciseViewModel
                 {
                     Id = x.ExerciseID.ToString(),

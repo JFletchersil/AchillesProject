@@ -57,28 +57,5 @@ namespace AchillesAPI.Models.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
-        /// <summary>
-        /// Sets the initial configuration for if the user is an Administration user
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is administrator; otherwise, <c>false</c>.
-        /// </value>
-        /// <remarks>
-        /// By default, the user is assumed to not be an Administration level user.
-        /// </remarks>
-        [Display(Name = "Is Administration")]
-        public bool IsAdministrator { get; set; } = false;
-
-        /// <summary>
-        /// The user name that the user will have within the system, this is also used in conjunction with email
-        /// </summary>
-        /// <value>
-        /// The name of the user.
-        /// </value>
-        /// <seealso cref="Email" />
-        [Required]
-        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        public string UserName { get; set; }
     }
 }

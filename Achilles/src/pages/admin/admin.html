@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>admin</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        Username
+      </ion-col>
+      <ion-col col-4>
+        Current Stage
+      </ion-col>
+      <ion-col col-2>
+        Current Phase
+      </ion-col>
+      <ion-col col-2>
+        Save
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let user of users; let i = index; trackBy:customTrackBy ">
+      <ion-col col-4>
+        <ion-input [ngModel]="user.userName" (ngModelChange)="user.userName = $event" [value]="user.userName">{{user.userName}}</ion-input>
+      </ion-col>
+      <ion-col col-4>
+        <ion-input [ngModel]="user.email" (ngModelChange)="user.email = $event" [value]="user.email">{{user.email}}</ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <ion-input [ngModel]="user.userLevel" (ngModelChange)="user.userLevel = $event" [value]="user.userLevel">{{user.userLevel}}</ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <button (click)="saveData(user)" ion-button small color="secondary">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,31 +1,34 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
-//import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
-import { environment } from '@app/env';
-import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../login/login';
-import { AdminPage } from '../admin/admin';
+import { User } from '../../domain/user';
+/**
+ * Generated class for the AdminPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-admin',
+  templateUrl: 'admin.html',
 })
-export class HomePage {
-  names: Observable<any>;
-  sessionId: string = "";
+export class AdminPage {
+
   loginPage = LoginPage;
+  sessionId: string = "";
+  users: User[] = [];
 
   constructor(
-    public navCtrl: NavController,
-    public httpClient: HttpClient,
+    public navCtrl: NavController, 
+    public navParams: NavParams,
     private _loginServiceProvider: LoginServiceProvider,
     private storage: Storage,
     private navController: NavController) {
-    
+
     storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
         this.navController.setRoot(this.loginPage);
@@ -38,29 +41,29 @@ export class HomePage {
         });
   
         this.sessionId = sessionId;
+        _loginServiceProvider.getAllUsers(this.sessionId).then((response) => {
+          this.users = response;
+          console.log(response);
+          console.log(this.users);
+        }) ;
       }
 
 
       // Do async calls here.
     });
 
-
+    
   }
 
-  goToExercises() {
-    this.navCtrl.parent.select(1);
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AdminPage');
   }
 
-  goToProgress() {
-    this.navCtrl.parent.select(2);
+  customTrackBy(index: number, obj:any): any {
+    return index;
   }
 
-  goToAdmin() {
-    this.navCtrl.setRoot(AdminPage);
-  }
-
-  logOut () {
-    this._loginServiceProvider.setSessionId('');
-    this.navCtrl.setRoot(LoginPage);
+  saveData(user: User) {
+    this._loginServiceProvider.editUser(user, this.sessionId);
   }
 }

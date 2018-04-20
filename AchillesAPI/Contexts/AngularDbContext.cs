@@ -19,5 +19,6 @@ namespace AchillesAPI.Contexts
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
         public DbSet<AdditionalExercise> AdditionalExercises { get; set; }
         public DbSet<UserExercise> UserExercises { get; set; }
+        public DbSet<ExerciseStage> ExerciseStages { get; set; }
     }
 }

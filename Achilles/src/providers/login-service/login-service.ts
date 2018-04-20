@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@app/env';
 import { Storage } from '@ionic/storage';
+import { User } from '../../domain/user';
 
 /*
   Generated class for the LoginServiceProvider provider.
@@ -32,11 +33,50 @@ export class LoginServiceProvider {
         "Password": password,
       }).subscribe(response =>{
         resolve(response as string);
-      }, err => {console.log('failed for some reason');});
+      }, err => {resolve("failed")});
+    });
+  }
+
+  public register (email: string, password: string) {
+    debugger;
+    return new Promise(resolve => {
+      this.http.post(environment.api + 'api/Account/Register', {
+        "Email": email,
+        "Password": password,
+        "ConfirmPassword": password,
+      }).subscribe(response => {
+        resolve(response as boolean);
+      }, err => {
+        resolve(false);
+      });
     });
   }
 
   public setSessionId (sessionId: string) {
     this.storage.set('sessionId', sessionId);
+  }
+
+  public getAllUsers (sessionId: string): Promise<User[]> {
+    return new Promise(resolve => {
+      this.http.get(environment.api + 'api/Account/GetAllUsers?sessionId='+sessionId)
+        .subscribe(response =>{
+          resolve(response as User[]);
+        }, err => {console.log('failed for some reason');});
+    });
+  }
+
+  public editUser (user: User, sessionId: string) {
+    // console.log({
+    //   sessionId: sessionId,
+    //   userModel: user,
+    // });
+    return new Promise(resolve => {
+      this.http.post(environment.api + 'api/Account/Edit', {
+        sessionId: sessionId,
+        userModel: user,
+      }).subscribe(response =>{
+        console.log(response);
+      }, err => {console.log('failed for some reason');});
+    });
   }
 }

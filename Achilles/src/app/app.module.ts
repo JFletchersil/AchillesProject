@@ -1,5 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -28,6 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
+import { AdminPageModule } from '../pages/admin/admin.module';
+import { AdminPage } from '../pages/admin/admin';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { LoginPageModule } from '../pages/login/login.module';
     WorkoutSummaryPageModule,
     StatisticsPageModule,
     LoginPageModule,
+    AdminPageModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,6 +60,7 @@ import { LoginPageModule } from '../pages/login/login.module';
     WorkoutSummaryPage,
     StatisticsPage,
     LoginPage,
+    AdminPage,
   ],
   providers: [
     StatusBar,
