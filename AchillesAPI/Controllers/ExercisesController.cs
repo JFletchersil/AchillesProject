@@ -131,7 +131,7 @@ namespace AchillesAPI.Controllers
                 }
                 else
                 {
-                    exercises = GetExercisesByUserStage(userID);
+                    exercises = GetExercisesByUserStage(userID, false);
                 }
 
                 var viewModels = exercises.Select(x => GenerateNewExerciseViewModel(x));
@@ -297,7 +297,7 @@ namespace AchillesAPI.Controllers
             }
         }
 
-        private List<Exercise> GetExercisesByUserStage(Guid userID)
+        private List<Exercise> GetExercisesByUserStage(Guid userID, bool allExercises = true)
         {
             // Gets the current user level
             var userLevel = _authContext.Users.FirstOrDefault(x => x.Id == userID.ToString()).UserLevel;
@@ -305,11 +305,21 @@ namespace AchillesAPI.Controllers
             var exerciseLevelId = _context.Stages.FirstOrDefault(x => x.StageNumber == userLevel).StageID;
             // Gets all of the exercises, from the exercise stage table, that have the current stage ID
             var exercisesOfLevel = _context.ExerciseStages.Where(x => x.StageID == exerciseLevelId);
-            // Get all of the exercises within the database at the users level, including the exercise type in the object,
-            // only include exercises that are at the lowest level of progression within the database
-            var exercisesWithinStage = _context.Exercises.Include(x => x.ExerciseType)
-                .Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID) && y.PreviousSubStageExerciseID == null).ToList();
-            return exercisesWithinStage;
+            // Get all of the exercises within the database at the users level, 
+            // including the exercise type in the object
+            // Depending on need, either include all exercises in order to filter based off previous exercises
+            // performed, or only return exercises that are at the start of a chain of exercises
+            if (allExercises)
+            {
+                return _context.Exercises.Include(x => x.ExerciseType)
+                    .Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID)).ToList();
+            }
+            else
+            {
+                return _context.Exercises.Include(x => x.ExerciseType)
+                    .Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID) 
+                    && y.PreviousSubStageExerciseID == null).ToList();
+            }
         }
 
         private UserExerciseAndExercisePairLists GetAllExercisesWithinCorrectStageFromLastExerciseSession(Guid userID,
