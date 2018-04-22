@@ -9,6 +9,6 @@ namespace AchillesAPI.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
-        public int UserLevel { get; set; }
+        public int UserLevel { get; set; } = 1;
     }
 }

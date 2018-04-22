@@ -109,7 +109,7 @@ namespace AchillesAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = input.Email, Email = input.Email };
+                var user = new ApplicationUser { UserName = input.Email, Email = input.Email, UserLevel = 1 };
                 var result = await _userManager.CreateAsync(user, input.Password);
                 if (result.Succeeded)
                 {

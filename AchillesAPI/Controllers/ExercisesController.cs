@@ -68,7 +68,7 @@ namespace AchillesAPI.Controllers
                 return BadRequest(sessionExpired);
 
             var userID = authenticationHelper.DerriveUserIdFromSessionId(sessionID, _authContext);
-
+            var isOldUser = _context.UserExercises.Any(x => x.AuthUserID == userID);
             if (_context.UserExercises.Any(x => x.AuthUserID == userID && x.DateTime.Date == DateTime.Now.Date))
             {
                 var currentExercisesInProgress = _context.UserExercises.Where(x => x.AuthUserID == userID && x.DateTime.Date == DateTime.Now.Date).ToList();
@@ -79,85 +79,62 @@ namespace AchillesAPI.Controllers
                 {
                     var exerciseConfiguration = _context.Exercises.Include(x => x.ExerciseType).FirstOrDefault(x => x.ExerciseID == exercise.ExerciseStageID);
                     var completedExercise = JsonConvert.DeserializeObject<CompletedExerciseResults>(exercise.ResultsJSON);
-
-                    var exeriseViewModel = new ExerciseViewModel()
-                    {
-                        Id = exercise.ExerciseStageID.ToString(),
-                        Name = exerciseConfiguration.ExerciseName,
-                        Reps = exerciseConfiguration.Reps,
-                        Sets = exerciseConfiguration.Sets,
-                        Time = exerciseConfiguration.Time,
-                        CompletedResults = completedExercise,
-                        VideoLink = exerciseConfiguration.VideoLink,
-                        ExerciseType = (Models.ViewModels.ExerciseType)
-                                        Enum.Parse(typeof(Models.ViewModels.ExerciseType), exerciseConfiguration.ExerciseType.ExerciseTypeEnum.ToString(), true)
-                    };
-                    exerciseViewModels.Add(exeriseViewModel);
+                    exerciseViewModels.Add(GenerateNewExerciseViewModel(exerciseConfiguration, completedExercise));
                 }
                 return Ok(exerciseViewModels);
             }
             else
             {
-                var exercisesWithinStage = GetExercisesByUserStage(userID);
-                var exercisesFromLastExerciseSession =
-                    GetAllExercisesWithinCorrectStageFromLastExerciseSession(userID, exercisesWithinStage);
-
                 var exercises = new List<Exercise>();
-                foreach (var userExercise in exercisesFromLastExerciseSession.PreviousUserExercises)
+                if (isOldUser)
                 {
-                    var associatedPreviousExercise = exercisesFromLastExerciseSession.PreviousStandardExercises
-                        .FirstOrDefault(x => x.ExerciseID == userExercise.ExerciseStageID);
-                    var hasPreviousExercise = !string.IsNullOrWhiteSpace(associatedPreviousExercise.
-                        PreviousSubStageExerciseID);
-                    var hasFutureExercise = !string.IsNullOrWhiteSpace(associatedPreviousExercise.
-                        FutureSubStageExerciseID);
+                    var exercisesWithinStage = GetExercisesByUserStage(userID);
+                    var exercisesFromLastExerciseSession =
+                        GetAllExercisesWithinCorrectStageFromLastExerciseSession(userID, exercisesWithinStage);
 
-                    var exerciseProgress = JsonConvert
-                        .DeserializeObject<CompletedExerciseResults>(userExercise.ResultsJSON);
-                    switch (associatedPreviousExercise.ExerciseType.ExerciseTypeEnum)
+                    foreach (var userExercise in exercisesFromLastExerciseSession.PreviousUserExercises)
                     {
-                        case ExerciseTypes.Timed:
-                            exercises.Add(EvaluateIfUserMovesAheadOrBehindExercises(associatedPreviousExercise, 
-                                userExercise, hasFutureExercise, hasPreviousExercise, exerciseProgress.CompletedTimes,
-                                associatedPreviousExercise.Time));
-                            break;
-                        case ExerciseTypes.RepsSets:
-                            exercises.Add(EvaluateIfUserMovesAheadOrBehindExercises(associatedPreviousExercise, 
-                                userExercise, hasFutureExercise, hasPreviousExercise, exerciseProgress.CompletedReps,
-                                associatedPreviousExercise.Reps));
-                            break;
-                        default:
-                            return BadRequest();
+                        var associatedPreviousExercise = exercisesFromLastExerciseSession.PreviousStandardExercises
+                            .FirstOrDefault(x => x.ExerciseID == userExercise.ExerciseStageID);
+                        var hasPreviousExercise = !string.IsNullOrWhiteSpace(associatedPreviousExercise.
+                            PreviousSubStageExerciseID);
+                        var hasFutureExercise = !string.IsNullOrWhiteSpace(associatedPreviousExercise.
+                            FutureSubStageExerciseID);
+
+                        var exerciseProgress = JsonConvert
+                            .DeserializeObject<CompletedExerciseResults>(userExercise.ResultsJSON);
+                        switch (associatedPreviousExercise.ExerciseType.ExerciseTypeEnum)
+                        {
+                            case ExerciseTypes.Timed:
+                                exercises.Add(EvaluateIfUserMovesAheadOrBehindExercises(associatedPreviousExercise,
+                                    userExercise, hasFutureExercise, hasPreviousExercise, exerciseProgress.CompletedTimes,
+                                    associatedPreviousExercise.Time));
+                                break;
+                            case ExerciseTypes.RepsSets:
+                                exercises.Add(EvaluateIfUserMovesAheadOrBehindExercises(associatedPreviousExercise,
+                                    userExercise, hasFutureExercise, hasPreviousExercise, exerciseProgress.CompletedReps,
+                                    associatedPreviousExercise.Reps));
+                                break;
+                            default:
+                                return BadRequest();
+                        }
+                    }
+
+                    var missingExercises = _appOptions.DailyExercises - exercises.Count();
+                    if (missingExercises != 0)
+                    {
+                        var idOfExericses = exercises.Select(x => x.ExerciseID);
+                        var potentialExercises = _context.Exercises.Where(x => !idOfExericses.Any(y => y == x.ExerciseID)
+                        && (string.IsNullOrEmpty(x.PreviousSubStageExerciseID)));
+                        exercises.AddRange(potentialExercises.Take(missingExercises));
                     }
                 }
-
-                var missingExercises = _appOptions.DailyExercises - exercises.Count();
-                if (missingExercises != 0)
+                else
                 {
-                    var idOfExericses = exercises.Select(x => x.ExerciseID);
-                    var potentialExercises = _context.Exercises.Where(x => !idOfExericses.Any(y => y == x.ExerciseID) 
-                    && (string.IsNullOrEmpty(x.PreviousSubStageExerciseID)));
-                    exercises.AddRange(potentialExercises.Take(missingExercises));
+                    exercises = GetExercisesByUserStage(userID);
                 }
 
-
-                var viewModels = exercises.Select(x => new ExerciseViewModel
-                {
-                    Id = x.ExerciseID.ToString(),
-                    Name = x.ExerciseName,
-                    Reps = x.Reps,
-                    Sets = x.Sets,
-                    Time = x.Time,
-                    VideoLink = x.VideoLink,
-                    CompletedResults = new CompletedExerciseResults()
-                    {
-                        ExerciseId = x.ExerciseID,
-                        CompletedReps = new List<double?>(),
-                        CompletedTimes = new List<double?>()
-                    },
-                    ExerciseType = (Models.ViewModels.ExerciseType)
-                        Enum.Parse(typeof(Models.ViewModels.ExerciseType), x.ExerciseType.ExerciseTypeEnum.ToString(), true)
-                }).ToList();
+                var viewModels = exercises.Select(x => GenerateNewExerciseViewModel(x));
 
                 var userExercises = viewModels.Select(x => new UserExercise()
                 {
@@ -322,11 +299,16 @@ namespace AchillesAPI.Controllers
 
         private List<Exercise> GetExercisesByUserStage(Guid userID)
         {
+            // Gets the current user level
             var userLevel = _authContext.Users.FirstOrDefault(x => x.Id == userID.ToString()).UserLevel;
+            // Gets the stage ID for the users current level
             var exerciseLevelId = _context.Stages.FirstOrDefault(x => x.StageNumber == userLevel).StageID;
+            // Gets all of the exercises, from the exercise stage table, that have the current stage ID
             var exercisesOfLevel = _context.ExerciseStages.Where(x => x.StageID == exerciseLevelId);
+            // Get all of the exercises within the database at the users level, including the exercise type in the object,
+            // only include exercises that are at the lowest level of progression within the database
             var exercisesWithinStage = _context.Exercises.Include(x => x.ExerciseType)
-                .Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID)).ToList();
+                .Where(y => exercisesOfLevel.Any(x => x.ExerciseID == y.ExerciseID) && y.PreviousSubStageExerciseID == null).ToList();
             return exercisesWithinStage;
         }
 
@@ -377,6 +359,27 @@ namespace AchillesAPI.Controllers
             {
                 throw ex;
             }
+        }
+
+        private ExerciseViewModel GenerateNewExerciseViewModel(Exercise exerciseConfiguration, CompletedExerciseResults completedExercise = null)
+        {
+            if (completedExercise == null)
+                completedExercise = new CompletedExerciseResults();
+
+            var exeriseViewModel = new ExerciseViewModel()
+            {
+                Id = exerciseConfiguration.ExerciseID.ToString(),
+                Name = exerciseConfiguration.ExerciseName,
+                Reps = exerciseConfiguration.Reps,
+                Sets = exerciseConfiguration.Sets,
+                Time = exerciseConfiguration.Time,
+                CompletedResults = completedExercise,
+                VideoLink = exerciseConfiguration.VideoLink,
+                ExerciseType = (Models.ViewModels.ExerciseType)
+                    Enum.Parse(typeof(Models.ViewModels.ExerciseType), exerciseConfiguration.ExerciseType.ExerciseTypeEnum.ToString(), true)
+            };
+
+            return exeriseViewModel;
         }
     }
 }
