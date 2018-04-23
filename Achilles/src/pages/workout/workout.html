@@ -1,45 +1,42 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
+    <ion-navbar>
+        <button ion-button menuToggle icon-only>
       <ion-icon name='menu'></ion-icon>
     </button>
-    <ion-title>Workout</ion-title>
-  </ion-navbar>
+        <ion-title>Workout</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-card text-center>
-    <ion-title padding-top>{{ exercise.name }} </ion-title>
-    <ion-item text-center *ngIf="exercise.exerciseType === exerciseRepsSets">Goal: {{ exercise.sets }} sets of {{ exercise.reps }} reps.</ion-item>
-    <ion-item text-center *ngIf="exercise.exerciseType === exerciseTimed">Goal: Hold stretch for {{ exercise.time }} seconds</ion-item>
-  </ion-card>
+    <ion-card text-center>
+        <ion-title padding-top>{{ exercise.name }} </ion-title>
+        <ion-item text-center *ngIf="exercise.exerciseType === exerciseRepsSets">Goal: {{ exercise.sets }} sets of {{ exercise.reps }} reps.</ion-item>
+        <ion-item text-center *ngIf="exercise.exerciseType === exerciseTimed">Goal: Hold stretch for {{ exercise.time }} seconds</ion-item>
+    </ion-card>
 
-  <!-- Rep Based Exercise -->
-  <ion-card text-center *ngIf="exercise.exerciseType === exerciseRepsSets ">
-    <ion-item>
-      <ion-label text-wrap>Reps Managed:</ion-label>
-      <ion-select 
-      [ngModel]="exercise.completedResults.completedReps[i]" (ngModelChange)="exercise.completedResults.completedReps[i] = $event"
-      *ngFor="let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy">
-        <ion-option *ngFor="let reps of _exerciseService.getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
-      </ion-select>
-      <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
-    </ion-item>
-  </ion-card>
+    <!-- Rep Based Exercise -->
+    <ion-card text-center *ngIf="exercise.exerciseType === exerciseRepsSets ">
+        <ion-item>
+            <ion-label text-wrap>Reps Managed:</ion-label>
+            <ion-select [ngModel]="exercise.completedResults.completedReps[i]" (ngModelChange)="exercise.completedResults.completedReps[i] = $event" *ngFor="let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy">
+                <ion-option *ngFor="let reps of _exerciseService.getSelectBoxIntervals(exercise.reps)" [value]="reps">{{reps}}</ion-option>
+            </ion-select>
+            <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
+        </ion-item>
+    </ion-card>
 
-  <!-- Time Based Exercise -->
-  <ion-card text-center *ngIf="exercise.exerciseType === exerciseTimed">
-    <ion-item>
-      <ion-label text-wrap>Time Held (s):</ion-label>
-      <ion-select *ngFor="let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy"
-      [ngModel]="exercise.completedResults.completedTimes[0]" (ngModelChange)="exercise.completedResults.completedTimes[0] = $event">
-        <ion-option *ngFor="let time of _exerciseService.getSelectBoxIntervals(exercise.time)" [value]="time" [selected]="time == exercise.completedResults.completedTimes[0]">{{time}}</ion-option>
-      </ion-select>
-      <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
-    </ion-item>
-  </ion-card>
+    <!-- Time Based Exercise -->
+    <ion-card text-center *ngIf="exercise.exerciseType === exerciseTimed">
+        <ion-item>
+            <ion-label text-wrap>Time Held (s):</ion-label>
+            <ion-select *ngFor="let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy" [ngModel]="exercise.completedResults.completedTimes[0]" (ngModelChange)="exercise.completedResults.completedTimes[0] = $event">
+                <ion-option *ngFor="let time of _exerciseService.getSelectBoxIntervals(exercise.time)" [value]="time" [selected]="time == exercise.completedResults.completedTimes[0]">{{time}}</ion-option>
+            </ion-select>
+            <button (click)="goBack()" ion-button item-end color="secondary">Save</button>
+        </ion-item>
+    </ion-card>
 
-  <iframe text-center class="iframe-dimensions" [src]="videoLink" allowfullscreen>
+    <iframe text-center class="iframe-dimensions" [src]="videoLink" allowfullscreen>
   </iframe>
 
 </ion-content>

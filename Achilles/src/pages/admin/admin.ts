@@ -18,16 +18,20 @@ import { User } from '../../domain/user';
 })
 export class AdminPage {
 
+  tabBarElement: any;
+
   loginPage = LoginPage;
   sessionId: string = "";
   users: User[] = [];
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private _loginServiceProvider: LoginServiceProvider,
     private storage: Storage,
     private navController: NavController) {
+
+    this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
 
     storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
@@ -39,7 +43,7 @@ export class AdminPage {
           }
           console.log("valid session for: " + sessionId);
         });
-  
+
         this.sessionId = sessionId;
         _loginServiceProvider.getAllUsers(this.sessionId).then((response) => {
           this.users = response;
@@ -52,7 +56,7 @@ export class AdminPage {
       // Do async calls here.
     });
 
-    
+
   }
 
   ionViewDidLoad() {
@@ -65,5 +69,13 @@ export class AdminPage {
 
   saveData(user: User) {
     this._loginServiceProvider.editUser(user, this.sessionId);
+  }
+
+  ionViewWillEnter() {
+    this.tabBarElement.style.display = 'none';
+  }
+
+  ionViewWillLeave() {
+    this.tabBarElement.style.display = 'flex';
   }
 }

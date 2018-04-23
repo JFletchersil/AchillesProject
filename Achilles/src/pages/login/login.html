@@ -6,9 +6,9 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ showRegister ? 'Register' : 'Log In'  }}</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>{{ showRegister ? 'Register' : 'Log In' }}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
@@ -18,40 +18,41 @@
     <div *ngIf="!showRegister">
         <form [formGroup]="loginForm" (ngSubmit)="logIn()">
             <ion-item>
-              <ion-label>Email</ion-label>
-              <ion-input formControlName="email" type="text" name="email"></ion-input>
+                <ion-label>Email</ion-label>
+                <ion-input formControlName="email" type="text" name="email"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label>Password</ion-label>
-              <ion-input formControlName="password" type="password" name="password"></ion-input>
+                <ion-label>Password</ion-label>
+                <ion-input formControlName="password" type="password" name="password"></ion-input>
             </ion-item>
             <button ion-button type="submit" block>Log In</button>
-          </form>
-    </div>  
-    
+        </form>
+    </div>
+
     <div *ngIf="showRegister">
         <form [formGroup]="registerForm" (ngSubmit)="register()">
             <ion-item>
-              <ion-label>Email</ion-label>
-              <ion-input formControlName="email" type="text" name="email"></ion-input>
+                <ion-label>Email</ion-label>
+                <ion-input formControlName="email" type="text" name="email"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label>Password</ion-label>
-              <ion-input formControlName="password" type="password" name="password"></ion-input>
+                <ion-label>Password</ion-label>
+                <ion-input formControlName="password" type="password" name="password"></ion-input>
             </ion-item>
             <button ion-button type="submit" block>Register</button>
-          </form>
+        </form>
     </div>
 
-    <ion-item *ngIf="loginFailed && !showRegister" class="login-failed">Invalid email or password</ion-item> 
-    <ion-item *ngIf="registerFailed && showRegister" class="login-failed">Invalid email or password</ion-item> 
+    <ion-item *ngIf="loginFailed && !showRegister" class="login-failed">Invalid email or password</ion-item>
+    <ion-item *ngIf="registerFailed && showRegister" class="login-failed">Invalid email or password</ion-item>
+    <ion-item *ngIf="registerFailed && showRegister" class="login-failed">Passwords should be atleast 8 characters long and contain atleast 1 digit, 1 alphabetic character, and 1 non-alphanumeric character</ion-item>
 
 
-<ion-item *ngIf="!showRegister">
-    Need an account?  <button ion-button (click)="toggleRegister()">Register here</button>
-</ion-item> 
-<ion-item *ngIf="showRegister">
-    Already have an account?  <button ion-button (click)="toggleRegister()">Log In</button>
-</ion-item> 
+    <ion-item *ngIf="!showRegister">
+        Need an account? <button ion-button (click)="toggleRegister()">Register here</button>
+    </ion-item>
+    <ion-item *ngIf="showRegister">
+        Already have an account? <button ion-button (click)="toggleRegister()">Log In</button>
+    </ion-item>
 
 </ion-content>

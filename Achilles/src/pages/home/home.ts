@@ -18,6 +18,7 @@ export class HomePage {
   names: Observable<any>;
   sessionId: string = "";
   loginPage = LoginPage;
+  superuser: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -25,7 +26,7 @@ export class HomePage {
     private _loginServiceProvider: LoginServiceProvider,
     private storage: Storage,
     private navController: NavController) {
-    
+
     storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
         this.navController.setRoot(this.loginPage);
@@ -33,13 +34,16 @@ export class HomePage {
         this._loginServiceProvider.validateSession(sessionId).then((isValidSessionId) => {
           if (!isValidSessionId) {
             this.navController.setRoot(this.loginPage);
+          } else{
+            this._loginServiceProvider.isSuperUser(sessionId).then(result =>{
+              this.superuser = result;
+            });
           }
           console.log("valid session for: " + sessionId);
         });
-  
+
         this.sessionId = sessionId;
       }
-
 
       // Do async calls here.
     });
@@ -56,7 +60,7 @@ export class HomePage {
   }
 
   goToAdmin() {
-    this.navCtrl.setRoot(AdminPage);
+    this.navCtrl.push(AdminPage);
   }
 
   logOut () {

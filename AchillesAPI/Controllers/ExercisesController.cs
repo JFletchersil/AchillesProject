@@ -327,7 +327,7 @@ namespace AchillesAPI.Controllers
         {
             var previousDate = _context.UserExercises.Where(x => x.AuthUserID == userID && x.DateTime.Date != DateTime.Now.Date)
                 .OrderByDescending(x => x.DateTime).FirstOrDefault().DateTime;
-            var previousUserExercises = _context.UserExercises.Where(x => x.DateTime.Date == previousDate.Date).ToList();
+            var previousUserExercises = _context.UserExercises.Where(x => (x.DateTime.Date == previousDate.Date) && (x.AuthUserID == userID)).ToList();
             var previousExercisesFromExerciseTable = exercisesWithinStage
                 .Where(y => previousUserExercises.Any(x => x.ExerciseStageID == y.ExerciseID)).ToList();
             return new UserExerciseAndExercisePairLists()
@@ -374,7 +374,10 @@ namespace AchillesAPI.Controllers
         private ExerciseViewModel GenerateNewExerciseViewModel(Exercise exerciseConfiguration, CompletedExerciseResults completedExercise = null)
         {
             if (completedExercise == null)
+            {
                 completedExercise = new CompletedExerciseResults();
+                completedExercise.ExerciseId = exerciseConfiguration.ExerciseID;
+            }
 
             var exeriseViewModel = new ExerciseViewModel()
             {

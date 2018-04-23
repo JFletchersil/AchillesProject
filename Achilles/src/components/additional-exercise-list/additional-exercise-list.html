@@ -6,10 +6,12 @@
 </ion-header>
 <ion-content>
     <div style="padding-top:10vh;">
-        <ion-list text-center *ngFor='let exercise of additionalExercises'>
-            <button ion-button color="secondary" full (click)="spawnDescription(exercise)">
+        <ion-list text-center>
+            <ion-item *ngFor='let exercise of additionalExercises'>
+                <button ion-button color="primary" full (click)="spawnDescription(exercise)">
                       {{exercise.exercise}} &nbsp; <ion-icon name="arrow-forward"></ion-icon>
                       </button>
+            </ion-item>
         </ion-list>
     </div>
 </ion-content>
