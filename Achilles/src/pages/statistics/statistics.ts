@@ -24,30 +24,19 @@ export class StatisticsPage {
   @ViewChild('barCanvas') barCanvas: ElementRef;
 
   stats: Statistics;
-  progress:number;
+  progress: number;
 
   barChart: any;
   loadedBar: boolean;
+  loadRefresh: string = "Load";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private loginProvider: LoginServiceProvider ,private statisticsProvider: StatisticsServiceProvider, private storage: Storage) {
-    this.storage.get('sessionId').then(sessionId =>{
-      if (!sessionId) {
-        this.navCtrl.setRoot(LoginPage);
-      } else {
-        this.loginProvider.validateSession(sessionId).then((isValidSessionId) => {
-          if (!isValidSessionId) {
-            this.navCtrl.setRoot(LoginPage);
-          }else{
-            this.statisticsProvider.getStatistics(sessionId).then(results =>{
-              this.stats = results;
-            }).then(() =>{
-              this.updateProgressBar();
-            });
-          }
-          console.log("valid session for: " + sessionId);
-        })
-        }
-    });
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private loginProvider: LoginServiceProvider, private statisticsProvider: StatisticsServiceProvider, 
+    private storage: Storage) {
+  }
+
+  ionViewDidEnter(){
+    this.onStartReload();
   }
 
   updateProgressBar(){
@@ -62,12 +51,12 @@ export class StatisticsPage {
   updateBarGraph(){
     this.loadedBar = true;
     let data = Array<number>();
+    this.loadRefresh = "Refresh";
     data.push(this.stats.getAverageSuccessOfExercies('Heel Raises'));
     data.push(this.stats.getAverageSuccessOfExercies('Towel Stretch'));
     data.push(this.stats.getAverageSuccessOfExercies('Step Ups'));
     data.push(this.stats.getAverageSuccessOfExercies('Standing Calf Stretch'));
     this.barChart = new Chart(this.barCanvas.nativeElement, {
-
       type: 'bar',
       data: {
           labels: ["HR", "TS", "SU", "SCS"],
@@ -101,6 +90,28 @@ export class StatisticsPage {
           responsive: true
       }
 
+    });
+  }
+
+  onStartReload(){
+    this.storage.get('sessionId').then(sessionId =>{
+      if (!sessionId) {
+        this.navCtrl.setRoot(LoginPage);
+      } else {
+        this.loginProvider.validateSession(sessionId).then((isValidSessionId) => {
+          if (!isValidSessionId) {
+            this.navCtrl.setRoot(LoginPage);
+          }else{
+            this.statisticsProvider.getStatistics(sessionId).then(results =>{
+              this.stats = results;
+            }).then(() =>{
+              this.updateProgressBar();
+              this.updateBarGraph();
+            });
+          }
+          console.log("valid session for: " + sessionId);
+        })
+        }
     });
   }
 }

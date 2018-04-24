@@ -39,8 +39,7 @@ export class WorkoutSummaryPage implements OnInit {
   customTrackBy(index: number, obj:any): any {
     return index;
   }
-
-  ngOnInit() {
+  ionViewDidEnter(){
     this.storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
         this.navCtrl.setRoot(this.loginPage);
@@ -56,6 +55,9 @@ export class WorkoutSummaryPage implements OnInit {
         this.getExercises();
       }
     });
+  }
+  ngOnInit() {
+
   }
 
   async getExercises(){

@@ -9,7 +9,9 @@
 
 
 <ion-content padding>
-    <div *ngIf="stats" text-center>
+    <ion-title [hidden]="stats" class="center">Loading...</ion-title>
+    <ion-spinner [hidden]="stats" class="center"></ion-spinner>
+    <div [hidden]="!stats" text-center>
         <ion-title>Progress Through Recovery</ion-title>
         <div class="progress-outer">
             <div class="progress-inner" [style.width]="progress + '%'">
@@ -17,11 +19,10 @@
             </div>
         </div>
         <ion-title>Excercise Success So Far</ion-title>
-        <button *ngIf="!loadedBar" ion-button (click)="updateBarGraph()">Load</button>
+        <!-- <button ion-button (click)="updateBarGraph()">{{loadRefresh}}</button> -->
         <div style="height:30vh">
             <canvas #barCanvas></canvas>
         </div>
-
         <ion-card *ngIf="loadedBar">
             <ion-card-header>
                 Legend
