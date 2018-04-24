@@ -12,6 +12,14 @@ export class ExerciseServiceProvider {
   constructor(public http: HttpClient) {
   }
 
+  validateExercises(exercises){
+    exercises.forEach((exercise) =>{
+      if(exercise.completedResults.completedReps ==  null) exercise.completedResults.completedReps = [];
+      if(exercise.completedResults.completedTimes == null) exercise.completedResults.completedTimes = [];
+    });
+    return exercises;
+  }
+
   public getAdditionalExercises(stage : number) : Promise<AdditionalExercises>{
     return new Promise(res => {
       this.http.get(environment.api + 'api/Exercises/additional/' + stage).subscribe(exercises =>{
@@ -25,7 +33,9 @@ export class ExerciseServiceProvider {
       this.http.get(environment.api + `api/Exercises/GetDailyExercises?sessionId=${sessionId}`)
       .subscribe(exercises =>{
         console.log(exercises);
-        resolve(exercises as Exercises);
+        let uncorrected = exercises as Exercises;
+        console.log(uncorrected)
+        resolve(this.validateExercises(uncorrected));
       }, err => {console.log('Cannot find additional exercises');});
     });
   }

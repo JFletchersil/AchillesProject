@@ -24,7 +24,7 @@ export class WorkoutSummaryPage implements OnInit {
   sessionId: string = "";
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private storage: Storage,
     private _loginServiceProvider: LoginServiceProvider,
@@ -32,7 +32,7 @@ export class WorkoutSummaryPage implements OnInit {
   }
 
   evaluateCompletedStatus(exercise: Exercise){
-    return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedReps, this._exerciseServiceProvider.getSetsArray(exercise.sets)) 
+    return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedReps, this._exerciseServiceProvider.getSetsArray(exercise.sets))
         || this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedTimes, [exercise.time])
   }
 
@@ -51,7 +51,7 @@ export class WorkoutSummaryPage implements OnInit {
           }
           console.log("valid session for: " + sessionId);
         });
-  
+
         this.sessionId = sessionId;
         this.getExercises();
       }
@@ -61,6 +61,7 @@ export class WorkoutSummaryPage implements OnInit {
   async getExercises(){
     this._exerciseServiceProvider.getExercises(this.sessionId).then((value) => {
       this.todaysExercises = value;
+      console.log(this.todaysExercises);
     });
   }
 

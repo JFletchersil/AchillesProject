@@ -79,4 +79,14 @@ export class LoginServiceProvider {
       }, err => {console.log('failed for some reason');});
     });
   }
+
+  public isSuperUser(sessionId:string): Promise<boolean>{
+    return new Promise(resolve =>{
+      this.http.get(environment.api+'api/Account/IsAdmin?sessionId='+sessionId)
+      .subscribe(response =>{
+        if(response) resolve(true);
+        else resolve(false);
+      });
+    });
+  }
 }

@@ -18,6 +18,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPage {
 
+  tabBarElement: any;
+
   homePage = HomePage;
   showRegister = false;
   loginForm: FormGroup;
@@ -27,11 +29,13 @@ export class LoginPage {
   registerFailed = false;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private _loginServiceProvider: LoginServiceProvider,
     private fb: FormBuilder) {
-      
+
+      this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
+
       this.loginForm = this.fb.group({
         email: ['', Validators.required],
         password: ['', Validators.required],
@@ -48,7 +52,7 @@ export class LoginPage {
 
     if(this.loginForm.valid) {
       const email = this.loginForm.get('email').value;
-      const password = this.loginForm.get('password').value;  
+      const password = this.loginForm.get('password').value;
 
       this._loginServiceProvider.login(email, password).then((value) => {
         if(value == 'failed') {
@@ -56,7 +60,7 @@ export class LoginPage {
         } else {
           this._loginServiceProvider.setSessionId(value);
         }
-        
+
       })
       .then(() => {
         if(!this.loginFailed) {
@@ -65,13 +69,13 @@ export class LoginPage {
       });
     }
   }
-    
+
   register() {
     this.registerFailed = false;
 
     if(this.registerForm.valid) {
       const email = this.registerForm.get('email').value;
-      const password = this.registerForm.get('password').value;  
+      const password = this.registerForm.get('password').value;
 
       this._loginServiceProvider.register(email, password).then((value) => {
         if(!value) {
@@ -92,9 +96,17 @@ export class LoginPage {
     // }).then(() => {
     //   this.navCtrl.setRoot(this.homePage);
     // });
-  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  ionViewWillEnter() {
+    this.tabBarElement.style.display = 'none';
+  }
+
+  ionViewWillLeave() {
+    this.tabBarElement.style.display = 'flex';
   }
 
 }

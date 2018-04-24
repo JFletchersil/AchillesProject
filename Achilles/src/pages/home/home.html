@@ -16,7 +16,7 @@
     <ion-list>
         <button ion-button full (click)="goToExercises()">Preform Today’s Exercises</button>
         <button ion-button full (click)="goToProgress()">View Progress</button>
-        <button ion-button full (click)="goToAdmin()">View Admin Page</button>
+        <button *ngIf="superuser" ion-button full (click)="goToAdmin()">View Admin Page</button>
         <button ion-button full (click)="logOut()">Log out</button>
     </ion-list>
 </ion-content>

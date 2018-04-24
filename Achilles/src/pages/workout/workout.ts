@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
 import { Exercise, ExerciseType, completedResults, SaveExercise } from '../../domain/exercise';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
@@ -25,20 +25,27 @@ export class WorkoutPage implements OnInit {
   exerciseRepsSets = ExerciseType.RepsSets;
   videoLink;
   sessionId: string = "";
-  
+
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private _exerciseService: ExerciseServiceProvider,
     public sanitizer: DomSanitizer,
     private storage: Storage,
-    private _loginServiceProvider: LoginServiceProvider) {
+    private _loginServiceProvider: LoginServiceProvider,
+    private alertCtrl: AlertController) {
   }
 
   goBack() {
     let saveModel = {"sessionId": this.sessionId, "resultViewModel": this.exercise.completedResults};
     this._exerciseService.saveExercise((saveModel as SaveExercise)).then((value) => {
-      // console.log(value)
+       //console.log(value)
+       let modal = this.alertCtrl.create({
+         title: `Save Succesfull`,
+         message: `Your exercise has been saved.`,
+         buttons: ["Dismiss"]
+       });
+       modal.present();
     });
   }
 
@@ -51,7 +58,7 @@ export class WorkoutPage implements OnInit {
   ngOnInit() {
     // Sets the exercise to the one clicked on the workout page.
     this.exercise = this.navParams.data;
-    
+
     // This is needed to bypass security warnings of unsanitised urls in browsers.
     this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.exercise.videoLink);
 
@@ -65,7 +72,7 @@ export class WorkoutPage implements OnInit {
           }
           console.log("valid session for: " + sessionId);
         });
-  
+
         this.sessionId = sessionId;
       }
     });

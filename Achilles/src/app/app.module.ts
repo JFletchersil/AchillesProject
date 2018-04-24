@@ -30,11 +30,12 @@ import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
 import { AdminPageModule } from '../pages/admin/admin.module';
 import { AdminPage } from '../pages/admin/admin';
+import { StatisticsServiceProvider } from '../providers/statistics-service/statistics-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    AdditionalExerciseListComponent
+    AdditionalExerciseListComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +70,7 @@ import { AdminPage } from '../pages/admin/admin';
     AchillesServiceProvider,
     ExerciseServiceProvider,
     LoginServiceProvider,
+    StatisticsServiceProvider,
   ]
 })
 export class AppModule { }
