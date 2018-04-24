@@ -23,6 +23,9 @@ import { StatisticsPageModule } from '../pages/statistics/statistics.module';
 import { ExerciseServiceProvider } from '../providers/exercise-service/exercise-service';
 import { AdditionalExerciseListComponent } from '../components/additional-exercise-list/additional-exercise-list';
 import { environment } from '@app/env';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
 
 import { IonicStorageModule } from '@ionic/storage';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
@@ -71,6 +74,8 @@ import { StatisticsServiceProvider } from '../providers/statistics-service/stati
     ExerciseServiceProvider,
     LoginServiceProvider,
     StatisticsServiceProvider,
+    LocalNotifications,
+    Push
   ]
 })
 export class AppModule { }
