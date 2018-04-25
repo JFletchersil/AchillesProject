@@ -30,8 +30,8 @@ export class StatisticsPage {
   loadedBar: boolean;
   loadRefresh: string = "Load";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private loginProvider: LoginServiceProvider, private statisticsProvider: StatisticsServiceProvider, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private loginProvider: LoginServiceProvider, private statisticsProvider: StatisticsServiceProvider,
     private storage: Storage) {
   }
 
@@ -109,7 +109,7 @@ export class StatisticsPage {
               this.updateBarGraph();
             });
           }
-          console.log("valid session for: " + sessionId);
+          //console.log("valid session for: " + sessionId);
         })
         }
     });

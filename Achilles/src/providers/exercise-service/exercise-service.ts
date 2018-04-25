@@ -32,9 +32,9 @@ export class ExerciseServiceProvider {
     return new Promise<Exercises>((resolve, reject) => {
       this.http.get(environment.api + `api/Exercises/GetDailyExercises?sessionId=${sessionId}`)
       .subscribe(exercises =>{
-        console.log(exercises);
+        //console.log(exercises);
         let uncorrected = exercises as Exercises;
-        console.log(uncorrected)
+        //console.log(uncorrected)
         resolve(this.validateExercises(uncorrected));
       }, err => {console.log('Cannot find additional exercises');});
     });

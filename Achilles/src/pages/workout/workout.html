@@ -28,6 +28,16 @@
     <!-- Time Based Exercise -->
     <ion-card text-center *ngIf="exercise.exerciseType === exerciseTimed">
         <ion-item>
+            <ion-label>Automatic Timer</ion-label>
+            <ion-toggle (ionChange)="toggleAutomatic()" checked></ion-toggle>
+        </ion-item>
+        <ion-item *ngIf="useAutomatic">
+            <ion-label text-wrap>Time Held (s):{{automaticTimerValue}}</ion-label>
+            <button *ngIf="!timerStopped" ion-button item-end color="secondary" (click)="startCounting()">Start</button>
+            <button *ngIf="!timerStopped && automaticTimerValue > 0" ion-button item-end color="danger" (click)="stopCounting()">Stop</button>
+            <button *ngIf="timerStopped" (click)="goBack()" ion-button item-end color="secondary">Save</button>
+        </ion-item>
+        <ion-item *ngIf="!useAutomatic">
             <ion-label text-wrap>Time Held (s):</ion-label>
             <ion-select *ngFor="let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy" [ngModel]="exercise.completedResults.completedTimes[0]" (ngModelChange)="exercise.completedResults.completedTimes[0] = $event">
                 <ion-option *ngFor="let time of _exerciseService.getSelectBoxIntervals(exercise.time)" [value]="time" [selected]="time == exercise.completedResults.completedTimes[0]">{{time}}</ion-option>

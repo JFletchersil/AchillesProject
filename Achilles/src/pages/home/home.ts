@@ -45,7 +45,7 @@ export class HomePage {
               this.superuser = result;
             });
           }
-          console.log("valid session for: " + sessionId);
+          //console.log("valid session for: " + sessionId);
         });
 
         this.sessionId = sessionId;
@@ -86,7 +86,7 @@ export class HomePage {
       d.setMinutes(0);
       d.setSeconds(0);
 
-      let e = new Date() 
+      let e = new Date()
       e.setDate(e.getDate()+1)
       e.setHours(18)
       e.setMinutes(0)
