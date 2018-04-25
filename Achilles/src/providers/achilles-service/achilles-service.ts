@@ -11,7 +11,7 @@ import { environment } from '@app/env';
 export class AchillesServiceProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello AchillesServiceProvider Provider');
+    //console.log('Hello AchillesServiceProvider Provider');
   }
 
 }

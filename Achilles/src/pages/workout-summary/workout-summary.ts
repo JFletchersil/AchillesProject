@@ -48,7 +48,7 @@ export class WorkoutSummaryPage implements OnInit {
           if (!isValidSessionId) {
             this.navCtrl.setRoot(this.loginPage);
           }
-          console.log("valid session for: " + sessionId);
+          //console.log("valid session for: " + sessionId);
         });
 
         this.sessionId = sessionId;
@@ -63,7 +63,7 @@ export class WorkoutSummaryPage implements OnInit {
   async getExercises(){
     this._exerciseServiceProvider.getExercises(this.sessionId).then((value) => {
       this.todaysExercises = value;
-      console.log(this.todaysExercises);
+      //console.log(this.todaysExercises);
     });
   }
 

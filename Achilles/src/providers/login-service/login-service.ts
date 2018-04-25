@@ -14,7 +14,7 @@ import { User } from '../../domain/user';
 export class LoginServiceProvider {
 
   constructor(public http: HttpClient, private storage: Storage) {
-    console.log('Hello LoginServiceProvider Provider');
+    //console.log('Hello LoginServiceProvider Provider');
   }
 
   public validateSession (sessionId: string) {
@@ -75,7 +75,7 @@ export class LoginServiceProvider {
         sessionId: sessionId,
         userModel: user,
       }).subscribe(response =>{
-        console.log(response);
+       // console.log(response);
       }, err => {console.log('failed for some reason');});
     });
   }

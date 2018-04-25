@@ -41,14 +41,14 @@ export class AdminPage {
           if (!isValidSessionId) {
             this.navController.setRoot(this.loginPage);
           }
-          console.log("valid session for: " + sessionId);
+          //console.log("valid session for: " + sessionId);
         });
 
         this.sessionId = sessionId;
         _loginServiceProvider.getAllUsers(this.sessionId).then((response) => {
           this.users = response;
-          console.log(response);
-          console.log(this.users);
+          //console.log(response);
+          //console.log(this.users);
         }) ;
       }
 
@@ -60,7 +60,7 @@ export class AdminPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminPage');
+    //console.log('ionViewDidLoad AdminPage');
   }
 
   customTrackBy(index: number, obj:any): any {
