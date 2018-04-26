@@ -12,15 +12,35 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AchillesAPI.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class AccountController : Controller
     {
+        /// <summary>
+        /// The context
+        /// </summary>
         private readonly ApplicationDbContext _context;
+        /// <summary>
+        /// The sign in manager
+        /// </summary>
         private readonly SignInManager<ApplicationUser> _signInManager;
+        /// <summary>
+        /// The user manager
+        /// </summary>
         private readonly UserManager<ApplicationUser> _userManager;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="userManager">The user manager.</param>
+        /// <param name="roleManager">The role manager.</param>
+        /// <param name="signInManager">The sign in manager.</param>
         public AccountController(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager)
         {
@@ -33,7 +53,9 @@ namespace AchillesAPI.Controllers
         /// Logins the specified login view model.
         /// </summary>
         /// <param name="loginViewModel">The login view model.</param>
-        /// <returns>A 200 or 500 response depending on if the login action was successful or not</returns>
+        /// <returns>
+        /// A 200 or 500 response depending on if the login action was successful or not
+        /// </returns>
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel)
@@ -73,6 +95,11 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Validates the result.
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("ValidateSession")]
         public IActionResult ValidateResult(Guid sessionId)
@@ -88,6 +115,11 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Determines whether [is super admin] [the specified session identifier].
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("IsAdmin")]
         public IActionResult IsSuperAdmin(Guid sessionId)
@@ -103,6 +135,11 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Registers the specified input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody]RegisterViewModel input)
@@ -121,6 +158,11 @@ namespace AchillesAPI.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Edits the user.
+        /// </summary>
+        /// <param name="userModel">The user model.</param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Edit")]
         public IActionResult EditUser([FromBody]ValidEditUserViewModel userModel)
@@ -153,6 +195,11 @@ namespace AchillesAPI.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetAllUsers")]
         public IActionResult GetAllUsers(Guid sessionId)
@@ -175,6 +222,13 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Determines whether [is super admin private] [the specified session identifier].
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns>
+        ///   <c>true</c> if [is super admin private] [the specified session identifier]; otherwise, <c>false</c>.
+        /// </returns>
         private bool IsSuperAdminPrivate(Guid sessionId)
         {
             var helper = new AuthenticationHelper();
