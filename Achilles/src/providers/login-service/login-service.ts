@@ -38,7 +38,6 @@ export class LoginServiceProvider {
   }
 
   public register (email: string, password: string) {
-    debugger;
     return new Promise(resolve => {
       this.http.post(environment.api + 'api/Account/Register', {
         "Email": email,

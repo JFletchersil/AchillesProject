@@ -22,6 +22,8 @@ export class WorkoutSummaryPage implements OnInit {
   exerciseTimed = ExerciseType.Timed;
   exerciseRepsSets = ExerciseType.RepsSets;
   sessionId: string = "";
+  hasNotLoaded: boolean = false;
+
 
   constructor(
     public navCtrl: NavController,
@@ -31,15 +33,22 @@ export class WorkoutSummaryPage implements OnInit {
     private _exerciseServiceProvider: ExerciseServiceProvider) {
   }
 
-  evaluateCompletedStatus(exercise: Exercise){
-    return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedReps, this._exerciseServiceProvider.getSetsArray(exercise.sets))
-        || this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedTimes, [exercise.time])
+  evaluateCompletedStatus(exercise: Exercise) {
+    if (exercise.reps !== null) {
+      return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedReps, exercise.sets, exercise.reps);
+    } else {
+      return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedTimes, 1, exercise.time);
+    }
   }
 
-  customTrackBy(index: number, obj:any): any {
+  evaluateHasCompletedAnyExercises(exercise: Exercise) {
+    return exercise.completedResults.completedReps.length >= 1 || exercise.completedResults.completedTimes.length >= 1;
+  }
+
+  customTrackBy(index: number, obj: any): any {
     return index;
   }
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.storage.get('sessionId').then((sessionId) => {
       if (!sessionId) {
         this.navCtrl.setRoot(this.loginPage);
@@ -60,14 +69,14 @@ export class WorkoutSummaryPage implements OnInit {
 
   }
 
-  async getExercises(){
+  async getExercises() {
     this._exerciseServiceProvider.getExercises(this.sessionId).then((value) => {
       this.todaysExercises = value;
-      //console.log(this.todaysExercises);
+      this.hasNotLoaded = true;
     });
   }
 
-  public loadExercisePage (exercise: Exercise) {
+  public loadExercisePage(exercise: Exercise) {
     this.navCtrl.push(this.workoutPage, exercise);
   }
 }

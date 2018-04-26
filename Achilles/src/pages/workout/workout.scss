@@ -5,3 +5,9 @@
   margin: 0 auto;
   display: block;
 }
+
+ion-item.setFull > .item-inner > .input-wrapper > ion-select{
+  max-width: 100% !important;
+  width: 100% !important;
+  border: 1px solid gainsboro;
+}
