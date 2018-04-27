@@ -52,10 +52,11 @@ export class StatisticsPage {
     this.loadedBar = true;
     let data = Array<number>();
     this.loadRefresh = "Refresh";
-    data.push(this.stats.getAverageSuccessOfExercies('Heel Raises'));
-    data.push(this.stats.getAverageSuccessOfExercies('Single Leg'));
     debugger;
     data.push(this.stats.getAverageSuccessOfExercies('Knee To Wall Stretch'));
+    data.push(this.stats.getAverageSuccessOfExercies('Heel Raises'));
+    data.push(this.stats.getAverageSuccessOfExercies('Single Leg'));
+
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
