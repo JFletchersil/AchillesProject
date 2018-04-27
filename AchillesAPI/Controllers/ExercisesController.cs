@@ -385,9 +385,9 @@ namespace AchillesAPI.Controllers
 
             // Basically, check to see if the user needs to be moved ahead or back in the exercises
             // First check, make sure that we actually have some results in the completedItems or completedLimit
-            if (!completedLimit.HasValue || !completedItems.All(x => x.HasValue))
+            if (completedLimit == null || completedItems == null || !completedLimit.HasValue || !completedItems.All(x => x.HasValue))
             {
-                throw new ArgumentNullException("CompletedLimit or CompletedItems are null");
+                return associatedPreviousExercise;
             }
 
             try
