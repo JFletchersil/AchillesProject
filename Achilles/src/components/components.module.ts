@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { AdditionalExerciseListComponent } from './additional-exercise-list/additional-exercise-list';
 @NgModule({
-	declarations: [AdditionalExerciseListComponent],
+	declarations: [],
 	imports: [],
-	exports: [AdditionalExerciseListComponent]
+	exports: []
 })
 export class ComponentsModule {}
