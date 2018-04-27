@@ -13,6 +13,13 @@ import { LoginPage } from '../login/login';
 import { AdminPage } from '../admin/admin';
 import { dateDataSortValue } from 'ionic-angular/util/datetime-util';
 
+
+/**
+ * 
+ * 
+ * @export
+ * @class HomePage
+ */
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -24,6 +31,18 @@ export class HomePage {
   superuser: boolean;
   @ViewChild('containerElement') containerElement: ElementRef;
 
+
+  /**
+   * Creates an instance of HomePage.
+   * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+   * @param {HttpClient} httpClient Used to perform HTTP requests.
+   * @param {Platform} plt provides information about the current platform.
+   * @param {LocalNotifications} localNotifications provides a means to send notifications to the user's device.
+   * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+   * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+   * @param {NavController} navController base class for navigation controller components like Nav and Tab.
+   * @memberof HomePage
+   */
   constructor(
     public navCtrl: NavController,
     public httpClient: HttpClient,
@@ -55,7 +74,17 @@ export class HomePage {
     });
   }
 
+  /**
+   * Lifecycle hook which is fired when entering a page, before it becomes the active one.
+   * @memberof HomePage
+   */
   ionViewDidEnter() {
+
+    
+    /**
+     * @returns Requests permissions to send notifications to the user's device.
+     * @memberof HomePage
+     */
     function requestPermission() {
       if (!('Notification' in window)) {
         alert('Notification API not supported!');
@@ -65,6 +94,10 @@ export class HomePage {
       });
     }
 
+      /**
+     * @returns Attempts to send a non persitent notification to the user's phone.
+     * @memberof HomePage
+     */
     function nonPersistentNotification() {
       if (!('Notification' in window)) {
         alert('Notification API not supported!');
@@ -118,18 +151,37 @@ export class HomePage {
     }
   }
 
+
+  /**
+   * Navigates the user to the exercise page.
+   * @memberof HomePage
+   */
   goToExercises() {
     this.navCtrl.parent.select(1);
   }
 
+  /**
+   * Navigates the user to the statistics page.
+   * @memberof HomePage
+   */
   goToProgress() {
     this.navCtrl.parent.select(2);
   }
 
+
+  /**
+   * Navigates the user to the administration page.
+   * @memberof HomePage
+   */
   goToAdmin() {
     this.navCtrl.push(AdminPage);
   }
 
+
+  /**
+   * Removes the session Id of the user and redirects them to the login page, essentially logging them out.
+   * @memberof HomePage
+   */
   logOut() {
     this._loginServiceProvider.setSessionId('');
     this.navCtrl.setRoot(LoginPage);

@@ -3,6 +3,13 @@ export interface SaveExercise{
   resultViewModel: completedResults;
 }
 
+
+/**
+ * 
+ * 
+ * @export
+ * @interface Exercise
+ */
 export interface Exercise {
   id: string;
   name: string;
@@ -15,11 +22,25 @@ export interface Exercise {
   completedResults: completedResults;
 }
 
+
+/**
+ * 
+ * 
+ * @export
+ * @enum {number}
+ */
 export enum ExerciseType {
   RepsSets = 0,
   Timed = 1,
 }
 
+
+/**
+ * 
+ * 
+ * @export
+ * @interface completedResults
+ */
 export interface completedResults {
   exerciseId: string,
   completedReps: number[],

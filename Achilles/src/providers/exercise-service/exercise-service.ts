@@ -7,12 +7,31 @@ import { AdditionalExercises } from '../../domain/additionalExercises';
 import { success } from 'domain/success';
 import { UnapprovedExercises } from 'domain/UnapprovedExercises';
 
+
+/**
+ * 
+ * @export
+ * @class ExerciseServiceProvider
+ */
 @Injectable()
 export class ExerciseServiceProvider {
 
+
+  /**
+   * Creates an instance of ExerciseServiceProvider.
+   * @param {HttpClient} http Used to perform HTTP requests.
+   * @memberof ExerciseServiceProvider
+   */
   constructor(public http: HttpClient) {
   }
 
+
+  /**
+   * Validates whether a given object is an exercise object.
+   * @param {any} exercises An object to check whether it is a valid exercise object.
+   * @returns true if the object is a valid exercise object.
+   * @memberof ExerciseServiceProvider
+   */
   validateExercises(exercises) {
     exercises.forEach((exercise) => {
       if (exercise.completedResults.completedReps == null) exercise.completedResults.completedReps = [];
@@ -21,6 +40,13 @@ export class ExerciseServiceProvider {
     return exercises;
   }
 
+  /**
+   * 
+   * Gets the list of additional exercises from the API.
+   * @param {number} stage the stage to get additional exercises for.
+   * @returns {Promise<AdditionalExercises>} A promise which holds the additional exercises list.
+   * @memberof ExerciseServiceProvider
+   */
   public getAdditionalExercises(stage: number): Promise<AdditionalExercises> {
     return new Promise(res => {
       this.http.get(environment.api + 'api/Exercises/additional/' + stage).subscribe(exercises => {
@@ -29,6 +55,12 @@ export class ExerciseServiceProvider {
     });
   }
 
+  /**
+   * 
+   * Gets the list of additional unapproved exercises from the API.
+   * @returns {Promise<AdditionalExercises>} A promise which holds the unapproved additional exercises list.
+   * @memberof ExerciseServiceProvider
+   */
   public getUnapprovedExercises(): Promise<UnapprovedExercises> {
     return new Promise(res => {
       this.http.get(environment.api + 'api/Exercises/GetUnapprovedExercises').subscribe(exercises => {
@@ -37,6 +69,13 @@ export class ExerciseServiceProvider {
     });
   }
 
+  /**
+   * 
+   * Gets the daily exercises the user must perform.
+   * @param {string} sessionId a valid sessionId which is used to validate the user.
+   * @returns {Promise<Exercises>} A promise which holds the exercises for the user.
+   * @memberof ExerciseServiceProvider
+   */
   public getExercises(sessionId: string): Promise<Exercises> {
     return new Promise<Exercises>((resolve, reject) => {
       this.http.get(environment.api + `api/Exercises/GetDailyExercises?sessionId=${sessionId}`)
@@ -49,6 +88,13 @@ export class ExerciseServiceProvider {
     });
   }
 
+  /**
+   * 
+   * Saves a single daily exercise to the API
+   * @param {SaveExercise} exercise the exercise object to save the API.
+   * @returns {Promise<success>} A promise which indicates whether the action was a success or not.
+   * @memberof ExerciseServiceProvider
+   */
   public saveExercise(exercise: SaveExercise): Promise<success> {
     return new Promise((resolve, reject) => {
       this.http.post(environment.api + `api/Exercises/SaveSingleDailyExercises`, exercise)
@@ -58,21 +104,39 @@ export class ExerciseServiceProvider {
     });
   }
 
-  // Generates an array of numbers from 0 to maxRepsOrSeconds
-  // For use in a select box to select the time taken
+  /**
+   * 
+   * Generates an array of numbers from 0 to maxRepsOrSeconds. For use in a select box to select the time taken
+   * @param {number} maxRepsOrSeconds 
+   * @returns 
+   * @memberof ExerciseServiceProvider
+   */
   public getSelectBoxIntervals(maxRepsOrSeconds: number) {
     let intervals = Array.from(Array(maxRepsOrSeconds + 1).keys());
     return intervals;
   }
 
-  // There's no way to simply use a for loop of numbers in *ngFor
-  // So I've had to make an array here purely to display multiple boxes for the reps
+  /**
+   * 
+   * Because there's no way to simply use a for loop of numbers in *ngFor, this function makes an array to display multiple boxes for the reps.
+   * @param {number} sets The number of sets, which decides how many select boxes to create.
+   * @returns An array of intervals for use in select boxes.
+   * @memberof ExerciseServiceProvider
+   */
   public getSetsArray(sets: number) {
     let intervals = Array.from(Array(sets).keys());
     return intervals;
   }
 
-  // I needed a method to compare the length of the completed array, with the length of the current array
+  /**
+   * compares the length of a completed array, with the length of the current array
+   * 
+   * @param {number[]} completed 
+   * @param {number} length 
+   * @param {number} mustMatch 
+   * @returns 
+   * @memberof ExerciseServiceProvider
+   */
   public returnAreCompletedAndCurrentEqual(completed: number[], length: number, mustMatch: number) {
     if (completed !== null && completed !== undefined) {
       let comLen = Object.keys(completed).length
