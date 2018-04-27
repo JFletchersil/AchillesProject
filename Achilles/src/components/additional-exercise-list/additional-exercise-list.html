@@ -1,17 +1,36 @@
 <ion-header>
     <ion-toolbar>
         <!-- 25/02/18, LM - Changed from ion-title to h3 to allow for title to be fully displayed on iOS devices-->
-        <h3 text-wrap>Your Approved Exercises</h3>
+        <h3 text-wrap>Exercises</h3>
     </ion-toolbar>
 </ion-header>
 <ion-content>
     <div style="padding-top:10vh;">
+        <h4 style="margin-left: 10px;">Approved Exercises</h4>
         <ion-list text-center>
             <ion-item *ngFor='let exercise of additionalExercises'>
                 <button ion-button color="primary" full (click)="spawnDescription(exercise)">
-                      {{exercise.exercise}} &nbsp; <ion-icon name="arrow-forward"></ion-icon>
-                      </button>
+                    {{exercise.exercise}} &nbsp;
+                    <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div style="padding-top:10vh;">
+        <h4 style="margin-left: 10px;">Unapproved Exercises</h4>
+        <ion-list text-center>
+            <ion-item *ngFor='let exercise of unapprovedExercises'>
+                <button ion-button color="danger" full>
+                    {{exercise.name}} &nbsp;
+                </button>
             </ion-item>
         </ion-list>
     </div>
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-label text-wrap style="margin-left: 10px;">
+            If you are unsure about an exercise, please contact your physiotherapist for more information
+        </ion-label>
+    </ion-toolbar>
+</ion-footer>

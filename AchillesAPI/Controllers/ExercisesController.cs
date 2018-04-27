@@ -92,6 +92,20 @@ namespace AchillesAPI.Controllers
         }
 
         /// <summary>
+        /// Gets the unapproved exercises.
+        /// </summary>
+        /// <returns>A list of unapproved exercises</returns>
+        [HttpGet]
+        [Route("GetUnapprovedExercises")]
+        public List<UnapprovedExerciseViewModel> GetUnapprovedExercises()
+        {
+            return _context.UnapprovedExercises.Select(x => new UnapprovedExerciseViewModel
+            {
+                Name = x.Name
+            }).ToList();
+        }
+
+        /// <summary>
         /// Gets the daily exercises.
         /// </summary>
         /// <param name="sessionID">The session identifier.</param>
