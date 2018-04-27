@@ -13,7 +13,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace AchillesAPI.Controllers
 {
     /// <summary>
-    /// 
+    /// A collection of controllers designed to allow the front end to access API functionality.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+
+    }
+
+    /// <summary>
+    /// The controller for the account functionality within the program.
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [EnableCors("MyPolicy")]
@@ -99,7 +108,7 @@ namespace AchillesAPI.Controllers
         /// Validates the result.
         /// </summary>
         /// <param name="sessionId">The session identifier.</param>
-        /// <returns></returns>
+        /// <returns>An <see cref="IActionResult"/> containing either a valid session GUID or the exception that occured.</returns>
         [HttpGet]
         [Route("ValidateSession")]
         public IActionResult ValidateResult(Guid sessionId)
@@ -119,7 +128,7 @@ namespace AchillesAPI.Controllers
         /// Determines whether [is super admin] [the specified session identifier].
         /// </summary>
         /// <param name="sessionId">The session identifier.</param>
-        /// <returns></returns>
+        /// <returns>An <see cref="IActionResult"/> containing either a bool or a 400 bad request object.</returns>
         [HttpGet]
         [Route("IsAdmin")]
         public IActionResult IsSuperAdmin(Guid sessionId)
@@ -139,7 +148,7 @@ namespace AchillesAPI.Controllers
         /// Registers the specified input.
         /// </summary>
         /// <param name="input">The input.</param>
-        /// <returns></returns>
+        /// <returns>An <see cref="IActionResult"/> that contains a bool or a bad request containing either a collection of errors or just a bad request.</returns>
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody]RegisterViewModel input)
@@ -162,7 +171,7 @@ namespace AchillesAPI.Controllers
         /// Edits the user.
         /// </summary>
         /// <param name="userModel">The user model.</param>
-        /// <returns></returns>
+        /// <returns>An <see cref="IActionResult"/>, this will be either an Ok result containing the number of records changed, or a BadRequest containing the same.</returns>
         [HttpPost]
         [Route("Edit")]
         public IActionResult EditUser([FromBody]ValidEditUserViewModel userModel)
@@ -199,7 +208,7 @@ namespace AchillesAPI.Controllers
         /// Gets all users.
         /// </summary>
         /// <param name="sessionId">The session identifier.</param>
-        /// <returns></returns>
+        /// <returns>An <see cref="IActionResult"/> containing all current users within the system, or a BadRequest Result.</returns>
         [HttpGet]
         [Route("GetAllUsers")]
         public IActionResult GetAllUsers(Guid sessionId)

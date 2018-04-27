@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AchillesAPI.Models.ViewModels.AdditionalExerciseViewModel">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\AdditionalExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.ErrorMessageViewModel">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ErrorMessageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.SessionExpiredViewModel">
+    <Position X="0.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ErrorMessageViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.ExerciseProgressViewModel">
+    <Position X="11" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAACAAAABAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\ViewModels\ExerciseProgressViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.SaveSingleExerciseProgressViewModel">
+    <Position X="0.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.SaveMultipleExerciseProgressViewModel">
+    <Position X="5.5" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.ExerciseViewModel">
+    <Position X="11" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAAAAAAAACAQAABAAAAAAAAAAAQCAAQA=</HashCode>
+      <FileName>Models\ViewModels\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.CompletedExerciseResults">
+    <Position X="8.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.LoginViewModel">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>Models\ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.RegisterViewModel">
+    <Position X="8.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAA=</HashCode>
+      <FileName>Models\ViewModels\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.StatisticsViewModel">
+    <Position X="6" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEACAAACBAAAAABAAAAAAAAAQA=</HashCode>
+      <FileName>Models\ViewModels\StatisticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.SuccessViewModel">
+    <Position X="2.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\SuccessViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.ValidEditUserViewModel">
+    <Position X="3.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\UserViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ViewModels.UserViewModel">
+    <Position X="0.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAiAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\UserViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AchillesAPI.Models.ViewModels.ExerciseType">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\ViewModels\ExerciseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

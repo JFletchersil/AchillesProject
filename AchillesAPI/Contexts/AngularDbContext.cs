@@ -4,6 +4,15 @@ using Microsoft.EntityFrameworkCore;
 namespace AchillesAPI.Contexts
 {
     /// <summary>
+    /// A collection of contexts designed to access the database associated with the application.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+
+    }
+
+    /// <summary>
     /// The entity context used to access the database for the exercises.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />

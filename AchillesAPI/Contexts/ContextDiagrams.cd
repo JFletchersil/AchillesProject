@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AchillesAPI.Contexts.NamespaceDoc" Collapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contexts\AngularDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Contexts.AngularDbContext">
+    <Position X="1.25" Y="1.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAEAIAAAEAAAABAAAAgAAAAAAEA=</HashCode>
+      <FileName>Contexts\AngularDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Contexts.ApplicationDbContext">
+    <Position X="5" Y="1.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contexts\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

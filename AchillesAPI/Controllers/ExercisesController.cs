@@ -9,7 +9,6 @@ using AchillesAPI.Contexts;
 using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
 using AchillesAPI.Helpers;
-using AchillesAPI.Models.ViewModels.ErrorModels;
 using Microsoft.Extensions.Options;
 using AchillesAPI.Models.AppOptions;
 using AchillesAPI.Models.Helper;
@@ -142,7 +141,7 @@ namespace AchillesAPI.Controllers
         /// Saves all daily exercises.
         /// </summary>
         /// <param name="exerciseViewModel">The exercise view model.</param>
-        /// <returns><see cref="IActionResult"/> that will either be <see cref="OkResult"> <see cref="BadRequestResult"></see></returns>
+        /// <returns><see cref="IActionResult"/> that will either be <see cref="OkResult"></see> <see cref="BadRequestResult"></see></returns>
         [HttpPost]
         [Route("SaveAllDailyExercises")]
         public IActionResult SaveAllDailyExercises(SaveMultipleExerciseProgressViewModel exerciseViewModel)
@@ -371,7 +370,7 @@ namespace AchillesAPI.Controllers
 
             // Basically, check to see if the user needs to be moved ahead or back in the exercises
             // First check, make sure that we actually have some results in the completedItems or completedLimit
-            if (!completedLimit.HasValue || !completedItems.All(x => x.HasValue))
+            if (completedLimit == null || completedItems == null || !completedLimit.HasValue || !completedItems.All(x => x.HasValue))
             {
                 throw new ArgumentNullException("CompletedLimit or CompletedItems are null");
             }

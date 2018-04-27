@@ -7,6 +7,15 @@ using System.Threading.Tasks;
 namespace AchillesAPI.Models.Helper
 {
     /// <summary>
+    /// A collection of models designed to help the Helper classes work more effectively.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+
+    }
+
+    /// <summary>
     /// The User Exercise and Exercise pair, this is a pair of exercises and
     /// user exercises that logically belong together.
     /// </summary>

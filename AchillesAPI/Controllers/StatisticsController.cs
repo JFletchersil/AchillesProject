@@ -9,23 +9,47 @@ using AchillesAPI.Contexts;
 using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
 using AchillesAPI.Helpers;
-using AchillesAPI.Models.ViewModels.ErrorModels;
 using Microsoft.Extensions.Options;
 using AchillesAPI.Models.AppOptions;
 using AchillesAPI.Models.Helper;
 
 namespace AchillesAPI.Controllers
 {
+    /// <summary>
+    /// The controller responsible controlling all the actions associated with the statistics of individual users.
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     public class StatisticsController : Controller
     {
+        /// <summary>
+        /// The context
+        /// </summary>
         private readonly AngularDbContext _context;
+        /// <summary>
+        /// The authentication context
+        /// </summary>
         private readonly ApplicationDbContext _authContext;
+        /// <summary>
+        /// The authentication helper
+        /// </summary>
         private readonly AuthenticationHelper authenticationHelper;
+        /// <summary>
+        /// The session expired
+        /// </summary>
         private readonly SessionExpiredViewModel sessionExpired;
+        /// <summary>
+        /// The application options
+        /// </summary>
         private readonly ApplicationOptions _appOptions;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatisticsController"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="appContext">The application context.</param>
+        /// <param name="optionsAccessor">The options accessor.</param>
         public StatisticsController(AngularDbContext context, ApplicationDbContext appContext,
             IOptions<ApplicationOptions> optionsAccessor)
         {
@@ -41,6 +65,11 @@ namespace AchillesAPI.Controllers
             };
         }
 
+        /// <summary>
+        /// Gets the statistics.
+        /// </summary>
+        /// <param name="sessionID">The session identifier.</param>
+        /// <returns>An <see cref="IActionResult"/> containing all of the relevant statisitical information.</returns>
         [HttpGet]
         [Route("GetStatistics")]
         public IActionResult GetStatistics(Guid sessionID)

@@ -1,5 +1,5 @@
 export const environment = {
-  api: 'http://localhost:5000',
+  api: 'https://achillesprojectapi.azurewebsites.net/',
   mode: 'Development',
   noteTest: true
 }
