@@ -50,7 +50,7 @@ export class WorkoutPage implements OnInit {
        let modal = this.alertCtrl.create({
          title: `Save Succesfull`,
          message: `Your exercise has been saved.`,
-         buttons: ["Dismiss"]
+         buttons: ["OK"]
        });
        modal.present();
     });
