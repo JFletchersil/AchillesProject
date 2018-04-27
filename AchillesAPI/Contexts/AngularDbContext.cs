@@ -85,5 +85,12 @@ namespace AchillesAPI.Contexts
         /// The exercise stages.
         /// </value>
         public DbSet<ExerciseStage> ExerciseStages { get; set; }
+        /// <summary>
+        /// Gets or sets the unapproved exercises.
+        /// </summary>
+        /// <value>
+        /// The unapproved exercises.
+        /// </value>
+        public DbSet<UnapprovedExercise> UnapprovedExercises { get; set; }
     }
 }

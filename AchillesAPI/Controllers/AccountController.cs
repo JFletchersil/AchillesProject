@@ -240,11 +240,17 @@ namespace AchillesAPI.Controllers
         /// </returns>
         private bool IsSuperAdminPrivate(Guid sessionId)
         {
-            var helper = new AuthenticationHelper();
-            var userId = helper.DerriveUserIdFromSessionId(sessionId, _context);
-            var usersInRole = _userManager.GetUsersInRoleAsync("SuperAdmin").Result;
-            var isSuperAdmin = usersInRole.Any(x => x.Id == userId.ToString());
-            return isSuperAdmin;
+            try
+            {
+                var helper = new AuthenticationHelper();
+                var userId = helper.DerriveUserIdFromSessionId(sessionId, _context);
+                var usersInRole = _userManager.GetUsersInRoleAsync("SuperAdmin").Result;
+                var isSuperAdmin = usersInRole.Any(x => x.Id == userId.ToString());
+                return isSuperAdmin;
+            } catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
