@@ -33,7 +33,8 @@
             <ion-label text-wrap>Time Held</ion-label>
             <ion-select [ngModel]="exercise.completedResults.completedTimes[i]" (ngModelChange)="exercise.completedResults.completedTimes[i] = $event"
                 *ngFor="let timesBox of exercise.completedResults.completedTimes;let i = index; trackBy:customTrackBy" [hidden]="exercise.completedResults.completedTimes[i] == undefined"
-                data-ng-disabled="true">
+                data-ng-disabled="true"
+                disabled ="true">
                 <ion-option *ngFor="let time of _exerciseServiceProvider.getSelectBoxIntervals(exercise.time)" [selected]="time == timesBox"
                     [value]="time">{{time}}
                 </ion-option>
@@ -45,7 +46,8 @@
             <ion-label text-wrap>Reps Managed</ion-label>
             <ion-select [ngModel]="exercise.completedResults.completedReps[i]" (ngModelChange)="exercise.completedResults.completedReps[i] = $event"
                 *ngFor="let repsBox of exercise.completedResults.completedReps;let i = index; trackBy:customTrackBy" [hidden]="exercise.completedResults.completedReps[i] == undefined"
-                data-ng-disabled="true">
+                data-ng-disabled="true"
+                disabled ="true">
                 <ion-option *ngFor="let reps of _exerciseServiceProvider.getSelectBoxIntervals(exercise.reps)" [selected]="reps == repsBox"
                     [value]="reps">{{reps}}
                 </ion-option>

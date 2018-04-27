@@ -37,7 +37,7 @@ export class AdditionalExerciseListComponent {
     let modal = this.alertCtrl.create({
       title: exercise.exercise,
       message: exercise.description,
-      buttons: ['Dismiss']
+      buttons: ['OK']
     });
     modal.present();
   }
