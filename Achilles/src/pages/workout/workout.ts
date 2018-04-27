@@ -48,7 +48,7 @@ export class WorkoutPage implements OnInit {
     this._exerciseService.saveExercise((saveModel as SaveExercise)).then((value) => {
        //console.log(value)
        let modal = this.alertCtrl.create({
-         title: `Save Succesfull`,
+         title: `Save Successful`,
          message: `Your exercise has been saved.`,
          buttons: ["OK"]
        });
