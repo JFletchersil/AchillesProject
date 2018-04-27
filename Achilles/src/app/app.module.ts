@@ -38,7 +38,7 @@ import { StatisticsServiceProvider } from '../providers/statistics-service/stati
 @NgModule({
   declarations: [
     MyApp,
-    AdditionalExerciseListComponent,
+    AdditionalExerciseListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
 import { AdditionalExercises } from '../../domain/additionalExercises';
-import {AdditionalExercise} from '../../domain/additionalExercise';
+import { AdditionalExercise } from '../../domain/additionalExercise';
+import { UnapprovedExercises} from '../../domain/unapprovedExercises';
 import { AlertController } from 'ionic-angular';
 
 /**
@@ -16,23 +17,29 @@ import { AlertController } from 'ionic-angular';
 })
 export class AdditionalExerciseListComponent {
 
-  additionalExercises : AdditionalExercises;
+  additionalExercises: AdditionalExercises;
+  unapprovedExercises : UnapprovedExercises;
 
   constructor(private alertCtrl: AlertController, private exerciseProvider: ExerciseServiceProvider) {
     this.setAdditionalExercises(1);
+    this.setUnapprovedExercises();
   }
 
-  async setAdditionalExercises(stage : number){
+  async setAdditionalExercises(stage: number) {
     this.additionalExercises = await this.exerciseProvider.getAdditionalExercises(1);
   }
 
-    spawnDescription(exercise : AdditionalExercise){
-        let modal = this.alertCtrl.create({
-          title: exercise.exercise,
-          message: exercise.description,
-          buttons: ['Dismiss']
-        });
-        modal.present();
-      }
+  async setUnapprovedExercises(){
+    this.unapprovedExercises = await this.exerciseProvider.getUnapprovedExercises();
+  }
+
+  spawnDescription(exercise: AdditionalExercise) {
+    let modal = this.alertCtrl.create({
+      title: exercise.exercise,
+      message: exercise.description,
+      buttons: ['Dismiss']
+    });
+    modal.present();
+  }
 
 }
