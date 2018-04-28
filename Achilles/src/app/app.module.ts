@@ -34,7 +34,10 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { AdminPageModule } from '../pages/admin/admin.module';
 import { AdminPage } from '../pages/admin/admin';
 import { StatisticsServiceProvider } from '../providers/statistics-service/statistics-service';
-
+/**
+ * The module responsible for containing all of the front end applications
+ * @module AppModule
+ */
 @NgModule({
   declarations: [
     MyApp,
@@ -78,4 +81,5 @@ import { StatisticsServiceProvider } from '../providers/statistics-service/stati
     Push
   ]
 })
+
 export class AppModule { }
