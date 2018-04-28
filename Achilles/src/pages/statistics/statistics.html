@@ -11,13 +11,13 @@
 <ion-content padding>
     <ion-spinner [hidden]="stats" class="center"></ion-spinner>
     <div [hidden]="!stats" text-center>
-        <ion-title>Progress Through Recovery</ion-title>
+        <ion-title>Progress Through Current Stage</ion-title>
         <div class="progress-outer">
             <div class="progress-inner" [style.width]="progress + '%'">
                 {{progress}}%
             </div>
         </div>
-        <ion-title>Excercise Success So Far</ion-title>
+        <ion-title>Exercise Success</ion-title>
         <!-- <button ion-button (click)="updateBarGraph()">{{loadRefresh}}</button> -->
         <div style="height:30vh">
             <canvas #barCanvas></canvas>

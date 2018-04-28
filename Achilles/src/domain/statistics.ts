@@ -31,7 +31,7 @@ export class Statistics{
 
   public getApproximateEndDate(): Date{
     let startDate = this.getEarlierstDate();
-    startDate.setMonth(startDate.getMonth()+6);
+    startDate.setMonth(startDate.getDay()+42);
     return startDate as Date;
   }
 
