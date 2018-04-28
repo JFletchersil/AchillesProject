@@ -52,14 +52,15 @@ export class StatisticsPage {
     this.loadedBar = true;
     let data = Array<number>();
     this.loadRefresh = "Refresh";
+    debugger;
+    data.push(this.stats.getAverageSuccessOfExercies('Knee To Wall Stretch'));
     data.push(this.stats.getAverageSuccessOfExercies('Heel Raises'));
-    data.push(this.stats.getAverageSuccessOfExercies('Towel Stretch'));
-    data.push(this.stats.getAverageSuccessOfExercies('Step Ups'));
-    data.push(this.stats.getAverageSuccessOfExercies('Standing Calf Stretch'));
+    data.push(this.stats.getAverageSuccessOfExercies('Single Leg'));
+
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
-          labels: ["HR", "TS", "SU", "SCS"],
+          labels: ["HR", "SL", "KW"],
           datasets: [{
               label: 'Success Rate %',
               data: data,
@@ -109,7 +110,6 @@ export class StatisticsPage {
               this.updateBarGraph();
             });
           }
-          //console.log("valid session for: " + sessionId);
         })
         }
     });
