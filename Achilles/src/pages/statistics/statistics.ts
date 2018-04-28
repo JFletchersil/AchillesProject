@@ -52,15 +52,15 @@ export class StatisticsPage {
     this.loadedBar = true;
     let data = Array<number>();
     this.loadRefresh = "Refresh";
-    debugger;
-    data.push(this.stats.getAverageSuccessOfExercies('Knee To Wall Stretch'));
-    data.push(this.stats.getAverageSuccessOfExercies('Heel Raises'));
-    data.push(this.stats.getAverageSuccessOfExercies('Single Leg'));
+    //debugger;
+    data.push(this.stats.getAverageSuccessOfExercies('Heel'));
+    data.push(this.stats.getAverageSuccessOfExercies('Single'));
+    data.push(this.stats.getAverageSuccessOfExercies('Knee'));
 
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
-          labels: ["HR", "SL", "KW"],
+          labels: ["HR\n " + data[0], "SL\n " + data[1], "KW\n " + data[2]],
           datasets: [{
               label: 'Success Rate %',
               data: data,

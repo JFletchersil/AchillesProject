@@ -47,7 +47,8 @@ export class Statistics{
             count +=1;
           });
         });
-    return total/count;
+    if(isNaN(total/count)) return 0;
+    else return total/count;
   }
 
 
