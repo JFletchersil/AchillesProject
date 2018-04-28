@@ -4,21 +4,22 @@ import { environment } from '@app/env';
 import { Storage } from '@ionic/storage';
 import { User } from '../../domain/user';
 
-/**
- * 
- * 
- * @export
- * @class LoginServiceProvider
- */
 @Injectable()
-export class LoginServiceProvider {
 
+/**
+ * A class which provides a range of helpful methods for authenticating users
+ * @class LoginServiceProvider
+ * @module AppModule
+ * @submodule Providers
+ */
+export class LoginServiceProvider {
 
   /**
    * Creates an instance of LoginServiceProvider.
    * @param {HttpClient} http Used to perform HTTP requests.
    * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
    * @memberof LoginServiceProvider
+   * @method constructor
    */
   constructor(public http: HttpClient, private storage: Storage) {
     //console.log('Hello LoginServiceProvider Provider');
@@ -30,6 +31,7 @@ export class LoginServiceProvider {
    * @param {string} sessionId The user's session Id from local storage.
    * @returns A promise which indicates whether the given session is valid or not.
    * @memberof LoginServiceProvider
+   * @method validateSession
    */
   public validateSession (sessionId: string) {
     return new Promise(resolve => {
@@ -47,6 +49,7 @@ export class LoginServiceProvider {
    * @param {string} password The password used in the authentication attempt.
    * @returns {Promise<string>} A promise which indicates whether the login was successful or not.
    * @memberof LoginServiceProvider
+   * @method login
    */
   public login (email: string, password: string): Promise<string> {
     return new Promise(resolve => {
@@ -66,6 +69,7 @@ export class LoginServiceProvider {
    * @param {string} password The password used in the authentication attempt.
    * @returns {Promise<string>} A promise which indicates whether the registration was successful or not.
    * @memberof LoginServiceProvider
+   * @method register
    */
   public register (email: string, password: string) {
     return new Promise(resolve => {
@@ -86,6 +90,7 @@ export class LoginServiceProvider {
    * Sets the session Id in local storage to the given session.
    * @param {string} sessionId A valid session Id which must correspond to a user account.
    * @memberof LoginServiceProvider
+   * @method setSessionId
    */
   public setSessionId (sessionId: string) {
     this.storage.set('sessionId', sessionId);
@@ -97,6 +102,7 @@ export class LoginServiceProvider {
    * @param {string} sessionId A valid session Id which must correspond to an Admin account.
    * @returns {Promise<User[]>} A promise which holds details of users.
    * @memberof LoginServiceProvider
+   * @method getAllUsers
    */
   public getAllUsers (sessionId: string): Promise<User[]> {
     return new Promise(resolve => {
@@ -114,6 +120,7 @@ export class LoginServiceProvider {
    * @param {string} sessionId A valid session Id which must correspond to an admin account.
    * @returns 
    * @memberof LoginServiceProvider
+   * @method editUser
    */
   public editUser (user: User, sessionId: string) {
     // console.log({
@@ -136,6 +143,7 @@ export class LoginServiceProvider {
    * @param {string} sessionId A valid session Id which must correspond to an admin account.
    * @returns {Promise<boolean>} A promise which returns true if the user is an admin account.
    * @memberof LoginServiceProvider
+   * @method isSuperUser
    */
   public isSuperUser(sessionId:string): Promise<boolean>{
     return new Promise(resolve =>{

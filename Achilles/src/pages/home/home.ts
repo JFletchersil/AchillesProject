@@ -13,22 +13,56 @@ import { LoginPage } from '../login/login';
 import { AdminPage } from '../admin/admin';
 import { dateDataSortValue } from 'ionic-angular/util/datetime-util';
 
-
-/**
- * 
- * 
- * @export
- * @class HomePage
- */
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+/**
+ * The page responsible for managing the HomePage.
+ * @class HomePage
+ * @module AppModule
+ * @submodule Pages
+ */
 export class HomePage {
+
+  /**
+   * An observable of names in the applications.
+   * @type {Observable<*>}
+   * @memberof HomePage
+   * @property names
+   */
   names: Observable<any>;
+
+  /**
+   * Holds a copy of the user's sessionId
+   * @type {string}
+   * @memberof HomePage
+   * @property sessionId
+   */
   sessionId: string = "";
+
+  /**
+   * Holds a reference to the LoginPage
+   * @type {LoginPage}
+   * @memberof HomePage
+   * @property loginPage
+   */
   loginPage = LoginPage;
+
+  /**
+   * A boolean indicating whether the user has admin privilages.
+   * @type {boolean}
+   * @memberof HomePage
+   * @property superUser
+   */
   superuser: boolean;
+
+  /**
+   * Contains a reference to the container element.
+   * @type {ElementRef}
+   * @memberof HomePage
+   * @property containerElement
+   */
   @ViewChild('containerElement') containerElement: ElementRef;
 
 
@@ -42,6 +76,7 @@ export class HomePage {
    * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
    * @param {NavController} navController base class for navigation controller components like Nav and Tab.
    * @memberof HomePage
+   * @method constructor
    */
   constructor(
     public navCtrl: NavController,
@@ -77,12 +112,14 @@ export class HomePage {
   /**
    * Lifecycle hook which is fired when entering a page, before it becomes the active one.
    * @memberof HomePage
+   * @method ionViewDidEnter
    */
   ionViewDidEnter() {
 
     
     /**
      * @returns Requests permissions to send notifications to the user's device.
+     * @method requestPermission
      * @memberof HomePage
      */
     function requestPermission() {
@@ -94,8 +131,9 @@ export class HomePage {
       });
     }
 
-      /**
-     * @returns Attempts to send a non persitent notification to the user's phone.
+    /**
+     * Attempts to send a non persitent notification to the user's phone.
+     * @method nonPersistentNotification
      * @memberof HomePage
      */
     function nonPersistentNotification() {
@@ -151,10 +189,10 @@ export class HomePage {
     }
   }
 
-
   /**
    * Navigates the user to the exercise page.
    * @memberof HomePage
+   * @method goToExercises
    */
   goToExercises() {
     this.navCtrl.parent.select(1);
@@ -163,24 +201,25 @@ export class HomePage {
   /**
    * Navigates the user to the statistics page.
    * @memberof HomePage
+   * @method goToProgress
    */
   goToProgress() {
     this.navCtrl.parent.select(2);
   }
 
-
   /**
    * Navigates the user to the administration page.
    * @memberof HomePage
+   * @method goToAdmin
    */
   goToAdmin() {
     this.navCtrl.push(AdminPage);
   }
 
-
   /**
    * Removes the session Id of the user and redirects them to the login page, essentially logging them out.
    * @memberof HomePage
+   * @method logOut()
    */
   logOut() {
     this._loginServiceProvider.setSessionId('');
