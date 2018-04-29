@@ -31,7 +31,7 @@ export class Statistics{
 
   public getApproximateEndDate(): Date{
     let startDate = this.getEarlierstDate();
-    startDate.setMonth(startDate.getMonth()+6);
+    startDate.setMonth(startDate.getDay()+42);
     return startDate as Date;
   }
 
@@ -47,7 +47,8 @@ export class Statistics{
             count +=1;
           });
         });
-    return total/count;
+    if(isNaN(total/count)) return 0;
+    else return total/count;
   }
 
 

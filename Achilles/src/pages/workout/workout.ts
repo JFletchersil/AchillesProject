@@ -45,19 +45,26 @@ export class WorkoutPage implements OnInit {
     private alertCtrl: AlertController) {
 
 
-        
+
   }
 
   ionViewDidLoad() {
     this.navBar.backButtonClick = (e:UIEvent)=>{
-       this.goBack();
-       this.navCtrl.pop();
+      this.save().then(() => {
+        this.navCtrl.pop();
+      });
     }
   }
 
+  save(){
+    return new Promise(res =>{
+      let saveModel = {"sessionId": this.sessionId, "resultViewModel": this.exercise.completedResults};
+      this._exerciseService.saveExercise(saveModel as SaveExercise).then(() => res(true));
+    })
+  }
+
   goBack() {
-    let saveModel = {"sessionId": this.sessionId, "resultViewModel": this.exercise.completedResults};
-    this._exerciseService.saveExercise((saveModel as SaveExercise)).then((value) => {
+    this.save().then((value) => {
        let modal = this.alertCtrl.create({
          title: `Save Successful`,
          message: `Your exercise has been saved.`,
@@ -73,7 +80,7 @@ export class WorkoutPage implements OnInit {
 
   onRepsKnownChange (value, index) {
   }
-  
+
   ngOnInit() {
     // Sets the exercise to the one clicked on the workout page.
     this.exercise = this.navParams.data;
