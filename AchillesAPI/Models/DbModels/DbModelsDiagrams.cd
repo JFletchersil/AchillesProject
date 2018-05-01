@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AchillesAPI.Models.DbModels.NamespaceDoc" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DbModels\AdditionalExercise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.AdditionalExercise">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAABAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\DbModels\AdditionalExercise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.Exercise">
+    <Position X="6" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAFAAAAAAAAAAAAACAAAABAYABAAAAAAAACAAQA=</HashCode>
+      <FileName>Models\DbModels\Exercise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.ExerciseStage">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAIAAAgA=</HashCode>
+      <FileName>Models\DbModels\ExerciseStage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.ExerciseType">
+    <Position X="3.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIACAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DbModels\ExerciseType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.Stage">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAA=</HashCode>
+      <FileName>Models\DbModels\Stage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.UserExercise">
+    <Position X="1.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAEAAAAAABAAQAAAAAAAAAAgA=</HashCode>
+      <FileName>Models\DbModels\UserExercise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.DbModels.UserSession">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAgIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DbModels\UserSession.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Models.ApplicationUser">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DbModels\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AchillesAPI.Models.DbModels.ExerciseTypes">
+    <Position X="3.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\DbModels\ExerciseType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -12,15 +12,44 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AchillesAPI.Controllers
 {
+    /// <summary>
+    /// A collection of controllers designed to allow the front end to access API functionality.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+
+    }
+
+    /// <summary>
+    /// The controller for the account functionality within the program.
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class AccountController : Controller
     {
+        /// <summary>
+        /// The context
+        /// </summary>
         private readonly ApplicationDbContext _context;
+        /// <summary>
+        /// The sign in manager
+        /// </summary>
         private readonly SignInManager<ApplicationUser> _signInManager;
+        /// <summary>
+        /// The user manager
+        /// </summary>
         private readonly UserManager<ApplicationUser> _userManager;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="userManager">The user manager.</param>
+        /// <param name="roleManager">The role manager.</param>
+        /// <param name="signInManager">The sign in manager.</param>
         public AccountController(ApplicationDbContext context, UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager)
         {
@@ -33,7 +62,9 @@ namespace AchillesAPI.Controllers
         /// Logins the specified login view model.
         /// </summary>
         /// <param name="loginViewModel">The login view model.</param>
-        /// <returns>A 200 or 500 response depending on if the login action was successful or not</returns>
+        /// <returns>
+        /// A 200 or 500 response depending on if the login action was successful or not
+        /// </returns>
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel loginViewModel)
@@ -73,6 +104,11 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Validates the result.
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns>An <see cref="IActionResult"/> containing either a valid session GUID or the exception that occured.</returns>
         [HttpGet]
         [Route("ValidateSession")]
         public IActionResult ValidateResult(Guid sessionId)
@@ -88,6 +124,11 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Determines whether [is super admin] [the specified session identifier].
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns>An <see cref="IActionResult"/> containing either a bool or a 400 bad request object.</returns>
         [HttpGet]
         [Route("IsAdmin")]
         public IActionResult IsSuperAdmin(Guid sessionId)
@@ -103,6 +144,11 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Registers the specified input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>An <see cref="IActionResult"/> that contains a bool or a bad request containing either a collection of errors or just a bad request.</returns>
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody]RegisterViewModel input)
@@ -121,6 +167,11 @@ namespace AchillesAPI.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Edits the user.
+        /// </summary>
+        /// <param name="userModel">The user model.</param>
+        /// <returns>An <see cref="IActionResult"/>, this will be either an Ok result containing the number of records changed, or a BadRequest containing the same.</returns>
         [HttpPost]
         [Route("Edit")]
         public IActionResult EditUser([FromBody]ValidEditUserViewModel userModel)
@@ -153,6 +204,11 @@ namespace AchillesAPI.Controllers
             return BadRequest();
         }
 
+        /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns>An <see cref="IActionResult"/> containing all current users within the system, or a BadRequest Result.</returns>
         [HttpGet]
         [Route("GetAllUsers")]
         public IActionResult GetAllUsers(Guid sessionId)
@@ -175,6 +231,13 @@ namespace AchillesAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Determines whether [is super admin private] [the specified session identifier].
+        /// </summary>
+        /// <param name="sessionId">The session identifier.</param>
+        /// <returns>
+        ///   <c>true</c> if [is super admin private] [the specified session identifier]; otherwise, <c>false</c>.
+        /// </returns>
         private bool IsSuperAdminPrivate(Guid sessionId)
         {
             try

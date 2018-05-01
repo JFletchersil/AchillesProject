@@ -9,7 +9,6 @@ using AchillesAPI.Contexts;
 using AchillesAPI.Models.DbModels;
 using Microsoft.EntityFrameworkCore;
 using AchillesAPI.Helpers;
-using AchillesAPI.Models.ViewModels.ErrorModels;
 using Microsoft.Extensions.Options;
 using AchillesAPI.Models.AppOptions;
 using AchillesAPI.Models.Helper;
@@ -156,7 +155,7 @@ namespace AchillesAPI.Controllers
         /// Saves all daily exercises.
         /// </summary>
         /// <param name="exerciseViewModel">The exercise view model.</param>
-        /// <returns><see cref="IActionResult"/> that will either be <see cref="OkResult"> <see cref="BadRequestResult"></see></returns>
+        /// <returns><see cref="IActionResult"/> that will either be <see cref="OkResult"></see> <see cref="BadRequestResult"></see></returns>
         [HttpPost]
         [Route("SaveAllDailyExercises")]
         public IActionResult SaveAllDailyExercises(SaveMultipleExerciseProgressViewModel exerciseViewModel)

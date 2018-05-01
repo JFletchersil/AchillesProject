@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AchillesAPI.Models.ViewModels.ErrorModels
+namespace AchillesAPI.Models.ViewModels
 {
     /// <summary>
     /// The Error Message view model.
@@ -36,7 +36,7 @@ namespace AchillesAPI.Models.ViewModels.ErrorModels
     /// <summary>
     /// The session expired view model.
     /// </summary>
-    /// <seealso cref="AchillesAPI.Models.ViewModels.ErrorModels.ErrorMessageViewModel" />
+    /// <seealso cref="ErrorMessageViewModel" />
     public class SessionExpiredViewModel : ErrorMessageViewModel
     {
         /// <summary>

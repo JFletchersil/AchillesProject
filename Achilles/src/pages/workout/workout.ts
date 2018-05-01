@@ -13,28 +13,124 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import { Subscription } from 'rxjs/Subscription';
 
+
 @IonicPage()
 @Component({
   selector: 'page-workout',
   templateUrl: 'workout.html',
 })
+
+/**
+ * The page responsible for managing the WorkoutPage
+ * @class WorkoutPage
+ * @module AppModule
+ * @submodule Pages
+ */
 export class WorkoutPage implements OnInit {
 
-  @ViewChild(Navbar) navBar: Navbar;
-
+  /**
+   * Input method for the workout page which holds the exercise object to display.
+   * @type {Exercise}
+   * @memberof WorkoutPage
+   * @property exercise
+   */
   @Input() exercise: Exercise;
 
+  /**
+   * Holds a reference to the LoginPage
+   * @type {LoginPage}
+   * @memberof WorkoutPage
+   * @property loginPage
+   */
   loginPage = LoginPage;
+
+  /**
+   * Holds a reference to the WorkoutSummaryPage
+   * @type {WorkoutSummaryPage}
+   * @memberof WorkoutPage
+   * @property workoutSummaryPage
+   */
   workoutSummaryPage = WorkoutSummaryPage;
+
+  /**
+   * Holds a copy of the ExerciseType enumerator value for timed exercises.
+   * Needed for comparison purposes on the template page.
+   * @type {ExerciseType}
+   * @memberof WorkoutPage
+   * @property exerciseTimed
+   */
   exerciseTimed = ExerciseType.Timed;
+  
+  /**
+   * Holds a copy of the ExerciseType enumerator value for reps based exercises.
+   * Needed for comparison purposes on the template page.
+   * @type {ExerciseType}
+   * @memberof WorkoutPage
+   * @property exerciseRepsSets
+   */  
   exerciseRepsSets = ExerciseType.RepsSets;
+
+  /**
+   * Holds a link to the video URL where the example video is hosted.
+   * @type {*}
+   * @memberof WorkoutPage
+   * @property videoLink
+   */
   videoLink;
+
+  /**
+   * Holds a copy of the user's sessionId
+   * @type {string}
+   * @memberof WorkoutPage
+   * @property sessionId
+   */
   sessionId: string = "";
+
+  /**
+   * A boolean indicating whether to use the automatic timer.
+   * If true, indicates to use the automatic timer.
+   * @type {boolean}
+   * @memberof WorkoutPage
+   * @property useAutomatic
+   */
   useAutomatic: boolean;
+
+  /**
+   * Holds a copy of the automatic timer.
+   * @type {Subscription}
+   * @memberof WorkoutPage
+   * @property automaticTimer
+   */
   automaticTimer: Subscription;
+
+  /**
+   * Holds the numerical value of the automatic timer.
+   * @type {number}
+   * @memberof WorkoutPage
+   * @property automaticTimerValue
+   */
   automaticTimerValue: number;
+
+  /**
+   * A boolean indicating whether the timer has been stopped.
+   * @type {boolean}
+   * @memberof WorkoutPage
+   * @property timerStopped
+   */
   timerStopped: boolean;
 
+  /**
+   * Creates an instance of WorkoutPage.
+   * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+   * @param {NavParams} navParams class for navigation controller parameters in Ionic.
+   * @param {ExerciseServiceProvider} _exerciseService A dependency injected instance of the Exercise Service.
+   * @param {DomSanitizer} sanitizer Used to sanitise URLs before being displayed.
+   * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+   * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+   * @param {AlertController} alertCtrl Ionic controller for handling alerts.
+   * @memberof WorkoutPage
+   * @method constructor
+   */
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -47,7 +143,12 @@ export class WorkoutPage implements OnInit {
 
 
   }
-
+  
+  /**
+   * If the page has loaded, save the result
+   * @memberof WorkoutPage
+   * @method ionViewDidLoad
+   */
   ionViewDidLoad() {
     this.navBar.backButtonClick = (e:UIEvent)=>{
       this.save().then(() => {
@@ -56,13 +157,23 @@ export class WorkoutPage implements OnInit {
     }
   }
 
+  /**
+   * Spawns a modal window which informs the user of saving changes.
+   * @memberof WorkoutPage
+   * @method save
+   */
   save(){
     return new Promise(res =>{
       let saveModel = {"sessionId": this.sessionId, "resultViewModel": this.exercise.completedResults};
       this._exerciseService.saveExercise(saveModel as SaveExercise).then(() => res(true));
     })
   }
-
+  
+  /**
+   * When the user moves back from the page, the save method is called to save the result
+   * @memberof WorkoutPage
+   * @method goBack
+   */
   goBack() {
     this.save().then((value) => {
        let modal = this.alertCtrl.create({
@@ -74,13 +185,34 @@ export class WorkoutPage implements OnInit {
     });
   }
 
+  /**
+   * Provides a custom implementation of the Angular trackBy method, which keeps the index of for loops consistent.
+   * @param {number} index The index.
+   * @param {Object} obj The track by object or event to manipulate.
+   * @returns {number} The index.
+   * @memberof WorkoutPage
+   * @method customTrackBy
+   */
   customTrackBy(index: number, obj:any): any {
     return index;
   }
 
+  /**
+   * Prints the value of reps and the for loop index for testing purposes. 
+   * @param {*} value The selected rep value.
+   * @param {*} index The relevant index.
+   * @memberof WorkoutPage
+   * @method onRepsKnownChange
+   */
   onRepsKnownChange (value, index) {
+    console.log(value+" "+index);
   }
 
+/**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized. 
+   * @memberof WorkoutPage
+   * @method ngOnInit
+   */
   ngOnInit() {
     // Sets the exercise to the one clicked on the workout page.
     this.exercise = this.navParams.data;
@@ -107,11 +239,21 @@ export class WorkoutPage implements OnInit {
     });
   }
 
+  /**
+   * Toggles whether the automatic timer should be used instead of the manual timer.
+   * @memberof WorkoutPage
+   * @method toggleAutomatic
+   */
   toggleAutomatic(){
     this.useAutomatic = !this.useAutomatic;
     this.timerStopped = false;
   }
 
+  /**
+   * Starts the observable count for the timer. 
+   * @memberof WorkoutPage
+   * @method startCounting
+   */
   startCounting(){
     let automaticTimerStart = new Date().getTime();
     this.automaticTimerValue = 0;
@@ -124,13 +266,22 @@ export class WorkoutPage implements OnInit {
     });
   }
 
+  /**
+   * Stops the timer at the current second sets the result to the user's daily results.
+   * @memberof WorkoutPage
+   * @method stopCounting
+   */
   stopCounting(){
     this.timerStopped = true;
     this.stopAutomaticTimer();
     this.exercise.completedResults.completedTimes[0] = this.automaticTimerValue;
-    //console.log(this.exercise.completedResults);
   }
 
+  /**
+   * Unsubscribes the automatic timer observable which stops the automatic timer.
+   * @memberof WorkoutPage
+   * @method stopAutomaticTimer
+   */
   stopAutomaticTimer(){
     try{
       this.automaticTimer.unsubscribe();
@@ -139,6 +290,12 @@ export class WorkoutPage implements OnInit {
     }
   }
 
+  /**
+   * 
+   * Lifecycle hook which is fired when you leave a page, before it stops being the active one.
+   * @memberof WorkoutPage
+   * @method ionViewDidLeave
+   */
   ionViewDidLeave(){
    this.stopAutomaticTimer();
   }

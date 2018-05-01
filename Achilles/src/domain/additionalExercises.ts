@@ -1,5 +1,19 @@
 import {AdditionalExercise} from './additionalExercise';
 
-export class AdditionalExercises{
+
+/**
+ * A class which holds a collection of AdditionalExercise
+ * @class AdditionalExercises
+ * @module AppModule
+ * @submodule Domain
+ */
+export class AdditionalExercises {
+    
+  /**
+   * Holds a collection of additional exercises.
+   * @type {AdditionalExercise[]}
+   * @memberof AdditionalExercises
+   * @property additionalExercises
+   */
   additionalExercises: AdditionalExercise[];
 }

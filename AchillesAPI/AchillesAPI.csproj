@@ -3,6 +3,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\AchillesAPI.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="wwwroot\node_modules\**" />
     <Content Remove="wwwroot\node_modules\**" />

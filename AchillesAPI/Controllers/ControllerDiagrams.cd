@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AchillesAPI.Controllers.AccountController">
+    <Position X="5.75" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABACAAAAABEAAABBAAAAAAAABAAAAAAAQAAEAAgA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Controllers.ExercisesController">
+    <Position X="0.5" Y="1.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAigAAIBAIAIAAAAAABAAAEAAAAQEAECAAAAAQ=</HashCode>
+      <FileName>Controllers\ExercisesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AchillesAPI.Controllers.StatisticsController">
+    <Position X="9" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQIBAAAAAAAAAAAAAAAAAAAAAAECAAAAAQ=</HashCode>
+      <FileName>Controllers\StatisticsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

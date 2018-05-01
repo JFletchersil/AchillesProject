@@ -7,6 +7,16 @@ using System.Threading.Tasks;
 
 namespace AchillesAPI.Models.DbModels
 {
+
+    /// <summary>
+    /// A collection of models designed to interact with the database.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+
+    }
+
     /// <summary>
     /// The additional exercises model.
     /// </summary>

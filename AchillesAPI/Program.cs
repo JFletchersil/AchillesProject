@@ -11,6 +11,14 @@ using Microsoft.Extensions.Logging;
 namespace AchillesAPI
 {
     /// <summary>
+    /// The namespace for the entire AchillesAPI.
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated]
+    internal class NamespaceDoc
+    {
+
+    }
+    /// <summary>
     /// The program start
     /// </summary>
     public class Program

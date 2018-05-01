@@ -15,8 +15,6 @@ namespace AchillesAPI.Models.ViewModels
     /// This model is used within the program, at Controllers.AccountController and Repository.AuthRepository
     /// </remarks>
     /// <seealso cref="Controllers.AccountController" />
-    /// <seealso cref="Repository.AuthRepository" />
-    /// <seealso cref="Controllers.Auth0Controller" />
     public class RegisterViewModel
     {
         /// <summary>
