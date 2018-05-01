@@ -1,0 +1,2819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>www\build\main.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Chart.helpers.drawRoundedRectangle.AnonymousSubject&lt;T&gt;.html">Chart.helpers.drawRoundedRectangle.AnonymousSubject&lt;T&gt;</a></li>
+                                <li><a href="../classes/Chart.Tooltip.positioners.Chart.Controller.html">Chart.Tooltip.positioners.Chart.Controller</a></li>
+                                <li><a href="../classes/Subject&lt;T&gt;.html">Subject&lt;T&gt;</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: www\build\main.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+webpackJsonp([0],{
+
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return WorkoutPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__workout_summary_workout_summary__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__domain_exercise__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_exercise_service_exercise_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_interval__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_interval___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_interval__);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @export
+ * @class WorkoutPage
+ * @implements {OnInit}
+ */
+var WorkoutPage = (function () {
+    /**
+     * Creates an instance of WorkoutPage.
+     * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+     * @param {NavParams} navParams class for navigation controller parameters in Ionic.
+     * @param {ExerciseServiceProvider} _exerciseService A dependency injected instance of the Exercise Service.
+     * @param {DomSanitizer} sanitizer Used to sanitise URLs before being displayed.
+     * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+     * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+     * @param {AlertController} alertCtrl Ionic controller for handling alerts.
+     * @memberof WorkoutPage
+     */
+    function WorkoutPage(navCtrl, navParams, _exerciseService, sanitizer, storage, _loginServiceProvider, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this._exerciseService = _exerciseService;
+        this.sanitizer = sanitizer;
+        this.storage = storage;
+        this._loginServiceProvider = _loginServiceProvider;
+        this.alertCtrl = alertCtrl;
+        this.loginPage = __WEBPACK_IMPORTED_MODULE_6__login_login__[&quot;a&quot; /* LoginPage */];
+        this.workoutSummaryPage = __WEBPACK_IMPORTED_MODULE_2__workout_summary_workout_summary__[&quot;a&quot; /* WorkoutSummaryPage */];
+        this.exerciseTimed = __WEBPACK_IMPORTED_MODULE_3__domain_exercise__[&quot;b&quot; /* ExerciseType */].Timed;
+        this.exerciseRepsSets = __WEBPACK_IMPORTED_MODULE_3__domain_exercise__[&quot;b&quot; /* ExerciseType */].RepsSets;
+        this.sessionId = &quot;&quot;;
+    }
+    /**
+     * Spawns a modal window which informs the user of saving changes.
+     *
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.goBack = function () {
+        var _this = this;
+        var saveModel = { &quot;sessionId&quot;: this.sessionId, &quot;resultViewModel&quot;: this.exercise.completedResults };
+        this._exerciseService.saveExercise(saveModel).then(function (value) {
+            //console.log(value)
+            var modal = _this.alertCtrl.create({
+                title: &quot;Save Succesfull&quot;,
+                message: &quot;Your exercise has been saved.&quot;,
+                buttons: [&quot;Dismiss&quot;]
+            });
+            modal.present();
+        });
+    };
+    /**
+     * Provides a custom implementation of the Angular trackBy method, which keeps the index of for loops consistent.
+     * @param {number} index The index.
+     * @param {*} obj The track by object or event to manipulate.
+     * @returns {*} index.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.customTrackBy = function (index, obj) {
+        return index;
+    };
+    /**
+     * Prints the value of reps and the for loop index for testing purposes.
+     * @param {any} value The selected rep value.
+     * @param {any} index The relevant index.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.onRepsKnownChange = function (value, index) {
+        console.log(value + &quot; &quot; + index);
+    };
+    /**
+     * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.ngOnInit = function () {
+        var _this = this;
+        // Sets the exercise to the one clicked on the workout page.
+        this.exercise = this.navParams.data;
+        // This is needed to bypass security warnings of unsanitised urls in browsers.
+        this.videoLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.exercise.videoLink);
+        this.toggleAutomatic();
+        this.timerStopped = false;
+        this.storage.get(&#x27;sessionId&#x27;).then(function (sessionId) {
+            if (!sessionId) {
+                _this.navCtrl.setRoot(_this.loginPage);
+            }
+            else {
+                _this._loginServiceProvider.validateSession(sessionId).then(function (isValidSessionId) {
+                    if (!isValidSessionId) {
+                        _this.navCtrl.setRoot(_this.loginPage);
+                    }
+                    // console.log(&quot;valid session for: &quot; + sessionId);
+                });
+                _this.sessionId = sessionId;
+            }
+        });
+    };
+    /**
+     * Toggles whether the automatic timer should be used instead of the manual timer.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.toggleAutomatic = function () {
+        this.useAutomatic = !this.useAutomatic;
+        this.timerStopped = false;
+    };
+    /**
+     * Starts the observable count for the timer.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.startCounting = function () {
+        var _this = this;
+        var automaticTimerStart = new Date().getTime();
+        this.automaticTimerValue = 0;
+        this.automaticTimer = __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__[&quot;Observable&quot;].interval(1000).subscribe(function () {
+            _this.automaticTimerValue = Math.floor((new Date().getTime() - automaticTimerStart) / 1000);
+            if (_this.automaticTimerValue &gt;= _this.exercise.time) {
+                _this.automaticTimerValue = _this.exercise.time;
+                _this.stopCounting();
+            }
+        });
+    };
+    /**
+     * Stops the timer at the current second sets the result to the user&#x27;s daily results.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.stopCounting = function () {
+        this.timerStopped = true;
+        this.stopAutomaticTimer();
+        this.exercise.completedResults.completedTimes[0] = this.automaticTimerValue;
+    };
+    /**
+     * Unsubscribes the automatic timer observable which stops the automatic timer.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.stopAutomaticTimer = function () {
+        try {
+            this.automaticTimer.unsubscribe();
+        }
+        catch (error) {
+            //timer never began.
+        }
+    };
+    /**
+     *
+     * Lifecycle hook which is fired when you leave a page, before it stops being the active one.
+     * @memberof WorkoutPage
+     */
+    WorkoutPage.prototype.ionViewDidLeave = function () {
+        this.stopAutomaticTimer();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;D&quot; /* Input */])(),
+        __metadata(&quot;design:type&quot;, typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__domain_exercise__[&quot;Exercise&quot;] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_3__domain_exercise__[&quot;Exercise&quot;]) === &quot;function&quot; &amp;&amp; _a || Object)
+    ], WorkoutPage.prototype, &quot;exercise&quot;, void 0);
+    WorkoutPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;page-workout&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\workout\workout.html&quot;*/&#x27;&lt;ion-header&gt;\n\n    &lt;ion-navbar&gt;\n\n        &lt;button ion-button menuToggle icon-only&gt;\n\n            &lt;ion-icon name=\&#x27;menu\&#x27;&gt;&lt;/ion-icon&gt;\n\n        &lt;/button&gt;\n\n        &lt;ion-title&gt;Workout&lt;/ion-title&gt;\n\n    &lt;/ion-navbar&gt;\n\n&lt;/ion-header&gt;\n\n\n\n&lt;ion-content&gt;\n\n    &lt;ion-card text-center&gt;\n\n        &lt;ion-title padding-top&gt;{{ exercise.name }} &lt;/ion-title&gt;\n\n        &lt;ion-item text-center *ngIf=&quot;exercise.exerciseType === exerciseRepsSets&quot;&gt;Goal: {{ exercise.sets }} sets of {{ exercise.reps }} reps.&lt;/ion-item&gt;\n\n        &lt;ion-item text-center *ngIf=&quot;exercise.exerciseType === exerciseTimed&quot;&gt;Goal: Hold stretch for {{ exercise.time }} seconds&lt;/ion-item&gt;\n\n    &lt;/ion-card&gt;\n\n\n\n    &lt;!-- Rep Based Exercise --&gt;\n\n    &lt;ion-card text-center *ngIf=&quot;exercise.exerciseType === exerciseRepsSets &quot;&gt;\n\n        &lt;ion-label text-wrap&gt;Enter your rep(s) by clicking the arrow(s)&lt;/ion-label&gt;\n\n        &lt;ion-item class=&quot;setFull&quot;&gt;\n\n            &lt;ion-label text-wrap&gt;Reps&lt;/ion-label&gt;\n\n            &lt;ion-select [ngModel]=&quot;exercise.completedResults.completedReps[i]&quot; (ngModelChange)=&quot;exercise.completedResults.completedReps[i] = $event&quot;\n\n                *ngFor=&quot;let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy&quot;&gt;\n\n                &lt;ion-option *ngFor=&quot;let reps of _exerciseService.getSelectBoxIntervals(exercise.reps)&quot; [value]=&quot;reps&quot;&gt;{{reps}}&lt;/ion-option&gt;\n\n            &lt;/ion-select&gt;\n\n            &lt;button (click)=&quot;goBack()&quot; ion-button item-end color=&quot;secondary&quot;&gt;Save&lt;/button&gt;\n\n        &lt;/ion-item&gt;\n\n    &lt;/ion-card&gt;\n\n\n\n    &lt;!-- Time Based Exercise --&gt;\n\n    &lt;ion-card text-center *ngIf=&quot;exercise.exerciseType === exerciseTimed&quot;&gt;\n\n        &lt;ion-item&gt;\n\n            &lt;ion-label&gt;Automatic Timer&lt;/ion-label&gt;\n\n            &lt;ion-toggle (ionChange)=&quot;toggleAutomatic()&quot; checked&gt;&lt;/ion-toggle&gt;\n\n        &lt;/ion-item&gt;\n\n        &lt;ion-item *ngIf=&quot;useAutomatic&quot;&gt;\n\n            &lt;ion-label text-wrap&gt;Time Held (s):{{automaticTimerValue}}&lt;/ion-label&gt;\n\n            &lt;button *ngIf=&quot;!timerStopped&quot; ion-button item-end color=&quot;secondary&quot; (click)=&quot;startCounting()&quot;&gt;Start&lt;/button&gt;\n\n            &lt;button *ngIf=&quot;!timerStopped &amp;&amp; automaticTimerValue &gt; 0&quot; ion-button item-end color=&quot;danger&quot; (click)=&quot;stopCounting()&quot;&gt;Stop&lt;/button&gt;\n\n            &lt;button *ngIf=&quot;timerStopped&quot; (click)=&quot;goBack()&quot; ion-button item-end color=&quot;secondary&quot;&gt;Save&lt;/button&gt;\n\n        &lt;/ion-item&gt;\n\n        &lt;div *ngIf=&quot;!useAutomatic&quot;&gt;\n\n            &lt;ion-label text-wrap&gt;Enter your time(s) by clicking the arrow(s)&lt;/ion-label&gt;\n\n            &lt;ion-item class=&quot;setFull&quot;&gt;\n\n                &lt;ion-label text-wrap&gt;Time Held&lt;/ion-label&gt;\n\n                &lt;ion-select *ngFor=&quot;let set of _exerciseService.getSetsArray(exercise.sets) let i = index; trackBy:customTrackBy&quot; [ngModel]=&quot;exercise.completedResults.completedTimes[0]&quot;\n\n                    (ngModelChange)=&quot;exercise.completedResults.completedTimes[0] = $event&quot;&gt;\n\n                    &lt;ion-option *ngFor=&quot;let time of _exerciseService.getSelectBoxIntervals(exercise.time)&quot; [value]=&quot;time&quot; [selected]=&quot;time == exercise.completedResults.completedTimes[0]&quot;&gt;{{time}}&lt;/ion-option&gt;\n\n                &lt;/ion-select&gt;\n\n                &lt;button (click)=&quot;goBack()&quot; ion-button item-end color=&quot;secondary&quot;&gt;Save&lt;/button&gt;\n\n            &lt;/ion-item&gt;\n\n        &lt;/div&gt;\n\n    &lt;/ion-card&gt;\n\n\n\n    &lt;iframe text-center class=&quot;iframe-dimensions&quot; [src]=&quot;videoLink&quot; allowfullscreen&gt;\n\n    &lt;/iframe&gt;\n\n\n\n&lt;/ion-content&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\workout\workout.html&quot;*/,
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */]) === &quot;function&quot; &amp;&amp; _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_exercise_service_exercise_service__[&quot;a&quot; /* ExerciseServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_4__providers_exercise_service_exercise_service__[&quot;a&quot; /* ExerciseServiceProvider */]) === &quot;function&quot; &amp;&amp; _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__[&quot;c&quot; /* DomSanitizer */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__[&quot;c&quot; /* DomSanitizer */]) === &quot;function&quot; &amp;&amp; _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_storage__[&quot;b&quot; /* Storage */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_8__ionic_storage__[&quot;b&quot; /* Storage */]) === &quot;function&quot; &amp;&amp; _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_7__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */]) === &quot;function&quot; &amp;&amp; _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;a&quot; /* AlertController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;a&quot; /* AlertController */]) === &quot;function&quot; &amp;&amp; _h || Object])
+    ], WorkoutPage);
+    return WorkoutPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+}());
+
+//# sourceMappingURL=workout.js.map
+
+/***/ }),
+
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return TabsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__workout_summary_workout_summary__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__statistics_statistics__ = __webpack_require__(99);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ *
+ *
+ * @export
+ * @class TabsPage
+ */
+var TabsPage = (function () {
+    /**
+     * Creates an instance of TabsPage.
+     * @memberof TabsPage
+     */
+    function TabsPage() {
+        this.tab1Root = __WEBPACK_IMPORTED_MODULE_1__home_home__[&quot;a&quot; /* HomePage */];
+        this.tab2Root = __WEBPACK_IMPORTED_MODULE_2__workout_summary_workout_summary__[&quot;a&quot; /* WorkoutSummaryPage */];
+        this.tab3Root = __WEBPACK_IMPORTED_MODULE_3__statistics_statistics__[&quot;a&quot; /* StatisticsPage */];
+    }
+    TabsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\tabs\tabs.html&quot;*/&#x27;&lt;ion-tabs&gt;\n\n    &lt;ion-tab [root]=&quot;tab1Root&quot; tabTitle=&quot;Home&quot; tabIcon=&quot;home&quot;&gt;&lt;/ion-tab&gt;\n\n    &lt;ion-tab [root]=&quot;tab2Root&quot; tabTitle=&quot;Workout&quot; tabIcon=&quot;md-walk&quot;&gt;&lt;/ion-tab&gt;\n\n    &lt;ion-tab [root]=&quot;tab3Root&quot; tabTitle=&quot;Statistics&quot; tabIcon=&quot;md-trending-up&quot;&gt;&lt;/ion-tab&gt;\n\n&lt;/ion-tabs&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\tabs\tabs.html&quot;*/
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [])
+    ], TabsPage);
+    return TabsPage;
+}());
+
+//# sourceMappingURL=tabs.js.map
+
+/***/ }),
+
+/***/ 133:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error(&quot;Cannot find module &#x27;&quot; + req + &quot;&#x27;.&quot;);
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 133;
+
+/***/ }),
+
+/***/ 175:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	&quot;../pages/admin/admin.module&quot;: [
+		176
+	],
+	&quot;../pages/login/login.module&quot;: [
+		179
+	],
+	&quot;../pages/statistics/statistics.module&quot;: [
+		180
+	],
+	&quot;../pages/workout-summary/workout-summary.module&quot;: [
+		311
+	],
+	&quot;../pages/workout/workout.module&quot;: [
+		312
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error(&quot;Cannot find module &#x27;&quot; + req + &quot;&#x27;.&quot;));
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 175;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 176:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+Object.defineProperty(__webpack_exports__, &quot;__esModule&quot;, { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;AdminPageModule&quot;, function() { return AdminPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin__ = __webpack_require__(97);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AdminPageModule = (function () {
+    function AdminPageModule() {
+    }
+    AdminPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__admin__[&quot;a&quot; /* AdminPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin__[&quot;a&quot; /* AdminPage */]),
+            ],
+        })
+    ], AdminPageModule);
+    return AdminPageModule;
+}());
+
+//# sourceMappingURL=admin.module.js.map
+
+/***/ }),
+
+/***/ 179:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+Object.defineProperty(__webpack_exports__, &quot;__esModule&quot;, { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;LoginPageModule&quot;, function() { return LoginPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(38);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LoginPageModule = (function () {
+    function LoginPageModule() {
+    }
+    LoginPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__login__[&quot;a&quot; /* LoginPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__[&quot;a&quot; /* LoginPage */]),
+            ],
+        })
+    ], LoginPageModule);
+    return LoginPageModule;
+}());
+
+//# sourceMappingURL=login.module.js.map
+
+/***/ }),
+
+/***/ 180:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+Object.defineProperty(__webpack_exports__, &quot;__esModule&quot;, { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;StatisticsPageModule&quot;, function() { return StatisticsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__statistics__ = __webpack_require__(99);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var StatisticsPageModule = (function () {
+    function StatisticsPageModule() {
+    }
+    StatisticsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__statistics__[&quot;a&quot; /* StatisticsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__statistics__[&quot;a&quot; /* StatisticsPage */]),
+            ],
+        })
+    ], StatisticsPageModule);
+    return StatisticsPageModule;
+}());
+
+//# sourceMappingURL=statistics.module.js.map
+
+/***/ }),
+
+/***/ 181:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return StatisticsServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_env__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__domain_statistics__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__domain_statistic__ = __webpack_require__(418);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ *
+ *
+ * @export
+ * @class StatisticsServiceProvider
+ */
+var StatisticsServiceProvider = (function () {
+    /**
+     * Creates an instance of StatisticsServiceProvider.
+     * @param {HttpClient} http Used to perform HTTP requests.
+     * @memberof StatisticsServiceProvider
+     */
+    function StatisticsServiceProvider(http) {
+        this.http = http;
+    }
+    /**
+     * Creates the full statistics object for the current user.
+     *
+     * @param {string} sessionID A valid session Id corresponding to the logged in user.
+     * @returns {Promise&lt;Statistics&gt;} A promise which holds the statistics for the logged in user.
+     * @memberof StatisticsServiceProvider
+     */
+    StatisticsServiceProvider.prototype.getStatistics = function (sessionID) {
+        var _this = this;
+        return new Promise(function (res) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Statistics/GetStatistics?sessionId=&#x27; + sessionID)
+                .subscribe(function (response) {
+                var allStatistics = new __WEBPACK_IMPORTED_MODULE_3__domain_statistics__[&quot;a&quot; /* Statistics */]();
+                for (var i in response) {
+                    var result = response[i];
+                    allStatistics.addStatistics(new __WEBPACK_IMPORTED_MODULE_4__domain_statistic__[&quot;a&quot; /* statistic */](result[&#x27;date&#x27;], JSON.parse(result[&#x27;results&#x27;]), result[&#x27;exercise&#x27;], result[&#x27;reps&#x27;], result[&#x27;sets&#x27;], result[&#x27;time&#x27;]));
+                }
+                res(allStatistics);
+            });
+        });
+    };
+    StatisticsServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[&quot;A&quot; /* Injectable */])(),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */]) === &quot;function&quot; &amp;&amp; _a || Object])
+    ], StatisticsServiceProvider);
+    return StatisticsServiceProvider;
+    var _a;
+}());
+
+//# sourceMappingURL=statistics-service.js.map
+
+/***/ }),
+
+/***/ 311:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+Object.defineProperty(__webpack_exports__, &quot;__esModule&quot;, { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;WorkoutSummaryPageModule&quot;, function() { return WorkoutSummaryPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__workout_summary__ = __webpack_require__(62);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var WorkoutSummaryPageModule = (function () {
+    function WorkoutSummaryPageModule() {
+    }
+    WorkoutSummaryPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__workout_summary__[&quot;a&quot; /* WorkoutSummaryPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__workout_summary__[&quot;a&quot; /* WorkoutSummaryPage */]),
+            ],
+        })
+    ], WorkoutSummaryPageModule);
+    return WorkoutSummaryPageModule;
+}());
+
+//# sourceMappingURL=workout-summary.module.js.map
+
+/***/ }),
+
+/***/ 312:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+Object.defineProperty(__webpack_exports__, &quot;__esModule&quot;, { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;WorkoutPageModule&quot;, function() { return WorkoutPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__workout__ = __webpack_require__(100);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var WorkoutPageModule = (function () {
+    function WorkoutPageModule() {
+    }
+    WorkoutPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__workout__[&quot;a&quot; /* WorkoutPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__workout__[&quot;a&quot; /* WorkoutPage */]),
+            ],
+        })
+    ], WorkoutPageModule);
+    return WorkoutPageModule;
+}());
+
+//# sourceMappingURL=workout.module.js.map
+
+/***/ }),
+
+/***/ 354:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+Object.defineProperty(__webpack_exports__, &quot;__esModule&quot;, { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(376);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__[&quot;a&quot; /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__[&quot;a&quot; /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 36:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return LoginServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_env__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(37);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ *
+ *
+ * @export
+ * @class LoginServiceProvider
+ */
+var LoginServiceProvider = (function () {
+    /**
+     * Creates an instance of LoginServiceProvider.
+     * @param {HttpClient} http Used to perform HTTP requests.
+     * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+     * @memberof LoginServiceProvider
+     */
+    function LoginServiceProvider(http, storage) {
+        this.http = http;
+        this.storage = storage;
+        //console.log(&#x27;Hello LoginServiceProvider Provider&#x27;);
+    }
+    /**
+     * Validates a user&#x27;s session based on their current session Id.
+     *
+     * @param {string} sessionId The user&#x27;s session Id from local storage.
+     * @returns A promise which indicates whether the given session is valid or not.
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.validateSession = function (sessionId) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + (&quot;api/Account/ValidateSession?sessionid=&quot; + sessionId))
+                .subscribe(function (response) {
+                resolve(response);
+            }, function (err) { console.log(&#x27;failed for some reason&#x27;); });
+        });
+    };
+    /**
+     * Attempts to log the current user in using the provided email and password.
+     *
+     * @param {string} email The email address used in the authentication attempt.
+     * @param {string} password The password used in the authentication attempt.
+     * @returns {Promise&lt;string&gt;} A promise which indicates whether the login was successful or not.
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.login = function (email, password) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Account/Login&#x27;, {
+                &quot;Email&quot;: email,
+                &quot;Password&quot;: password,
+            }).subscribe(function (response) {
+                resolve(response);
+            }, function (err) { resolve(&quot;failed&quot;); });
+        });
+    };
+    /**
+     * Attempts to register the current user using the provided email and password.
+     *
+     * @param {string} email The email address used in the authentication attempt.
+     * @param {string} password The password used in the authentication attempt.
+     * @returns {Promise&lt;string&gt;} A promise which indicates whether the registration was successful or not.
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.register = function (email, password) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Account/Register&#x27;, {
+                &quot;Email&quot;: email,
+                &quot;Password&quot;: password,
+                &quot;ConfirmPassword&quot;: password,
+            }).subscribe(function (response) {
+                resolve(response);
+            }, function (err) {
+                resolve(false);
+            });
+        });
+    };
+    /**
+     *
+     * Sets the session Id in local storage to the given session.
+     * @param {string} sessionId A valid session Id which must correspond to a user account.
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.setSessionId = function (sessionId) {
+        this.storage.set(&#x27;sessionId&#x27;, sessionId);
+    };
+    /**
+     *
+     * Gets a list of all users for display purposes in the admin section.
+     * @param {string} sessionId A valid session Id which must correspond to an Admin account.
+     * @returns {Promise&lt;User[]&gt;} A promise which holds details of users.
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.getAllUsers = function (sessionId) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Account/GetAllUsers?sessionId=&#x27; + sessionId)
+                .subscribe(function (response) {
+                resolve(response);
+            }, function (err) { console.log(&#x27;failed for some reason&#x27;); });
+        });
+    };
+    /**
+     *
+     * Makes a request to the API to update an existing user&#x27;s details.
+     * @param {User} user The user object to edit in the API.
+     * @param {string} sessionId A valid session Id which must correspond to an admin account.
+     * @returns
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.editUser = function (user, sessionId) {
+        var _this = this;
+        // console.log({
+        //   sessionId: sessionId,
+        //   userModel: user,
+        // });
+        return new Promise(function (resolve) {
+            _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Account/Edit&#x27;, {
+                sessionId: sessionId,
+                userModel: user,
+            }).subscribe(function (response) {
+                // console.log(response);
+            }, function (err) { console.log(&#x27;failed for some reason&#x27;); });
+        });
+    };
+    /**
+     * Tests whether a given session Id belongs to a valid admin account.
+     *
+     * @param {string} sessionId A valid session Id which must correspond to an admin account.
+     * @returns {Promise&lt;boolean&gt;} A promise which returns true if the user is an admin account.
+     * @memberof LoginServiceProvider
+     */
+    LoginServiceProvider.prototype.isSuperUser = function (sessionId) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Account/IsAdmin?sessionId=&#x27; + sessionId)
+                .subscribe(function (response) {
+                if (response)
+                    resolve(true);
+                else
+                    resolve(false);
+            });
+        });
+    };
+    LoginServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[&quot;A&quot; /* Injectable */])(),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */]) === &quot;function&quot; &amp;&amp; _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__[&quot;b&quot; /* Storage */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_3__ionic_storage__[&quot;b&quot; /* Storage */]) === &quot;function&quot; &amp;&amp; _b || Object])
+    ], LoginServiceProvider);
+    return LoginServiceProvider;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=login-service.js.map
+
+/***/ }),
+
+/***/ 376:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(492);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_tabs_tabs__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_workout_workout__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_workout_summary_workout_summary__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_statistics_statistics__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_achilles_service_achilles_service__ = __webpack_require__(493);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_home_home_module__ = __webpack_require__(494);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_tabs_tabs_module__ = __webpack_require__(495);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_workout_workout_module__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_workout_summary_workout_summary_module__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_statistics_statistics_module__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_exercise_service_exercise_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_additional_exercise_list_additional_exercise_list__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_local_notifications__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_push__ = __webpack_require__(497);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_storage__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_login_login__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_login_login_module__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_admin_admin_module__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_admin_admin__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_statistics_service_statistics_service__ = __webpack_require__(181);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_4__app_component__[&quot;a&quot; /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_20__components_additional_exercise_list_additional_exercise_list__[&quot;a&quot; /* AdditionalExerciseListComponent */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__[&quot;a&quot; /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__[&quot;b&quot; /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_13__angular_common_http__[&quot;b&quot; /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__[&quot;d&quot; /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__[&quot;a&quot; /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: &#x27;../pages/admin/admin.module#AdminPageModule&#x27;, name: &#x27;AdminPage&#x27;, segment: &#x27;admin&#x27;, priority: &#x27;low&#x27;, defaultHistory: [] },
+                        { loadChildren: &#x27;../pages/login/login.module#LoginPageModule&#x27;, name: &#x27;LoginPage&#x27;, segment: &#x27;login&#x27;, priority: &#x27;low&#x27;, defaultHistory: [] },
+                        { loadChildren: &#x27;../pages/statistics/statistics.module#StatisticsPageModule&#x27;, name: &#x27;StatisticsPage&#x27;, segment: &#x27;statistics&#x27;, priority: &#x27;low&#x27;, defaultHistory: [] },
+                        { loadChildren: &#x27;../pages/workout-summary/workout-summary.module#WorkoutSummaryPageModule&#x27;, name: &#x27;WorkoutSummaryPage&#x27;, segment: &#x27;workout-summary&#x27;, priority: &#x27;low&#x27;, defaultHistory: [] },
+                        { loadChildren: &#x27;../pages/workout/workout.module#WorkoutPageModule&#x27;, name: &#x27;WorkoutPage&#x27;, segment: &#x27;workout&#x27;, priority: &#x27;low&#x27;, defaultHistory: [] }
+                    ]
+                }),
+                __WEBPACK_IMPORTED_MODULE_23__ionic_storage__[&quot;a&quot; /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_14__pages_home_home_module__[&quot;a&quot; /* HomePageModule */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_tabs_tabs_module__[&quot;a&quot; /* TabsPageModule */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_workout_workout_module__[&quot;WorkoutPageModule&quot;],
+                __WEBPACK_IMPORTED_MODULE_17__pages_workout_summary_workout_summary_module__[&quot;WorkoutSummaryPageModule&quot;],
+                __WEBPACK_IMPORTED_MODULE_18__pages_statistics_statistics_module__[&quot;StatisticsPageModule&quot;],
+                __WEBPACK_IMPORTED_MODULE_26__pages_login_login_module__[&quot;LoginPageModule&quot;],
+                __WEBPACK_IMPORTED_MODULE_27__pages_admin_admin_module__[&quot;AdminPageModule&quot;],
+                __WEBPACK_IMPORTED_MODULE_1__angular_forms__[&quot;e&quot; /* ReactiveFormsModule */],
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__[&quot;b&quot; /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_4__app_component__[&quot;a&quot; /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__[&quot;a&quot; /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_tabs_tabs__[&quot;a&quot; /* TabsPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_workout_workout__[&quot;a&quot; /* WorkoutPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_workout_summary_workout_summary__[&quot;a&quot; /* WorkoutSummaryPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_statistics_statistics__[&quot;a&quot; /* StatisticsPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_login_login__[&quot;a&quot; /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_admin_admin__[&quot;a&quot; /* AdminPage */],
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__[&quot;a&quot; /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__[&quot;a&quot; /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;u&quot; /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__[&quot;c&quot; /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_12__providers_achilles_service_achilles_service__[&quot;a&quot; /* AchillesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_19__providers_exercise_service_exercise_service__[&quot;a&quot; /* ExerciseServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_24__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_29__providers_statistics_service_statistics_service__[&quot;a&quot; /* StatisticsServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_local_notifications__[&quot;b&quot; /* LocalNotifications */],
+                __WEBPACK_IMPORTED_MODULE_22__ionic_native_push__[&quot;a&quot; /* Push */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(16);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ *
+ * @export
+ * @class LoginPage
+ */
+var LoginPage = (function () {
+    /**
+     * Creates an instance of LoginPage.
+     * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+     * @param {NavParams} navParams class for navigation controller parameters in Ionic.
+     * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+     * @param {FormBuilder} fb syntactic sugar that shortens the new FormGroup(), new FormControl(), and new FormArray() boilerplate in Angular
+     * @memberof LoginPage
+     */
+    function LoginPage(navCtrl, navParams, _loginServiceProvider, fb) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this._loginServiceProvider = _loginServiceProvider;
+        this.fb = fb;
+        this.homePage = __WEBPACK_IMPORTED_MODULE_3__home_home__[&quot;a&quot; /* HomePage */];
+        this.showRegister = false;
+        this.loginFailed = false;
+        this.registerFailed = false;
+        this.tabBarElement = document.querySelector(&#x27;.tabbar.show-tabbar&#x27;);
+        this.loginForm = this.fb.group({
+            email: [&#x27;&#x27;, __WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;f&quot; /* Validators */].required],
+            password: [&#x27;&#x27;, __WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;f&quot; /* Validators */].required],
+        });
+        this.registerForm = this.fb.group({
+            email: [&#x27;&#x27;, [__WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;f&quot; /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;f&quot; /* Validators */].email]],
+            password: [&#x27;&#x27;, [__WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;f&quot; /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;f&quot; /* Validators */].minLength(6)]],
+        });
+    }
+    LoginPage_1 = LoginPage;
+    /**
+     *
+     * Attempts to authorize the user, given a valid email and password. Redirects the user to the homepage on a successful login.
+     * @memberof LoginPage
+     */
+    LoginPage.prototype.logIn = function () {
+        var _this = this;
+        this.loginFailed = false;
+        if (this.loginForm.valid) {
+            var email = this.loginForm.get(&#x27;email&#x27;).value;
+            var password = this.loginForm.get(&#x27;password&#x27;).value;
+            this._loginServiceProvider.login(email, password).then(function (value) {
+                if (value == &#x27;failed&#x27;) {
+                    _this.loginFailed = true;
+                }
+                else {
+                    _this._loginServiceProvider.setSessionId(value);
+                }
+            })
+                .then(function () {
+                if (!_this.loginFailed) {
+                    _this.navCtrl.setRoot(_this.homePage);
+                }
+            });
+        }
+    };
+    /**
+     *
+     * Attempts to register a new user given an email and password matching set criteria.
+     * Redirects the user to the login screen if successful.
+     * @memberof LoginPage
+     */
+    LoginPage.prototype.register = function () {
+        var _this = this;
+        this.registerFailed = false;
+        if (this.registerForm.valid) {
+            var email = this.registerForm.get(&#x27;email&#x27;).value;
+            var password = this.registerForm.get(&#x27;password&#x27;).value;
+            this._loginServiceProvider.register(email, password).then(function (value) {
+                if (!value) {
+                    _this.registerFailed = true;
+                }
+                else {
+                    _this.navCtrl.setRoot(LoginPage_1);
+                }
+            });
+        }
+    };
+    /**
+     * Toggles whether to show the registration form or the login form.
+     * @memberof LoginPage
+     */
+    LoginPage.prototype.toggleRegister = function () {
+        this.showRegister = !this.showRegister;
+    };
+    // this._loginServiceProvider.login(&quot;Gmandam@mykolab.com&quot;, &quot;Test123!&quot;).then((value) =&gt; {
+    //   this._loginServiceProvider.setSessionId(value);
+    // }).then(() =&gt; {
+    //   this.navCtrl.setRoot(this.homePage);
+    // });
+    /**
+     * Lifecycle hook which is fired only when a view is stored in memory.
+     * @memberof LoginPage
+     */
+    LoginPage.prototype.ionViewDidLoad = function () {
+        //console.log(&#x27;ionViewDidLoad LoginPage&#x27;);
+    };
+    /**
+     *
+     * Lifecycle hook which is fired when entering a page, before it becomes the active one.
+     * @memberof LoginPage
+     */
+    LoginPage.prototype.ionViewWillEnter = function () {
+        this.tabBarElement.style.display = &#x27;none&#x27;;
+    };
+    /**
+     *
+     * Lifecycle hook which is fired when you leave a page, before it stops being the active one.
+     * @memberof LoginPage
+     */
+    LoginPage.prototype.ionViewWillLeave = function () {
+        this.tabBarElement.style.display = &#x27;flex&#x27;;
+    };
+    LoginPage = LoginPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;page-login&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\login\login.html&quot;*/&#x27;&lt;!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n--&gt;\n\n&lt;ion-header&gt;\n\n\n\n    &lt;ion-navbar&gt;\n\n        &lt;ion-title&gt;{{ showRegister ? \&#x27;Register\&#x27; : \&#x27;Log In\&#x27; }}&lt;/ion-title&gt;\n\n    &lt;/ion-navbar&gt;\n\n\n\n&lt;/ion-header&gt;\n\n\n\n\n\n&lt;ion-content padding&gt;\n\n\n\n    &lt;div *ngIf=&quot;!showRegister&quot;&gt;\n\n        &lt;form [formGroup]=&quot;loginForm&quot; (ngSubmit)=&quot;logIn()&quot;&gt;\n\n            &lt;ion-item&gt;\n\n                &lt;ion-label&gt;Email&lt;/ion-label&gt;\n\n                &lt;ion-input formControlName=&quot;email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;&lt;/ion-input&gt;\n\n            &lt;/ion-item&gt;\n\n            &lt;ion-item&gt;\n\n                &lt;ion-label&gt;Password&lt;/ion-label&gt;\n\n                &lt;ion-input formControlName=&quot;password&quot; type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/ion-input&gt;\n\n            &lt;/ion-item&gt;\n\n            &lt;button ion-button type=&quot;submit&quot; block&gt;Log In&lt;/button&gt;\n\n        &lt;/form&gt;\n\n    &lt;/div&gt;\n\n\n\n    &lt;div *ngIf=&quot;showRegister&quot;&gt;\n\n        &lt;form [formGroup]=&quot;registerForm&quot; (ngSubmit)=&quot;register()&quot;&gt;\n\n            &lt;ion-item&gt;\n\n                &lt;ion-label&gt;Email&lt;/ion-label&gt;\n\n                &lt;ion-input formControlName=&quot;email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt;&lt;/ion-input&gt;\n\n            &lt;/ion-item&gt;\n\n            &lt;ion-item&gt;\n\n                &lt;ion-label&gt;Password&lt;/ion-label&gt;\n\n                &lt;ion-input formControlName=&quot;password&quot; type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/ion-input&gt;\n\n            &lt;/ion-item&gt;\n\n            &lt;button ion-button type=&quot;submit&quot; block&gt;Register&lt;/button&gt;\n\n        &lt;/form&gt;\n\n    &lt;/div&gt;\n\n\n\n    &lt;ion-item *ngIf=&quot;loginFailed &amp;&amp; !showRegister&quot; class=&quot;login-failed&quot;&gt;Invalid email or password&lt;/ion-item&gt;\n\n    &lt;ion-item *ngIf=&quot;registerFailed &amp;&amp; showRegister&quot; class=&quot;login-failed&quot;&gt;Invalid email or password&lt;/ion-item&gt;\n\n    &lt;ion-item *ngIf=&quot;registerFailed &amp;&amp; showRegister&quot; class=&quot;login-failed&quot;&gt;Passwords should be atleast 8 characters long and contain atleast 1 digit, 1 alphabetic character, and 1 non-alphanumeric character&lt;/ion-item&gt;\n\n\n\n\n\n    &lt;ion-item *ngIf=&quot;!showRegister&quot;&gt;\n\n        Need an account? &lt;button ion-button (click)=&quot;toggleRegister()&quot;&gt;Register here&lt;/button&gt;\n\n    &lt;/ion-item&gt;\n\n    &lt;ion-item *ngIf=&quot;showRegister&quot;&gt;\n\n        Already have an account? &lt;button ion-button (click)=&quot;toggleRegister()&quot;&gt;Log In&lt;/button&gt;\n\n    &lt;/ion-item&gt;\n\n\n\n&lt;/ion-content&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\login\login.html&quot;*/,
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */]) === &quot;function&quot; &amp;&amp; _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */]) === &quot;function&quot; &amp;&amp; _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;a&quot; /* FormBuilder */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_4__angular_forms__[&quot;a&quot; /* FormBuilder */]) === &quot;function&quot; &amp;&amp; _d || Object])
+    ], LoginPage);
+    return LoginPage;
+    var LoginPage_1, _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 417:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return Statistics; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__exercise__ = __webpack_require__(60);
+
+/**
+ *
+ * @export
+ * @class Statistics
+ */
+var Statistics = (function () {
+    /**
+     * Creates an instance of Statistics.
+     * @memberof Statistics
+     */
+    function Statistics() {
+        this.statistics = new Array();
+    }
+    /**
+     * Pushes a given statistic to the Statistics array.
+     * @param {statistic} statistic
+     * @memberof Statistics
+     */
+    Statistics.prototype.addStatistics = function (statistic) {
+        this.statistics.push(statistic);
+    };
+    /**
+     * Gets all exercises for a given exercise type inside the statistics object.
+     * @param {ExerciseType} type the type of exercise to filter for.
+     * @returns The filtered statistics object.
+     * @memberof Statistics
+     */
+    Statistics.prototype.getAllExercises = function (type) {
+        return this.statistics.filter(function (x) {
+            x.getExerciseType() == type;
+        });
+    };
+    /**
+     * Gets the earliest date that the user has performed exercises for.
+     * @returns {Date} A DateTime which is the earliest date found.
+     * @memberof Statistics
+     */
+    Statistics.prototype.getEarlierstDate = function () {
+        var lowestDate = null;
+        this.statistics.forEach(function (stat) {
+            if (!lowestDate)
+                lowestDate = stat.getExerciseDate();
+            else if (lowestDate &lt; stat.getExerciseDate())
+                lowestDate = stat.getExerciseDate();
+        });
+        return new Date(lowestDate);
+    };
+    /**
+     * Gets the approximate end date for when the user is at the end of the current stage.
+     * @returns {Date} the approximate end date.
+     * @memberof Statistics
+     */
+    Statistics.prototype.getApproximateEndDate = function () {
+        var startDate = this.getEarlierstDate();
+        startDate.setMonth(startDate.getMonth() + 6);
+        return startDate;
+    };
+    /**
+     * Gets the average success rate of exercises.
+     * @param {string} exercise the exercise to measure the average success rate of.
+     * @returns {number} the percentage of completion.
+     * @memberof Statistics
+     */
+    Statistics.prototype.getAverageSuccessOfExercies = function (exercise) {
+        var total = 0;
+        var count = 0;
+        this.statistics
+            .filter(function (x) { return x.getExerciseName().indexOf(exercise) &gt; -1; })
+            .forEach(function (x) {
+            x.getCompletedResults().forEach(function (y) {
+                if (x.getExerciseType() == __WEBPACK_IMPORTED_MODULE_0__exercise__[&quot;b&quot; /* ExerciseType */].RepsSets)
+                    total += (y / x.getReps()) * 100;
+                else
+                    total += (y / x.getTime()) * 100;
+                count += 1;
+            });
+        });
+        return total / count;
+    };
+    return Statistics;
+}());
+
+//# sourceMappingURL=statistics.js.map
+
+/***/ }),
+
+/***/ 418:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return statistic; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__exercise__ = __webpack_require__(60);
+
+/**
+ *
+ * @export
+ * @class statistic
+ */
+var statistic = (function () {
+    /**
+     * Creates an instance of statistic.
+     * @param {Date} date
+     * @param {{}} exerciseResult a JSON object of the exercise results.
+     * @param {string} exercise The exercise to apply statistics too.
+     * @param {number} [reps] The number of reps completed.
+     * @param {number} [sets] The number of sets.
+     * @param {number} [time] The time managed.
+     * @memberof statistic
+     */
+    function statistic(date, exerciseResult, exercise, reps, sets, time) {
+        this.date = date;
+        this.exercise = exercise;
+        this.sets = sets;
+        this.reps = reps;
+        this.time = time;
+        if (sets) {
+            this.completedResults = exerciseResult[&#x27;CompletedReps&#x27;];
+        }
+        else
+            this.completedResults = exerciseResult[&quot;CompletedTimes&quot;];
+        if (!this.completedResults)
+            this.completedResults = [];
+    }
+    /**
+     *
+     *
+     * @returns {ExerciseType}
+     * @memberof statistic
+     */
+    statistic.prototype.getExerciseType = function () {
+        if (this.sets)
+            return __WEBPACK_IMPORTED_MODULE_0__exercise__[&quot;b&quot; /* ExerciseType */].RepsSets;
+        else
+            return __WEBPACK_IMPORTED_MODULE_0__exercise__[&quot;b&quot; /* ExerciseType */].Timed;
+    };
+    /**
+     *
+     *
+     * @returns {Date}
+     * @memberof statistic
+     */
+    statistic.prototype.getExerciseDate = function () {
+        return this.date;
+    };
+    /**
+     *
+     *
+     * @returns {string}
+     * @memberof statistic
+     */
+    statistic.prototype.getExerciseName = function () {
+        return this.exercise;
+    };
+    /**
+     *
+     *
+     * @returns {number}
+     * @memberof statistic
+     */
+    statistic.prototype.getReps = function () {
+        return this.reps;
+    };
+    /**
+     *
+     *
+     * @returns {number}
+     * @memberof statistic
+     */
+    statistic.prototype.getSets = function () {
+        return this.sets;
+    };
+    /**
+     *
+     *
+     * @returns {number}
+     * @memberof statistic
+     */
+    statistic.prototype.getTime = function () {
+        if (this.time)
+            return this.time;
+        else
+            return -1;
+    };
+    /**
+     *
+     *
+     * @returns {Array&lt;number&gt;}
+     * @memberof statistic
+     */
+    statistic.prototype.getCompletedResults = function () {
+        return this.completedResults;
+    };
+    return statistic;
+}());
+
+//# sourceMappingURL=statistic.js.map
+
+/***/ }),
+
+/***/ 447:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	&quot;./af&quot;: 188,
+	&quot;./af.js&quot;: 188,
+	&quot;./ar&quot;: 189,
+	&quot;./ar-dz&quot;: 190,
+	&quot;./ar-dz.js&quot;: 190,
+	&quot;./ar-kw&quot;: 191,
+	&quot;./ar-kw.js&quot;: 191,
+	&quot;./ar-ly&quot;: 192,
+	&quot;./ar-ly.js&quot;: 192,
+	&quot;./ar-ma&quot;: 193,
+	&quot;./ar-ma.js&quot;: 193,
+	&quot;./ar-sa&quot;: 194,
+	&quot;./ar-sa.js&quot;: 194,
+	&quot;./ar-tn&quot;: 195,
+	&quot;./ar-tn.js&quot;: 195,
+	&quot;./ar.js&quot;: 189,
+	&quot;./az&quot;: 196,
+	&quot;./az.js&quot;: 196,
+	&quot;./be&quot;: 197,
+	&quot;./be.js&quot;: 197,
+	&quot;./bg&quot;: 198,
+	&quot;./bg.js&quot;: 198,
+	&quot;./bm&quot;: 199,
+	&quot;./bm.js&quot;: 199,
+	&quot;./bn&quot;: 200,
+	&quot;./bn.js&quot;: 200,
+	&quot;./bo&quot;: 201,
+	&quot;./bo.js&quot;: 201,
+	&quot;./br&quot;: 202,
+	&quot;./br.js&quot;: 202,
+	&quot;./bs&quot;: 203,
+	&quot;./bs.js&quot;: 203,
+	&quot;./ca&quot;: 204,
+	&quot;./ca.js&quot;: 204,
+	&quot;./cs&quot;: 205,
+	&quot;./cs.js&quot;: 205,
+	&quot;./cv&quot;: 206,
+	&quot;./cv.js&quot;: 206,
+	&quot;./cy&quot;: 207,
+	&quot;./cy.js&quot;: 207,
+	&quot;./da&quot;: 208,
+	&quot;./da.js&quot;: 208,
+	&quot;./de&quot;: 209,
+	&quot;./de-at&quot;: 210,
+	&quot;./de-at.js&quot;: 210,
+	&quot;./de-ch&quot;: 211,
+	&quot;./de-ch.js&quot;: 211,
+	&quot;./de.js&quot;: 209,
+	&quot;./dv&quot;: 212,
+	&quot;./dv.js&quot;: 212,
+	&quot;./el&quot;: 213,
+	&quot;./el.js&quot;: 213,
+	&quot;./en-au&quot;: 214,
+	&quot;./en-au.js&quot;: 214,
+	&quot;./en-ca&quot;: 215,
+	&quot;./en-ca.js&quot;: 215,
+	&quot;./en-gb&quot;: 216,
+	&quot;./en-gb.js&quot;: 216,
+	&quot;./en-ie&quot;: 217,
+	&quot;./en-ie.js&quot;: 217,
+	&quot;./en-il&quot;: 218,
+	&quot;./en-il.js&quot;: 218,
+	&quot;./en-nz&quot;: 219,
+	&quot;./en-nz.js&quot;: 219,
+	&quot;./eo&quot;: 220,
+	&quot;./eo.js&quot;: 220,
+	&quot;./es&quot;: 221,
+	&quot;./es-do&quot;: 222,
+	&quot;./es-do.js&quot;: 222,
+	&quot;./es-us&quot;: 223,
+	&quot;./es-us.js&quot;: 223,
+	&quot;./es.js&quot;: 221,
+	&quot;./et&quot;: 224,
+	&quot;./et.js&quot;: 224,
+	&quot;./eu&quot;: 225,
+	&quot;./eu.js&quot;: 225,
+	&quot;./fa&quot;: 226,
+	&quot;./fa.js&quot;: 226,
+	&quot;./fi&quot;: 227,
+	&quot;./fi.js&quot;: 227,
+	&quot;./fo&quot;: 228,
+	&quot;./fo.js&quot;: 228,
+	&quot;./fr&quot;: 229,
+	&quot;./fr-ca&quot;: 230,
+	&quot;./fr-ca.js&quot;: 230,
+	&quot;./fr-ch&quot;: 231,
+	&quot;./fr-ch.js&quot;: 231,
+	&quot;./fr.js&quot;: 229,
+	&quot;./fy&quot;: 232,
+	&quot;./fy.js&quot;: 232,
+	&quot;./gd&quot;: 233,
+	&quot;./gd.js&quot;: 233,
+	&quot;./gl&quot;: 234,
+	&quot;./gl.js&quot;: 234,
+	&quot;./gom-latn&quot;: 235,
+	&quot;./gom-latn.js&quot;: 235,
+	&quot;./gu&quot;: 236,
+	&quot;./gu.js&quot;: 236,
+	&quot;./he&quot;: 237,
+	&quot;./he.js&quot;: 237,
+	&quot;./hi&quot;: 238,
+	&quot;./hi.js&quot;: 238,
+	&quot;./hr&quot;: 239,
+	&quot;./hr.js&quot;: 239,
+	&quot;./hu&quot;: 240,
+	&quot;./hu.js&quot;: 240,
+	&quot;./hy-am&quot;: 241,
+	&quot;./hy-am.js&quot;: 241,
+	&quot;./id&quot;: 242,
+	&quot;./id.js&quot;: 242,
+	&quot;./is&quot;: 243,
+	&quot;./is.js&quot;: 243,
+	&quot;./it&quot;: 244,
+	&quot;./it.js&quot;: 244,
+	&quot;./ja&quot;: 245,
+	&quot;./ja.js&quot;: 245,
+	&quot;./jv&quot;: 246,
+	&quot;./jv.js&quot;: 246,
+	&quot;./ka&quot;: 247,
+	&quot;./ka.js&quot;: 247,
+	&quot;./kk&quot;: 248,
+	&quot;./kk.js&quot;: 248,
+	&quot;./km&quot;: 249,
+	&quot;./km.js&quot;: 249,
+	&quot;./kn&quot;: 250,
+	&quot;./kn.js&quot;: 250,
+	&quot;./ko&quot;: 251,
+	&quot;./ko.js&quot;: 251,
+	&quot;./ky&quot;: 252,
+	&quot;./ky.js&quot;: 252,
+	&quot;./lb&quot;: 253,
+	&quot;./lb.js&quot;: 253,
+	&quot;./lo&quot;: 254,
+	&quot;./lo.js&quot;: 254,
+	&quot;./lt&quot;: 255,
+	&quot;./lt.js&quot;: 255,
+	&quot;./lv&quot;: 256,
+	&quot;./lv.js&quot;: 256,
+	&quot;./me&quot;: 257,
+	&quot;./me.js&quot;: 257,
+	&quot;./mi&quot;: 258,
+	&quot;./mi.js&quot;: 258,
+	&quot;./mk&quot;: 259,
+	&quot;./mk.js&quot;: 259,
+	&quot;./ml&quot;: 260,
+	&quot;./ml.js&quot;: 260,
+	&quot;./mn&quot;: 261,
+	&quot;./mn.js&quot;: 261,
+	&quot;./mr&quot;: 262,
+	&quot;./mr.js&quot;: 262,
+	&quot;./ms&quot;: 263,
+	&quot;./ms-my&quot;: 264,
+	&quot;./ms-my.js&quot;: 264,
+	&quot;./ms.js&quot;: 263,
+	&quot;./mt&quot;: 265,
+	&quot;./mt.js&quot;: 265,
+	&quot;./my&quot;: 266,
+	&quot;./my.js&quot;: 266,
+	&quot;./nb&quot;: 267,
+	&quot;./nb.js&quot;: 267,
+	&quot;./ne&quot;: 268,
+	&quot;./ne.js&quot;: 268,
+	&quot;./nl&quot;: 269,
+	&quot;./nl-be&quot;: 270,
+	&quot;./nl-be.js&quot;: 270,
+	&quot;./nl.js&quot;: 269,
+	&quot;./nn&quot;: 271,
+	&quot;./nn.js&quot;: 271,
+	&quot;./pa-in&quot;: 272,
+	&quot;./pa-in.js&quot;: 272,
+	&quot;./pl&quot;: 273,
+	&quot;./pl.js&quot;: 273,
+	&quot;./pt&quot;: 274,
+	&quot;./pt-br&quot;: 275,
+	&quot;./pt-br.js&quot;: 275,
+	&quot;./pt.js&quot;: 274,
+	&quot;./ro&quot;: 276,
+	&quot;./ro.js&quot;: 276,
+	&quot;./ru&quot;: 277,
+	&quot;./ru.js&quot;: 277,
+	&quot;./sd&quot;: 278,
+	&quot;./sd.js&quot;: 278,
+	&quot;./se&quot;: 279,
+	&quot;./se.js&quot;: 279,
+	&quot;./si&quot;: 280,
+	&quot;./si.js&quot;: 280,
+	&quot;./sk&quot;: 281,
+	&quot;./sk.js&quot;: 281,
+	&quot;./sl&quot;: 282,
+	&quot;./sl.js&quot;: 282,
+	&quot;./sq&quot;: 283,
+	&quot;./sq.js&quot;: 283,
+	&quot;./sr&quot;: 284,
+	&quot;./sr-cyrl&quot;: 285,
+	&quot;./sr-cyrl.js&quot;: 285,
+	&quot;./sr.js&quot;: 284,
+	&quot;./ss&quot;: 286,
+	&quot;./ss.js&quot;: 286,
+	&quot;./sv&quot;: 287,
+	&quot;./sv.js&quot;: 287,
+	&quot;./sw&quot;: 288,
+	&quot;./sw.js&quot;: 288,
+	&quot;./ta&quot;: 289,
+	&quot;./ta.js&quot;: 289,
+	&quot;./te&quot;: 290,
+	&quot;./te.js&quot;: 290,
+	&quot;./tet&quot;: 291,
+	&quot;./tet.js&quot;: 291,
+	&quot;./tg&quot;: 292,
+	&quot;./tg.js&quot;: 292,
+	&quot;./th&quot;: 293,
+	&quot;./th.js&quot;: 293,
+	&quot;./tl-ph&quot;: 294,
+	&quot;./tl-ph.js&quot;: 294,
+	&quot;./tlh&quot;: 295,
+	&quot;./tlh.js&quot;: 295,
+	&quot;./tr&quot;: 296,
+	&quot;./tr.js&quot;: 296,
+	&quot;./tzl&quot;: 297,
+	&quot;./tzl.js&quot;: 297,
+	&quot;./tzm&quot;: 298,
+	&quot;./tzm-latn&quot;: 299,
+	&quot;./tzm-latn.js&quot;: 299,
+	&quot;./tzm.js&quot;: 298,
+	&quot;./ug-cn&quot;: 300,
+	&quot;./ug-cn.js&quot;: 300,
+	&quot;./uk&quot;: 301,
+	&quot;./uk.js&quot;: 301,
+	&quot;./ur&quot;: 302,
+	&quot;./ur.js&quot;: 302,
+	&quot;./uz&quot;: 303,
+	&quot;./uz-latn&quot;: 304,
+	&quot;./uz-latn.js&quot;: 304,
+	&quot;./uz.js&quot;: 303,
+	&quot;./vi&quot;: 305,
+	&quot;./vi.js&quot;: 305,
+	&quot;./x-pseudo&quot;: 306,
+	&quot;./x-pseudo.js&quot;: 306,
+	&quot;./yo&quot;: 307,
+	&quot;./yo.js&quot;: 307,
+	&quot;./zh-cn&quot;: 308,
+	&quot;./zh-cn.js&quot;: 308,
+	&quot;./zh-hk&quot;: 309,
+	&quot;./zh-hk.js&quot;: 309,
+	&quot;./zh-tw&quot;: 310,
+	&quot;./zh-tw.js&quot;: 310
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error(&quot;Cannot find module &#x27;&quot; + req + &quot;&#x27;.&quot;);
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 447;
+
+/***/ }),
+
+/***/ 492:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(122);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var MyApp = (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__[&quot;a&quot; /* TabsPage */];
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+            //   this.push.hasPermission()
+            //   .then((res: any) =&gt; {
+            //     if (res.isEnabled) {
+            //       console.log(&#x27;We have permission to send push notifications&#x27;);
+            //     } else {
+            //       console.log(&#x27;We do not have permission to send push notifications&#x27;);
+            //     }
+            //   });
+            // // Create a channel (Android O and above). You&#x27;ll need to provide the id, description and importance properties.
+            // this.push.createChannel({
+            //   id: &quot;testchannel1&quot;,
+            //   description: &quot;My first test channel&quot;,
+            //   // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
+            //   importance: 3
+            // }).then(() =&gt; console.log(&#x27;Channel created&#x27;));
+            // // Delete a channel (Android O and above)
+            // this.push.deleteChannel(&#x27;testchannel1&#x27;).then(() =&gt; console.log(&#x27;Channel deleted&#x27;));
+            // // Return a list of currently configured channels
+            // this.push.listChannels().then((channels) =&gt; console.log(&#x27;List of channels&#x27;, channels))
+            // // to initialize push notifications
+            // const options: PushOptions = {
+            //   android: {},
+            //   ios: {
+            //     alert: &#x27;true&#x27;,
+            //     badge: true,
+            //     sound: &#x27;false&#x27;
+            //   },
+            //   windows: {},
+            //   browser: {
+            //     pushServiceURL: &#x27;http://push.api.phonegap.com/v1/push&#x27;
+            //   }
+            // };
+            // const pushObject: PushObject = this.push.init(options);
+            // pushObject.on(&#x27;notification&#x27;).subscribe((notification: any) =&gt; console.log(&#x27;Received a notification&#x27;, notification));
+            // pushObject.on(&#x27;registration&#x27;).subscribe((registration: any) =&gt; console.log(&#x27;Device registered&#x27;, registration));
+            // pushObject.on(&#x27;error&#x27;).subscribe(error =&gt; console.error(&#x27;Error with Push plugin&#x27;, error));
+        });
+    }
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\app\app.html&quot;*/&#x27;&lt;!--&lt;ion-menu [content]=&quot;content&quot;&gt;\n    &lt;ion-header&gt;\n        &lt;ion-toolbar&gt;\n            &lt;ion-title&gt;Your Approved Exercises&lt;/ion-title&gt;\n        &lt;/ion-toolbar&gt;\n    &lt;/ion-header&gt;\n    &lt;ion-content&gt;\n        &lt;ion-list&gt;\n            &lt;button ion-item&gt; Running &lt;/button&gt;\n            &lt;button ion-item&gt; Swimming &lt;/button&gt;\n            &lt;button ion-item&gt; Cycling &lt;/button&gt;\n        &lt;/ion-list&gt;\n    &lt;/ion-content&gt;\n&lt;/ion-menu&gt; --&gt;\n\n&lt;ion-menu [content]=&quot;content&quot;&gt;\n    &lt;additional-exercise-list&gt;&lt;/additional-exercise-list&gt;\n&lt;/ion-menu&gt;\n\n&lt;ion-nav #content [root]=&quot;rootPage&quot;&gt;&lt;/ion-nav&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\app\app.html&quot;*/
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;h&quot; /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__[&quot;a&quot; /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__[&quot;a&quot; /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 493:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return AchillesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+/**
+ *
+ *
+ * @export
+ * @class AchillesServiceProvider
+ */
+var AchillesServiceProvider = (function () {
+    /**
+     * Creates an instance of AchillesServiceProvider.
+     * @param {HttpClient} httpClient Used to perform HTTP requests.
+     * @memberof AchillesServiceProvider
+     */
+    function AchillesServiceProvider(http) {
+        this.http = http;
+        //console.log(&#x27;Hello AchillesServiceProvider Provider&#x27;);
+    }
+    AchillesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[&quot;A&quot; /* Injectable */])(),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */]) === &quot;function&quot; &amp;&amp; _a || Object])
+    ], AchillesServiceProvider);
+    return AchillesServiceProvider;
+    var _a;
+}());
+
+//# sourceMappingURL=achilles-service.js.map
+
+/***/ }),
+
+/***/ 494:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return HomePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(58);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var HomePageModule = (function () {
+    function HomePageModule() {
+    }
+    HomePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__home__[&quot;a&quot; /* HomePage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__[&quot;a&quot; /* HomePage */])
+            ],
+        })
+    ], HomePageModule);
+    return HomePageModule;
+}());
+
+//# sourceMappingURL=home.module.js.map
+
+/***/ }),
+
+/***/ 495:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return TabsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(122);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+
+
+
+var TabsPageModule = (function () {
+    function TabsPageModule() {
+    }
+    TabsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;I&quot; /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__tabs__[&quot;a&quot; /* TabsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;e&quot; /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__[&quot;a&quot; /* TabsPage */]),
+            ],
+        })
+    ], TabsPageModule);
+    return TabsPageModule;
+}());
+
+//# sourceMappingURL=tabs.module.js.map
+
+/***/ }),
+
+/***/ 496:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return AdditionalExerciseListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_exercise_service_exercise_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(13);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+var __awaiter = (this &amp;&amp; this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator[&quot;throw&quot;](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this &amp;&amp; this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] &amp; 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), &quot;throw&quot;: verb(1), &quot;return&quot;: verb(2) }, typeof Symbol === &quot;function&quot; &amp;&amp; (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError(&quot;Generator is already executing.&quot;);
+        while (_) try {
+            if (f = 1, y &amp;&amp; (t = y[op[0] &amp; 2 ? &quot;return&quot; : op[0] ? &quot;throw&quot; : &quot;next&quot;]) &amp;&amp; !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length &gt; 0 &amp;&amp; t[t.length - 1]) &amp;&amp; (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 &amp;&amp; (!t || (op[1] &gt; t[0] &amp;&amp; op[1] &lt; t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 &amp;&amp; _.label &lt; t[1]) { _.label = t[1]; t = op; break; }
+                    if (t &amp;&amp; _.label &lt; t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] &amp; 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+/**
+ * Generated class for the AdditionalExerciseListComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var AdditionalExerciseListComponent = (function () {
+    function AdditionalExerciseListComponent(alertCtrl, exerciseProvider) {
+        this.alertCtrl = alertCtrl;
+        this.exerciseProvider = exerciseProvider;
+        this.setAdditionalExercises(1);
+        this.setUnapprovedExercises();
+    }
+    AdditionalExerciseListComponent.prototype.setAdditionalExercises = function (stage) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.exerciseProvider.getAdditionalExercises(1)];
+                    case 1:
+                        _a.additionalExercises = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AdditionalExerciseListComponent.prototype.setUnapprovedExercises = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.exerciseProvider.getUnapprovedExercises()];
+                    case 1:
+                        _a.unapprovedExercises = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AdditionalExerciseListComponent.prototype.spawnDescription = function (exercise) {
+        var modal = this.alertCtrl.create({
+            title: exercise.exercise,
+            message: exercise.description,
+            buttons: [&#x27;OK&#x27;]
+        });
+        modal.present();
+    };
+    AdditionalExerciseListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;additional-exercise-list&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\components\additional-exercise-list\additional-exercise-list.html&quot;*/&#x27;&lt;ion-header&gt;\n\n    &lt;ion-toolbar&gt;\n\n        &lt;!-- 25/02/18, LM - Changed from ion-title to h3 to allow for title to be fully displayed on iOS devices--&gt;\n\n        &lt;h3 text-wrap&gt;Exercises&lt;/h3&gt;\n\n    &lt;/ion-toolbar&gt;\n\n&lt;/ion-header&gt;\n\n&lt;ion-content&gt;\n\n    &lt;div style=&quot;padding-top:10vh;&quot;&gt;\n\n        &lt;h4 style=&quot;margin-left: 10px;&quot;&gt;Approved Exercises&lt;/h4&gt;\n\n        &lt;ion-list text-center&gt;\n\n            &lt;ion-item *ngFor=\&#x27;let exercise of additionalExercises\&#x27;&gt;\n\n                &lt;button ion-button color=&quot;primary&quot; full (click)=&quot;spawnDescription(exercise)&quot;&gt;\n\n                    {{exercise.exercise}} &amp;nbsp;\n\n                    &lt;ion-icon name=&quot;arrow-forward&quot;&gt;&lt;/ion-icon&gt;\n\n                &lt;/button&gt;\n\n            &lt;/ion-item&gt;\n\n        &lt;/ion-list&gt;\n\n    &lt;/div&gt;\n\n    &lt;div style=&quot;padding-top:10vh;&quot;&gt;\n\n        &lt;h4 style=&quot;margin-left: 10px;&quot;&gt;Unapproved Exercises&lt;/h4&gt;\n\n        &lt;ion-list text-center&gt;\n\n            &lt;ion-item *ngFor=\&#x27;let exercise of unapprovedExercises\&#x27;&gt;\n\n                &lt;button ion-button color=&quot;danger&quot; full&gt;\n\n                    {{exercise.name}} &amp;nbsp;\n\n                &lt;/button&gt;\n\n            &lt;/ion-item&gt;\n\n        &lt;/ion-list&gt;\n\n    &lt;/div&gt;\n\n&lt;/ion-content&gt;\n\n&lt;ion-footer&gt;\n\n    &lt;ion-toolbar&gt;\n\n        &lt;ion-label text-wrap style=&quot;margin-left: 10px;&quot;&gt;\n\n            If you are unsure about an exercise, please contact your physiotherapist for more information\n\n        &lt;/ion-label&gt;\n\n    &lt;/ion-toolbar&gt;\n\n&lt;/ion-footer&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\components\additional-exercise-list\additional-exercise-list.html&quot;*/
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__[&quot;a&quot; /* AlertController */], __WEBPACK_IMPORTED_MODULE_1__providers_exercise_service_exercise_service__[&quot;a&quot; /* ExerciseServiceProvider */]])
+    ], AdditionalExerciseListComponent);
+    return AdditionalExerciseListComponent;
+}());
+
+//# sourceMappingURL=additional-exercise-list.js.map
+
+/***/ }),
+
+/***/ 57:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return environment; });
+var environment = {
+    api: &#x27;http://localhost:5000/&#x27;,
+    mode: &#x27;Development&#x27;,
+    noteTest: true
+};
+//# sourceMappingURL=environment.dev.js.map
+
+/***/ }),
+
+/***/ 58:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_env__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_login__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__admin_admin__ = __webpack_require__(97);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+/**
+ *
+ *
+ * @export
+ * @class HomePage
+ */
+var HomePage = (function () {
+    /**
+     * Creates an instance of HomePage.
+     * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+     * @param {HttpClient} httpClient Used to perform HTTP requests.
+     * @param {Platform} plt provides information about the current platform.
+     * @param {LocalNotifications} localNotifications provides a means to send notifications to the user&#x27;s device.
+     * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+     * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+     * @param {NavController} navController base class for navigation controller components like Nav and Tab.
+     * @memberof HomePage
+     */
+    function HomePage(navCtrl, httpClient, plt, localNotifications, _loginServiceProvider, storage, navController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.httpClient = httpClient;
+        this.plt = plt;
+        this.localNotifications = localNotifications;
+        this._loginServiceProvider = _loginServiceProvider;
+        this.storage = storage;
+        this.navController = navController;
+        this.sessionId = &quot;&quot;;
+        this.loginPage = __WEBPACK_IMPORTED_MODULE_7__login_login__[&quot;a&quot; /* LoginPage */];
+        storage.get(&#x27;sessionId&#x27;).then(function (sessionId) {
+            if (!sessionId) {
+                _this.navController.setRoot(_this.loginPage);
+            }
+            else {
+                _this._loginServiceProvider.validateSession(sessionId).then(function (isValidSessionId) {
+                    if (!isValidSessionId) {
+                        _this.navController.setRoot(_this.loginPage);
+                    }
+                    else {
+                        _this._loginServiceProvider.isSuperUser(sessionId).then(function (result) {
+                            _this.superuser = result;
+                        });
+                    }
+                    //console.log(&quot;valid session for: &quot; + sessionId);
+                });
+                _this.sessionId = sessionId;
+            }
+            // Do async calls here.
+        });
+    }
+    /**
+     * Lifecycle hook which is fired when entering a page, before it becomes the active one.
+     * @memberof HomePage
+     */
+    HomePage.prototype.ionViewDidEnter = function () {
+        /**
+         * @returns Requests permissions to send notifications to the user&#x27;s device.
+         * @memberof HomePage
+         */
+        function requestPermission() {
+            if (!(&#x27;Notification&#x27; in window)) {
+                alert(&#x27;Notification API not supported!&#x27;);
+                return;
+            }
+            Notification.requestPermission(function (result) {
+            });
+        }
+        /**
+       * @returns Attempts to send a non persitent notification to the user&#x27;s phone.
+       * @memberof HomePage
+       */
+        function nonPersistentNotification() {
+            if (!(&#x27;Notification&#x27; in window)) {
+                alert(&#x27;Notification API not supported!&#x27;);
+                return;
+            }
+            try {
+                var notification = new Notification(&quot;Hi there - non-persistent!&quot;);
+            }
+            catch (err) {
+                alert(&#x27;Notification API error: &#x27; + err);
+            }
+        }
+        var isAndroid = this.plt.is(&#x27;android&#x27;);
+        if (isAndroid) {
+            var d = new Date();
+            d.setDate(d.getDate() + 1);
+            d.setHours(8);
+            d.setMinutes(0);
+            d.setSeconds(0);
+            var e = new Date();
+            e.setDate(e.getDate() + 1);
+            e.setHours(18);
+            e.setMinutes(0);
+            e.setSeconds(0);
+            this.localNotifications.schedule([{
+                    id: 1,
+                    title: &quot;Exercise Reminder!&quot;,
+                    trigger: { every: __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__[&quot;a&quot; /* ELocalNotificationTriggerUnit */].DAY, count: 40, firstAt: d },
+                    text: &quot;Your daily exercises are waiting!&quot;
+                },
+                {
+                    id: 2,
+                    title: &quot;Exercise Reminder!&quot;,
+                    trigger: { every: __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__[&quot;a&quot; /* ELocalNotificationTriggerUnit */].DAY, count: 40, firstAt: e },
+                    text: &quot;Your daily exercises are waiting!&quot;
+                }]);
+            if (__WEBPACK_IMPORTED_MODULE_3__app_env__[&quot;a&quot; /* environment */].noteTest) {
+                this.localNotifications.schedule({
+                    id: 3,
+                    title: &quot;Exercise Reminder!&quot;,
+                    trigger: { at: new Date() },
+                    text: &quot;Your daily exercises are waiting! - This is a dev test, this checks to make sure that dev works!&quot;
+                });
+            }
+        }
+        else if (this.plt.is(&#x27;core&#x27;)) {
+            requestPermission();
+            nonPersistentNotification();
+        }
+    };
+    /**
+     * Navigates the user to the exercise page.
+     * @memberof HomePage
+     */
+    HomePage.prototype.goToExercises = function () {
+        this.navCtrl.parent.select(1);
+    };
+    /**
+     * Navigates the user to the statistics page.
+     * @memberof HomePage
+     */
+    HomePage.prototype.goToProgress = function () {
+        this.navCtrl.parent.select(2);
+    };
+    /**
+     * Navigates the user to the administration page.
+     * @memberof HomePage
+     */
+    HomePage.prototype.goToAdmin = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__admin_admin__[&quot;a&quot; /* AdminPage */]);
+    };
+    /**
+     * Removes the session Id of the user and redirects them to the login page, essentially logging them out.
+     * @memberof HomePage
+     */
+    HomePage.prototype.logOut = function () {
+        this._loginServiceProvider.setSessionId(&#x27;&#x27;);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__login_login__[&quot;a&quot; /* LoginPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;_8&quot; /* ViewChild */])(&#x27;containerElement&#x27;),
+        __metadata(&quot;design:type&quot;, typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;t&quot; /* ElementRef */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;t&quot; /* ElementRef */]) === &quot;function&quot; &amp;&amp; _a || Object)
+    ], HomePage.prototype, &quot;containerElement&quot;, void 0);
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;page-home&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\home\home.html&quot;*/&#x27;&lt;ion-header&gt;\n\n    &lt;ion-navbar&gt;\n\n        &lt;button ion-button menuToggle icon-only&gt;\n\n      &lt;ion-icon  name=\&#x27;menu\&#x27;&gt;&lt;/ion-icon&gt;\n\n    &lt;/button&gt;\n\n        &lt;ion-title&gt;\n\n            Home Page\n\n        &lt;/ion-title&gt;\n\n    &lt;/ion-navbar&gt;\n\n&lt;/ion-header&gt;\n\n\n\n&lt;ion-content padding #containerElement&gt;\n\n    &lt;h2 text-wrap text-center&gt;\n\n        The Morriston Hospital: Achilles Rupture Recovery Application\n\n    &lt;/h2&gt;\n\n    &lt;ion-list&gt;\n\n        &lt;button ion-button full (click)=&quot;goToExercises()&quot;&gt;Preform Today’s Exercises&lt;/button&gt;\n\n        &lt;button ion-button full (click)=&quot;goToProgress()&quot;&gt;View Progress&lt;/button&gt;\n\n        &lt;button *ngIf=&quot;superuser&quot; ion-button full (click)=&quot;goToAdmin()&quot;&gt;View Admin Page&lt;/button&gt;\n\n        &lt;button ion-button full (click)=&quot;logOut()&quot;&gt;Log out&lt;/button&gt;\n\n    &lt;/ion-list&gt;\n\n&lt;/ion-content&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\home\home.html&quot;*/
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__[&quot;a&quot; /* HttpClient */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_2__angular_common_http__[&quot;a&quot; /* HttpClient */]) === &quot;function&quot; &amp;&amp; _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;h&quot; /* Platform */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;h&quot; /* Platform */]) === &quot;function&quot; &amp;&amp; _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__[&quot;b&quot; /* LocalNotifications */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__[&quot;b&quot; /* LocalNotifications */]) === &quot;function&quot; &amp;&amp; _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_5__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */]) === &quot;function&quot; &amp;&amp; _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__[&quot;b&quot; /* Storage */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_6__ionic_storage__[&quot;b&quot; /* Storage */]) === &quot;function&quot; &amp;&amp; _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _h || Object])
+    ], HomePage);
+    return HomePage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 60:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;b&quot;, function() { return ExerciseType; });
+/**
+ *
+ *
+ * @export
+ * @enum {number}
+ */
+var ExerciseType;
+(function (ExerciseType) {
+    ExerciseType[ExerciseType[&quot;RepsSets&quot;] = 0] = &quot;RepsSets&quot;;
+    ExerciseType[ExerciseType[&quot;Timed&quot;] = 1] = &quot;Timed&quot;;
+})(ExerciseType || (ExerciseType = {}));
+//# sourceMappingURL=exercise.js.map
+
+/***/ }),
+
+/***/ 62:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return WorkoutSummaryPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__workout_workout__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_exercise_service_exercise_service__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__domain_exercise__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(37);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+var __awaiter = (this &amp;&amp; this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator[&quot;throw&quot;](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this &amp;&amp; this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] &amp; 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), &quot;throw&quot;: verb(1), &quot;return&quot;: verb(2) }, typeof Symbol === &quot;function&quot; &amp;&amp; (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError(&quot;Generator is already executing.&quot;);
+        while (_) try {
+            if (f = 1, y &amp;&amp; (t = y[op[0] &amp; 2 ? &quot;return&quot; : op[0] ? &quot;throw&quot; : &quot;next&quot;]) &amp;&amp; !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length &gt; 0 &amp;&amp; t[t.length - 1]) &amp;&amp; (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 &amp;&amp; (!t || (op[1] &gt; t[0] &amp;&amp; op[1] &lt; t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 &amp;&amp; _.label &lt; t[1]) { _.label = t[1]; t = op; break; }
+                    if (t &amp;&amp; _.label &lt; t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] &amp; 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+
+/**
+ *
+ *
+ * @export
+ * @class WorkoutSummaryPage
+ * @implements {OnInit}
+ */
+var WorkoutSummaryPage = (function () {
+    /**
+     * Creates an instance of WorkoutSummaryPage.
+     * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+     * @param {NavParams} navParams class for navigation controller parameters in Ionic.
+     * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+     * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+     * @param {ExerciseServiceProvider} _exerciseServiceProvider A dependency injected instance of the Exercise Service.
+     * @memberof WorkoutSummaryPage
+     */
+    function WorkoutSummaryPage(navCtrl, navParams, storage, _loginServiceProvider, _exerciseServiceProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this._loginServiceProvider = _loginServiceProvider;
+        this._exerciseServiceProvider = _exerciseServiceProvider;
+        this.loginPage = __WEBPACK_IMPORTED_MODULE_5__login_login__[&quot;a&quot; /* LoginPage */];
+        this.workoutPage = __WEBPACK_IMPORTED_MODULE_2__workout_workout__[&quot;a&quot; /* WorkoutPage */];
+        this.exerciseTimed = __WEBPACK_IMPORTED_MODULE_4__domain_exercise__[&quot;b&quot; /* ExerciseType */].Timed;
+        this.exerciseRepsSets = __WEBPACK_IMPORTED_MODULE_4__domain_exercise__[&quot;b&quot; /* ExerciseType */].RepsSets;
+        this.sessionId = &quot;&quot;;
+        this.hasNotLoaded = false;
+    }
+    /**
+     * Checks whether the current exercise and the completed exercise are equal.
+     * @param {Exercise} exercise a valid exercise object.
+     * @returns True if the current exercise and completed exercise are equal.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.evaluateCompletedStatus = function (exercise) {
+        if (exercise.reps !== null) {
+            return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedReps, exercise.sets, exercise.reps);
+        }
+        else {
+            return this._exerciseServiceProvider.returnAreCompletedAndCurrentEqual(exercise.completedResults.completedTimes, 1, exercise.time);
+        }
+    };
+    /**
+     * Checks whether the user has any completed results whatsoever.
+     * @param {Exercise} exercise a valid exercise object.
+     * @returns true if the user has any completed results whatsoever.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.evaluateHasCompletedAnyExercises = function (exercise) {
+        return exercise.completedResults.completedReps.length &gt;= 1 || exercise.completedResults.completedTimes.length &gt;= 1;
+    };
+    /**
+     * Provides a custom implementation of the Angular trackBy method, which keeps the index of for loops consistent.
+     * @param {number} index The index.
+     * @param {*} obj The track by object or event to manipulate.
+     * @returns {*} index.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.customTrackBy = function (index, obj) {
+        return index;
+    };
+    /**
+     *
+     * Lifecycle hook which is fired when entering a page, before it becomes the active one.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        this.storage.get(&#x27;sessionId&#x27;).then(function (sessionId) {
+            if (!sessionId) {
+                _this.navCtrl.setRoot(_this.loginPage);
+            }
+            else {
+                _this._loginServiceProvider.validateSession(sessionId).then(function (isValidSessionId) {
+                    if (!isValidSessionId) {
+                        _this.navCtrl.setRoot(_this.loginPage);
+                    }
+                    //console.log(&quot;valid session for: &quot; + sessionId);
+                });
+                _this.sessionId = sessionId;
+                _this.getExercises();
+            }
+        });
+    };
+    /**
+     * Lifecycle hook which is fired before class instantiation.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.ngOnInit = function () {
+    };
+    /**
+     * Retrieves a promise with the users daily exercises and sets todaysExercises to this value.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.getExercises = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                this._exerciseServiceProvider.getExercises(this.sessionId).then(function (value) {
+                    _this.todaysExercises = value;
+                    _this.hasNotLoaded = true;
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    /**
+     * Navigates the user to the workout page using the specified exercise.
+     * @param {Exercise} exercise a valid exercise object to display on the workout page.
+     * @memberof WorkoutSummaryPage
+     */
+    WorkoutSummaryPage.prototype.loadExercisePage = function (exercise) {
+        this.navCtrl.push(this.workoutPage, exercise);
+    };
+    WorkoutSummaryPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;page-workout-summary&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\workout-summary\workout-summary.html&quot;*/&#x27;&lt;ion-header&gt;\n\n    &lt;ion-navbar&gt;\n\n        &lt;button ion-button menuToggle icon-only&gt;\n\n            &lt;ion-icon name=\&#x27;menu\&#x27;&gt;&lt;/ion-icon&gt;\n\n        &lt;/button&gt;\n\n        &lt;ion-title&gt;Workout Summary&lt;/ion-title&gt;\n\n    &lt;/ion-navbar&gt;\n\n&lt;/ion-header&gt;\n\n&lt;ion-content padding&gt;\n\n    &lt;ion-spinner [hidden]=&quot;hasNotLoaded&quot; class=&quot;center&quot;&gt;&lt;/ion-spinner&gt;\n\n    &lt;ion-card [hidden]=&quot;(!hasNotLoaded)&quot; *ngFor=&quot;let exercise of todaysExercises&quot;&gt;\n\n        &lt;ion-item *ngIf=&quot;evaluateCompletedStatus(exercise)&quot; style=&quot;background-color: #32db64&quot;&gt;\n\n            {{ exercise.name }}\n\n            &lt;button *ngIf=&quot;!evaluateHasCompletedAnyExercises(exercise)&quot; (click)=&quot;loadExercisePage(exercise)&quot; ion-button item-end&gt;\n\n                Start\n\n            &lt;/button&gt;\n\n            &lt;button *ngIf=&quot;evaluateHasCompletedAnyExercises(exercise)&quot; (click)=&quot;loadExercisePage(exercise)&quot; ion-button item-end color=&quot;primary&quot;&gt;\n\n                retry\n\n            &lt;/button&gt;\n\n        &lt;/ion-item&gt;\n\n        &lt;ion-item *ngIf=&quot;!evaluateCompletedStatus(exercise)&quot; style=&quot;background-color: #f4f4f4&quot;&gt;\n\n            {{ exercise.name }}\n\n            &lt;button *ngIf=&quot;!evaluateHasCompletedAnyExercises(exercise)&quot; (click)=&quot;loadExercisePage(exercise)&quot; ion-button item-end&gt;\n\n                Start\n\n            &lt;/button&gt;\n\n            &lt;button *ngIf=&quot;evaluateHasCompletedAnyExercises(exercise)&quot; (click)=&quot;loadExercisePage(exercise)&quot; ion-button item-end color=&quot;primary&quot;&gt;\n\n                retry\n\n            &lt;/button&gt;\n\n        &lt;/ion-item&gt;\n\n\n\n        &lt;!-- Time Based Exercise --&gt;\n\n        &lt;ion-item *ngIf=&quot;exercise.exerciseType === exerciseTimed &amp;&amp; exercise.completedResults.completedTimes.length &gt; 0&quot;&gt;\n\n            &lt;ion-label text-wrap&gt;Time Held&lt;/ion-label&gt;\n\n            &lt;ion-select [ngModel]=&quot;exercise.completedResults.completedTimes[i]&quot; (ngModelChange)=&quot;exercise.completedResults.completedTimes[i] = $event&quot;\n\n                *ngFor=&quot;let timesBox of exercise.completedResults.completedTimes;let i = index; trackBy:customTrackBy&quot; [hidden]=&quot;exercise.completedResults.completedTimes[i] == undefined&quot;\n\n                data-ng-disabled=&quot;true&quot;&gt;\n\n                &lt;ion-option *ngFor=&quot;let time of _exerciseServiceProvider.getSelectBoxIntervals(exercise.time)&quot; [selected]=&quot;time == timesBox&quot;\n\n                    [value]=&quot;time&quot;&gt;{{time}}\n\n                &lt;/ion-option&gt;\n\n            &lt;/ion-select&gt;\n\n        &lt;/ion-item&gt;\n\n\n\n        &lt;!-- Reps Based Exercise --&gt;\n\n        &lt;ion-item *ngIf=&quot;exercise.exerciseType === exerciseRepsSets &amp;&amp; exercise.completedResults.completedReps.length &gt; 0&quot;&gt;\n\n            &lt;ion-label text-wrap&gt;Reps Managed&lt;/ion-label&gt;\n\n            &lt;ion-select [ngModel]=&quot;exercise.completedResults.completedReps[i]&quot; (ngModelChange)=&quot;exercise.completedResults.completedReps[i] = $event&quot;\n\n                *ngFor=&quot;let repsBox of exercise.completedResults.completedReps;let i = index; trackBy:customTrackBy&quot; [hidden]=&quot;exercise.completedResults.completedReps[i] == undefined&quot;\n\n                data-ng-disabled=&quot;true&quot;&gt;\n\n                &lt;ion-option *ngFor=&quot;let reps of _exerciseServiceProvider.getSelectBoxIntervals(exercise.reps)&quot; [selected]=&quot;reps == repsBox&quot;\n\n                    [value]=&quot;reps&quot;&gt;{{reps}}\n\n                &lt;/ion-option&gt;\n\n            &lt;/ion-select&gt;\n\n        &lt;/ion-item&gt;\n\n    &lt;/ion-card&gt;\n\n&lt;/ion-content&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\workout-summary\workout-summary.html&quot;*/,
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */]) === &quot;function&quot; &amp;&amp; _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_storage__[&quot;b&quot; /* Storage */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_7__ionic_storage__[&quot;b&quot; /* Storage */]) === &quot;function&quot; &amp;&amp; _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_6__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */]) === &quot;function&quot; &amp;&amp; _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_exercise_service_exercise_service__[&quot;a&quot; /* ExerciseServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_3__providers_exercise_service_exercise_service__[&quot;a&quot; /* ExerciseServiceProvider */]) === &quot;function&quot; &amp;&amp; _e || Object])
+    ], WorkoutSummaryPage);
+    return WorkoutSummaryPage;
+    var _a, _b, _c, _d, _e;
+}());
+
+//# sourceMappingURL=workout-summary.js.map
+
+/***/ }),
+
+/***/ 63:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return ExerciseServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_env__ = __webpack_require__(57);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ *
+ * @export
+ * @class ExerciseServiceProvider
+ */
+var ExerciseServiceProvider = (function () {
+    /**
+     * Creates an instance of ExerciseServiceProvider.
+     * @param {HttpClient} http Used to perform HTTP requests.
+     * @memberof ExerciseServiceProvider
+     */
+    function ExerciseServiceProvider(http) {
+        this.http = http;
+    }
+    /**
+     * Validates whether a given object is an exercise object.
+     * @param {any} exercises An object to check whether it is a valid exercise object.
+     * @returns true if the object is a valid exercise object.
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.validateExercises = function (exercises) {
+        exercises.forEach(function (exercise) {
+            if (exercise.completedResults.completedReps == null)
+                exercise.completedResults.completedReps = [];
+            if (exercise.completedResults.completedTimes == null)
+                exercise.completedResults.completedTimes = [];
+        });
+        return exercises;
+    };
+    /**
+     *
+     * Gets the list of additional exercises from the API.
+     * @param {number} stage the stage to get additional exercises for.
+     * @returns {Promise&lt;AdditionalExercises&gt;} A promise which holds the additional exercises list.
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.getAdditionalExercises = function (stage) {
+        var _this = this;
+        return new Promise(function (res) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Exercises/additional/&#x27; + stage).subscribe(function (exercises) {
+                res(exercises);
+            }, function (err) { console.log(&#x27;Cannot find additional exercises&#x27;); });
+        });
+    };
+    /**
+     *
+     * Gets the list of additional unapproved exercises from the API.
+     * @returns {Promise&lt;AdditionalExercises&gt;} A promise which holds the unapproved additional exercises list.
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.getUnapprovedExercises = function () {
+        var _this = this;
+        return new Promise(function (res) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &#x27;api/Exercises/GetUnapprovedExercises&#x27;).subscribe(function (exercises) {
+                res(exercises);
+            }, function (err) { console.log(&#x27;Cannot find unapproved exercises&#x27;); });
+        });
+    };
+    /**
+     *
+     * Gets the daily exercises the user must perform.
+     * @param {string} sessionId a valid sessionId which is used to validate the user.
+     * @returns {Promise&lt;Exercises&gt;} A promise which holds the exercises for the user.
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.getExercises = function (sessionId) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + (&quot;api/Exercises/GetDailyExercises?sessionId=&quot; + sessionId))
+                .subscribe(function (exercises) {
+                //console.log(exercises);
+                var uncorrected = exercises;
+                //console.log(uncorrected)
+                resolve(_this.validateExercises(uncorrected));
+            }, function (err) { console.log(&#x27;Cannot find additional exercises&#x27;); });
+        });
+    };
+    /**
+     *
+     * Saves a single daily exercise to the API
+     * @param {SaveExercise} exercise the exercise object to save the API.
+     * @returns {Promise&lt;success&gt;} A promise which indicates whether the action was a success or not.
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.saveExercise = function (exercise) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post(__WEBPACK_IMPORTED_MODULE_2__app_env__[&quot;a&quot; /* environment */].api + &quot;api/Exercises/SaveSingleDailyExercises&quot;, exercise)
+                .subscribe(function (result) {
+                resolve(result);
+            }), function (err) { console.log(&#x27;has not saved&#x27;); };
+        });
+    };
+    /**
+     *
+     * Generates an array of numbers from 0 to maxRepsOrSeconds. For use in a select box to select the time taken
+     * @param {number} maxRepsOrSeconds
+     * @returns
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.getSelectBoxIntervals = function (maxRepsOrSeconds) {
+        var intervals = Array.from(Array(maxRepsOrSeconds + 1).keys());
+        return intervals;
+    };
+    /**
+     *
+     * Because there&#x27;s no way to simply use a for loop of numbers in *ngFor, this function makes an array to display multiple boxes for the reps.
+     * @param {number} sets The number of sets, which decides how many select boxes to create.
+     * @returns An array of intervals for use in select boxes.
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.getSetsArray = function (sets) {
+        var intervals = Array.from(Array(sets).keys());
+        return intervals;
+    };
+    /**
+     * compares the length of a completed array, with the length of the current array
+     *
+     * @param {number[]} completed
+     * @param {number} length
+     * @param {number} mustMatch
+     * @returns
+     * @memberof ExerciseServiceProvider
+     */
+    ExerciseServiceProvider.prototype.returnAreCompletedAndCurrentEqual = function (completed, length, mustMatch) {
+        if (completed !== null &amp;&amp; completed !== undefined) {
+            var comLen = Object.keys(completed).length;
+            if (!(comLen === length))
+                return false;
+            var areEqual_1 = true;
+            completed.forEach(function (element) {
+                if (!(element === mustMatch)) {
+                    areEqual_1 = false;
+                }
+            });
+            return areEqual_1;
+        }
+        else {
+            return false;
+        }
+    };
+    ExerciseServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__[&quot;A&quot; /* Injectable */])(),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_0__angular_common_http__[&quot;a&quot; /* HttpClient */]) === &quot;function&quot; &amp;&amp; _a || Object])
+    ], ExerciseServiceProvider);
+    return ExerciseServiceProvider;
+    var _a;
+}());
+
+//# sourceMappingURL=exercise-service.js.map
+
+/***/ }),
+
+/***/ 97:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return AdminPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(38);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ *
+ * @export
+ * @class AdminPage
+ */
+var AdminPage = (function () {
+    /**
+     * Creates an instance of AdminPage.
+     * @param {NavController} navCtrl base class for navigation controller components like Nav and Tab.
+     * @param {NavParams} navParams class for navigation controller parameters in Ionic.
+     * @param {LoginServiceProvider} _loginServiceProvider A dependency injected instance of the login Service.
+     * @param {Storage} storage Uses a variety of storage engines underneath, picking the best one available depending on the platform.
+     * @param {NavController} navController base class for navigation controller components like Nav and Tab.
+     * @memberof AdminPage
+     */
+    function AdminPage(navCtrl, navParams, _loginServiceProvider, storage, navController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this._loginServiceProvider = _loginServiceProvider;
+        this.storage = storage;
+        this.navController = navController;
+        this.loginPage = __WEBPACK_IMPORTED_MODULE_4__login_login__[&quot;a&quot; /* LoginPage */];
+        this.sessionId = &quot;&quot;;
+        this.users = [];
+        this.tabBarElement = document.querySelector(&#x27;.tabbar.show-tabbar&#x27;);
+        storage.get(&#x27;sessionId&#x27;).then(function (sessionId) {
+            if (!sessionId) {
+                _this.navController.setRoot(_this.loginPage);
+            }
+            else {
+                _this._loginServiceProvider.validateSession(sessionId).then(function (isValidSessionId) {
+                    if (!isValidSessionId) {
+                        _this.navController.setRoot(_this.loginPage);
+                    }
+                    //console.log(&quot;valid session for: &quot; + sessionId);
+                });
+                _this.sessionId = sessionId;
+                _loginServiceProvider.getAllUsers(_this.sessionId).then(function (response) {
+                    _this.users = response;
+                    //console.log(response);
+                    //console.log(this.users);
+                });
+            }
+            // Do async calls here.
+        });
+    }
+    /**
+     * Lifecycle hook which is fired only when a view is stored in memory.
+     * @memberof AdminPage
+     */
+    AdminPage.prototype.ionViewDidLoad = function () {
+        //console.log(&#x27;ionViewDidLoad AdminPage&#x27;);
+    };
+    /**
+     * Provides a custom implementation of the Angular trackBy method, which keeps the index of for loops consistent.
+     * @param {number} index The index.
+     * @param {*} obj The track by object or event to manipulate.
+     * @returns {*} index.
+     * @memberof Adminpage
+     */
+    AdminPage.prototype.customTrackBy = function (index, obj) {
+        return index;
+    };
+    /**
+     * Saves the edited user&#x27;s details, assuming a valid sessionId for the logged in user.
+     *
+     * @param {User} user the user in which to apply changes.
+     * @memberof AdminPage
+     */
+    AdminPage.prototype.saveData = function (user) {
+        this._loginServiceProvider.editUser(user, this.sessionId);
+    };
+    /**
+     *
+     * Lifecycle hook which is fired when entering a page, before it becomes the active one.
+     * @memberof AdminPage
+     */
+    AdminPage.prototype.ionViewWillEnter = function () {
+        this.tabBarElement.style.display = &#x27;none&#x27;;
+    };
+    /**
+     *
+     * Lifecycle hook which is fired when you leave a page, before it stops being the active one.
+     * @memberof AdminPage
+     */
+    AdminPage.prototype.ionViewWillLeave = function () {
+        this.tabBarElement.style.display = &#x27;flex&#x27;;
+    };
+    AdminPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;page-admin&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\admin\admin.html&quot;*/&#x27;&lt;ion-header&gt;\n\n  &lt;ion-navbar&gt;\n\n    &lt;ion-title&gt;Admin&lt;/ion-title&gt;\n\n  &lt;/ion-navbar&gt;\n\n&lt;/ion-header&gt;\n\n&lt;ion-content padding&gt;\n\n  &lt;ion-grid&gt;\n\n    &lt;ion-row&gt;\n\n      &lt;ion-col col-4&gt;\n\n        Username\n\n      &lt;/ion-col&gt;\n\n      &lt;ion-col col-4&gt;\n\n        Email Address\n\n      &lt;/ion-col&gt;\n\n      &lt;ion-col col-2&gt;\n\n        Current Phase\n\n      &lt;/ion-col&gt;\n\n      &lt;ion-col col-2&gt;\n\n        Save\n\n      &lt;/ion-col&gt;\n\n    &lt;/ion-row&gt;\n\n    &lt;ion-row *ngFor=&quot;let user of users; let i = index; trackBy:customTrackBy &quot;&gt;\n\n      &lt;ion-col col-4&gt;\n\n        &lt;ion-input [ngModel]=&quot;user.userName&quot; (ngModelChange)=&quot;user.userName = $event&quot; [value]=&quot;user.userName&quot;&gt;{{user.userName}}&lt;/ion-input&gt;\n\n      &lt;/ion-col&gt;\n\n      &lt;ion-col col-4&gt;\n\n        &lt;ion-input [ngModel]=&quot;user.email&quot; (ngModelChange)=&quot;user.email = $event&quot; [value]=&quot;user.email&quot;&gt;{{user.email}}&lt;/ion-input&gt;\n\n      &lt;/ion-col&gt;\n\n      &lt;ion-col col-2&gt;\n\n        &lt;ion-input [ngModel]=&quot;user.userLevel&quot; (ngModelChange)=&quot;user.userLevel = $event&quot; [value]=&quot;user.userLevel&quot;&gt;{{user.userLevel}}&lt;/ion-input&gt;\n\n      &lt;/ion-col&gt;\n\n      &lt;ion-col col-2&gt;\n\n        &lt;button (click)=&quot;saveData(user)&quot; ion-button small color=&quot;secondary&quot;&gt;\n\n          &lt;ion-icon name=&quot;checkmark&quot;&gt;&lt;/ion-icon&gt;\n\n        &lt;/button&gt;\n\n      &lt;/ion-col&gt;\n\n    &lt;/ion-row&gt;\n\n  &lt;/ion-grid&gt;\n\n&lt;/ion-content&gt;&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\admin\admin.html&quot;*/,
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */]) === &quot;function&quot; &amp;&amp; _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */]) === &quot;function&quot; &amp;&amp; _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__[&quot;b&quot; /* Storage */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_3__ionic_storage__[&quot;b&quot; /* Storage */]) === &quot;function&quot; &amp;&amp; _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */] !== &quot;undefined&quot; &amp;&amp; __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */]) === &quot;function&quot; &amp;&amp; _e || Object])
+    ], AdminPage);
+    return AdminPage;
+    var _a, _b, _c, _d, _e;
+}());
+
+//# sourceMappingURL=admin.js.map
+
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+&quot;use strict&quot;;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;a&quot;, function() { return StatisticsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_statistics_service_statistics_service__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_login_service_login_service__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_chart_js__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_chart_js__);
+var __decorate = (this &amp;&amp; this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c &lt; 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.decorate === &quot;function&quot;) r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i &gt;= 0; i--) if (d = decorators[i]) r = (c &lt; 3 ? d(r) : c &gt; 3 ? d(target, key, r) : d(target, key)) || r;
+    return c &gt; 3 &amp;&amp; r &amp;&amp; Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this &amp;&amp; this.__metadata) || function (k, v) {
+    if (typeof Reflect === &quot;object&quot; &amp;&amp; typeof Reflect.metadata === &quot;function&quot;) return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+/**
+ * Generated class for the StatisticsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var StatisticsPage = (function () {
+    function StatisticsPage(navCtrl, navParams, loginProvider, statisticsProvider, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.loginProvider = loginProvider;
+        this.statisticsProvider = statisticsProvider;
+        this.storage = storage;
+        this.loadRefresh = &quot;Load&quot;;
+    }
+    StatisticsPage.prototype.ionViewDidEnter = function () {
+        this.onStartReload();
+    };
+    StatisticsPage.prototype.updateProgressBar = function () {
+        var completionDate = this.stats.getApproximateEndDate();
+        var startDate = this.stats.getEarlierstDate();
+        var currentDate = new Date();
+        this.progress = Math.round((Math.abs(currentDate - startDate) / Math.abs(completionDate - startDate)) * 100);
+    };
+    StatisticsPage.prototype.updateBarGraph = function () {
+        this.loadedBar = true;
+        var data = Array();
+        this.loadRefresh = &quot;Refresh&quot;;
+        data.push(this.stats.getAverageSuccessOfExercies(&#x27;Heel Raises&#x27;));
+        data.push(this.stats.getAverageSuccessOfExercies(&#x27;Towel Stretch&#x27;));
+        data.push(this.stats.getAverageSuccessOfExercies(&#x27;Step Ups&#x27;));
+        data.push(this.stats.getAverageSuccessOfExercies(&#x27;Standing Calf Stretch&#x27;));
+        this.barChart = new __WEBPACK_IMPORTED_MODULE_6_chart_js__[&quot;Chart&quot;](this.barCanvas.nativeElement, {
+            type: &#x27;bar&#x27;,
+            data: {
+                labels: [&quot;HR&quot;, &quot;TS&quot;, &quot;SU&quot;, &quot;SCS&quot;],
+                datasets: [{
+                        label: &#x27;Success Rate %&#x27;,
+                        data: data,
+                        backgroundColor: [
+                            &#x27;rgba(255, 99, 132, 0.2)&#x27;,
+                            &#x27;rgba(54, 162, 235, 0.2)&#x27;,
+                            &#x27;rgba(255, 206, 86, 0.2)&#x27;,
+                            &#x27;rgba(75, 192, 192, 0.2)&#x27;
+                        ],
+                        borderColor: [
+                            &#x27;rgba(255,99,132,1)&#x27;,
+                            &#x27;rgba(54, 162, 235, 1)&#x27;,
+                            &#x27;rgba(255, 206, 86, 1)&#x27;,
+                            &#x27;rgba(75, 192, 192, 1)&#x27;
+                        ],
+                        borderWidth: 1
+                    }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                },
+                maintainAspectRatio: false,
+                responsive: true
+            }
+        });
+    };
+    StatisticsPage.prototype.onStartReload = function () {
+        var _this = this;
+        this.storage.get(&#x27;sessionId&#x27;).then(function (sessionId) {
+            if (!sessionId) {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__[&quot;a&quot; /* LoginPage */]);
+            }
+            else {
+                _this.loginProvider.validateSession(sessionId).then(function (isValidSessionId) {
+                    if (!isValidSessionId) {
+                        _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__[&quot;a&quot; /* LoginPage */]);
+                    }
+                    else {
+                        _this.statisticsProvider.getStatistics(sessionId).then(function (results) {
+                            _this.stats = results;
+                        }).then(function () {
+                            _this.updateProgressBar();
+                            _this.updateBarGraph();
+                        });
+                    }
+                    //console.log(&quot;valid session for: &quot; + sessionId);
+                });
+            }
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;_8&quot; /* ViewChild */])(&#x27;barCanvas&#x27;),
+        __metadata(&quot;design:type&quot;, __WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;t&quot; /* ElementRef */])
+    ], StatisticsPage.prototype, &quot;barCanvas&quot;, void 0);
+    StatisticsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__[&quot;m&quot; /* Component */])({
+            selector: &#x27;page-statistics&#x27;,template:/*ion-inline-start:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\statistics\statistics.html&quot;*/&#x27;&lt;ion-header&gt;\n\n    &lt;ion-navbar&gt;\n\n        &lt;button ion-button menuToggle icon-only&gt;\n\n      &lt;ion-icon name=\&#x27;menu\&#x27;&gt;&lt;/ion-icon&gt;\n\n    &lt;/button&gt;\n\n        &lt;ion-title&gt;Recovery Statistics&lt;/ion-title&gt;\n\n    &lt;/ion-navbar&gt;\n\n&lt;/ion-header&gt;\n\n\n\n\n\n&lt;ion-content padding&gt;\n\n    &lt;ion-spinner [hidden]=&quot;stats&quot; class=&quot;center&quot;&gt;&lt;/ion-spinner&gt;\n\n    &lt;div [hidden]=&quot;!stats&quot; text-center&gt;\n\n        &lt;ion-title&gt;Progress Through Recovery&lt;/ion-title&gt;\n\n        &lt;div class=&quot;progress-outer&quot;&gt;\n\n            &lt;div class=&quot;progress-inner&quot; [style.width]=&quot;progress + \&#x27;%\&#x27;&quot;&gt;\n\n                {{progress}}%\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n        &lt;ion-title&gt;Excercise Success So Far&lt;/ion-title&gt;\n\n        &lt;!-- &lt;button ion-button (click)=&quot;updateBarGraph()&quot;&gt;{{loadRefresh}}&lt;/button&gt; --&gt;\n\n        &lt;div style=&quot;height:30vh&quot;&gt;\n\n            &lt;canvas #barCanvas&gt;&lt;/canvas&gt;\n\n        &lt;/div&gt;\n\n        &lt;ion-card *ngIf=&quot;loadedBar&quot;&gt;\n\n            &lt;ion-card-header&gt;\n\n                Legend\n\n            &lt;/ion-card-header&gt;\n\n            &lt;ion-card-content&gt;\n\n                HR - Heel Raises; TS - Towel Stretch; SU - Step Ups; SCS - Standing Calf Stretch\n\n            &lt;/ion-card-content&gt;\n\n        &lt;/ion-card&gt;\n\n    &lt;/div&gt;\n\n&lt;/ion-content&gt;\n\n&#x27;/*ion-inline-end:&quot;E:\Projects\0Achilles\AchillesProject\Achilles\src\pages\statistics\statistics.html&quot;*/,
+        }),
+        __metadata(&quot;design:paramtypes&quot;, [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;f&quot; /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__[&quot;g&quot; /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_login_service_login_service__[&quot;a&quot; /* LoginServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_statistics_service_statistics_service__[&quot;a&quot; /* StatisticsServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__[&quot;b&quot; /* Storage */]])
+    ], StatisticsPage);
+    return StatisticsPage;
+}());
+
+//# sourceMappingURL=statistics.js.map
+
+/***/ })
+
+},[354]);
+//# sourceMappingURL=main.js.map
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

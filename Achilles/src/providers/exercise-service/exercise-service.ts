@@ -8,29 +8,32 @@ import { success } from 'domain/success';
 import { UnapprovedExercises } from 'domain/UnapprovedExercises';
 
 
-/**
- * 
- * @export
- * @class ExerciseServiceProvider
- */
-@Injectable()
-export class ExerciseServiceProvider {
 
+@Injectable()
+
+/**
+ * A class which provides a range of helpful methods for exercises
+ * @class ExerciseServiceProvider
+ * @module AppModule
+ * @submodule Providers
+ */
+export class ExerciseServiceProvider {
 
   /**
    * Creates an instance of ExerciseServiceProvider.
    * @param {HttpClient} http Used to perform HTTP requests.
    * @memberof ExerciseServiceProvider
+   * @method constructor
    */
   constructor(public http: HttpClient) {
   }
-
 
   /**
    * Validates whether a given object is an exercise object.
    * @param {any} exercises An object to check whether it is a valid exercise object.
    * @returns true if the object is a valid exercise object.
    * @memberof ExerciseServiceProvider
+   * @method validateExercises
    */
   validateExercises(exercises) {
     exercises.forEach((exercise) => {
@@ -46,6 +49,7 @@ export class ExerciseServiceProvider {
    * @param {number} stage the stage to get additional exercises for.
    * @returns {Promise<AdditionalExercises>} A promise which holds the additional exercises list.
    * @memberof ExerciseServiceProvider
+   * @method getAdditionalExercises
    */
   public getAdditionalExercises(stage: number): Promise<AdditionalExercises> {
     return new Promise(res => {
@@ -60,6 +64,7 @@ export class ExerciseServiceProvider {
    * Gets the list of additional unapproved exercises from the API.
    * @returns {Promise<AdditionalExercises>} A promise which holds the unapproved additional exercises list.
    * @memberof ExerciseServiceProvider
+   * @method getUnapprovedExercises
    */
   public getUnapprovedExercises(): Promise<UnapprovedExercises> {
     return new Promise(res => {
@@ -70,11 +75,11 @@ export class ExerciseServiceProvider {
   }
 
   /**
-   * 
    * Gets the daily exercises the user must perform.
    * @param {string} sessionId a valid sessionId which is used to validate the user.
    * @returns {Promise<Exercises>} A promise which holds the exercises for the user.
    * @memberof ExerciseServiceProvider
+   * @method getExercises
    */
   public getExercises(sessionId: string): Promise<Exercises> {
     return new Promise<Exercises>((resolve, reject) => {
@@ -89,11 +94,11 @@ export class ExerciseServiceProvider {
   }
 
   /**
-   * 
    * Saves a single daily exercise to the API
    * @param {SaveExercise} exercise the exercise object to save the API.
    * @returns {Promise<success>} A promise which indicates whether the action was a success or not.
    * @memberof ExerciseServiceProvider
+   * @method saveExercise
    */
   public saveExercise(exercise: SaveExercise): Promise<success> {
     return new Promise((resolve, reject) => {
@@ -105,11 +110,11 @@ export class ExerciseServiceProvider {
   }
 
   /**
-   * 
    * Generates an array of numbers from 0 to maxRepsOrSeconds. For use in a select box to select the time taken
    * @param {number} maxRepsOrSeconds 
-   * @returns 
+   * @returns intervals
    * @memberof ExerciseServiceProvider
+   * @method getSelectBoxIntervals
    */
   public getSelectBoxIntervals(maxRepsOrSeconds: number) {
     let intervals = Array.from(Array(maxRepsOrSeconds + 1).keys());
@@ -117,11 +122,11 @@ export class ExerciseServiceProvider {
   }
 
   /**
-   * 
    * Because there's no way to simply use a for loop of numbers in *ngFor, this function makes an array to display multiple boxes for the reps.
    * @param {number} sets The number of sets, which decides how many select boxes to create.
    * @returns An array of intervals for use in select boxes.
    * @memberof ExerciseServiceProvider
+   * @method getSetsArray
    */
   public getSetsArray(sets: number) {
     let intervals = Array.from(Array(sets).keys());
@@ -134,8 +139,8 @@ export class ExerciseServiceProvider {
    * @param {number[]} completed 
    * @param {number} length 
    * @param {number} mustMatch 
-   * @returns 
    * @memberof ExerciseServiceProvider
+   * @method returnAreCompletedAndCurrentEqual
    */
   public returnAreCompletedAndCurrentEqual(completed: number[], length: number, mustMatch: number) {
     if (completed !== null && completed !== undefined) {
