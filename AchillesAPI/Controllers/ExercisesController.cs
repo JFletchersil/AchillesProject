@@ -386,7 +386,7 @@ namespace AchillesAPI.Controllers
             // First check, make sure that we actually have some results in the completedItems or completedLimit
             if (completedLimit == null || completedItems == null || !completedLimit.HasValue || !completedItems.All(x => x.HasValue))
             {
-                throw new ArgumentNullException("CompletedLimit or CompletedItems are null");
+                return associatedPreviousExercise;
             }
 
             try

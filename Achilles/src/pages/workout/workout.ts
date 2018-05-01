@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController, Navbar } from 'ionic-angular';
 import { WorkoutSummaryPage } from '../workout-summary/workout-summary';
 import { Exercise, ExerciseType, completedResults, SaveExercise } from '../../domain/exercise';
 import { ExerciseServiceProvider } from '../../providers/exercise-service/exercise-service';
@@ -24,6 +24,8 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: 'workout.html',
 })
 export class WorkoutPage implements OnInit {
+
+  @ViewChild(Navbar) navBar: Navbar;
 
   @Input() exercise: Exercise;
 
@@ -57,6 +59,16 @@ export class WorkoutPage implements OnInit {
     private storage: Storage,
     private _loginServiceProvider: LoginServiceProvider,
     private alertCtrl: AlertController) {
+
+
+        
+  }
+
+  ionViewDidLoad() {
+    this.navBar.backButtonClick = (e:UIEvent)=>{
+       this.goBack();
+       this.navCtrl.pop();
+    }
   }
 
   /**
@@ -67,11 +79,10 @@ export class WorkoutPage implements OnInit {
   goBack() {
     let saveModel = {"sessionId": this.sessionId, "resultViewModel": this.exercise.completedResults};
     this._exerciseService.saveExercise((saveModel as SaveExercise)).then((value) => {
-       //console.log(value)
        let modal = this.alertCtrl.create({
-         title: `Save Succesfull`,
+         title: `Save Successful`,
          message: `Your exercise has been saved.`,
-         buttons: ["Dismiss"]
+         buttons: ["OK"]
        });
        modal.present();
     });
